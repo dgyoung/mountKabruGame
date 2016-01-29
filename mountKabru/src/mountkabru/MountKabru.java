@@ -5,6 +5,7 @@
  */
 package mountkabru;
 
+import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Player;
 
 /**
@@ -29,6 +30,13 @@ public class MountKabru {
         playerOne.setName("Joe");
         playerOne.setSpell("lots");
         playerOne.setStrength(44);
+        
+        Location curentLocation = new Location();
+        curentLocation.setLevel(2);
+        curentLocation.setStage(2);
+        
+        String info=playerOne.toString();
+        System.out.println(info);
     }
     
 }
