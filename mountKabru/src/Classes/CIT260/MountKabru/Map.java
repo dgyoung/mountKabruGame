@@ -21,6 +21,9 @@ public class Map implements Serializable{
         this.levelCount = levelCount;
         this.stageCount = stageCount;
     }
+
+    public Map() {
+    }
  
     
     public int getLevelCount() {
