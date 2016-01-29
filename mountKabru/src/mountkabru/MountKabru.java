@@ -6,6 +6,7 @@
 package mountkabru;
 
 import Classes.CIT260.MountKabru.Location;
+import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
 
 /**
@@ -35,7 +36,11 @@ public class MountKabru {
         curentLocation.setLevel(2);
         curentLocation.setStage(2);
         
-        String info=playerOne.toString();
+        Map mapSize = new Map();
+        mapSize.setLevelCount(20);
+        mapSize.setStageCount(10); 
+        
+        String info=mapSize.toString();
         System.out.println(info);
     }
     
