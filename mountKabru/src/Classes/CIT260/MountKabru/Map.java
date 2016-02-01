@@ -21,8 +21,8 @@ public class Map implements Serializable{
         this.levelCount = levelCount;
         this.stageCount = stageCount;
     }
-
-    public int getLevelCount() {
+  
+        public int getLevelCount() {
         return levelCount;
     }
 
@@ -66,7 +66,7 @@ public class Map implements Serializable{
         if (this.levelCount != other.levelCount) {
             return false;
         }
-        if (this.stageCount != other.stageCount) {
+         if(this.stageCount != other.stageCount) {
             return false;
         }
         return true;

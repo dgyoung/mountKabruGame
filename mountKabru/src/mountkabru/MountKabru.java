@@ -42,6 +42,14 @@ public class MountKabru {
         
         String info=mapSize.toString();
         System.out.println(info);
+        
+        Items knife = new Items();
+        knife.setname("sharpstick");
+        knife.settype("wood");
+        knife.setafect("stab");
+        knife.setpower(3);
+        
+        ---
     }
     
 }
