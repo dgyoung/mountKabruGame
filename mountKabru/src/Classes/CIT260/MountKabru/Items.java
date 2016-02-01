@@ -26,6 +26,9 @@ public class Items implements Serializable{
         this.power = power;
     }
 
+    public Items() {
+    }
+
     
     
     public String getName() {
