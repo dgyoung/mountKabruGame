@@ -6,9 +6,11 @@
 package mountkabru;
 
 import Classes.CIT260.MountKabru.Items;
+import Classes.CIT260.MountKabru.BattleScene;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
+import Classes.CIT260.MountKabru.Scene;
 
 /**
  *
@@ -41,7 +43,15 @@ public class MountKabru {
         mapSize.setLevelCount(20);
         mapSize.setStageCount(10); 
         
-        String info=mapSize.toString();
+        Scene newScene = new Scene();
+        newScene.setDescription("the yellow tower");
+        
+        BattleScene battle = new BattleScene();
+        battle.setActor("joe");
+        battle.setAttribute("Wind");
+        battle.setReward("1000 gold");
+        
+        String info=battle.toString();
         System.out.println(info);
         
         Items knife = new Items();
