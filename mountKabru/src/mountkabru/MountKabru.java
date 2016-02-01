@@ -5,6 +5,7 @@
  */
 package mountkabru;
 
+import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
@@ -44,12 +45,12 @@ public class MountKabru {
         System.out.println(info);
         
         Items knife = new Items();
-        knife.setname("sharpstick");
-        knife.settype("wood");
-        knife.setafect("stab");
-        knife.setpower(3);
+        knife.setName("sharpstick");
+        knife.setType("wood");
+        knife.setAfect("stab");
+        knife.setPower(3);
         
-        ---
+       
     }
     
 }
