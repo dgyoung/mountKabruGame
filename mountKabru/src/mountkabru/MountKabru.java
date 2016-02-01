@@ -35,24 +35,36 @@ public class MountKabru {
         playerOne.setSpell("lots");
         playerOne.setStrength(44);
         
+        String info0=playerOne.toString();
+        System.out.println(info0);
+        
         Location curentLocation = new Location();
         curentLocation.setLevel(2);
         curentLocation.setStage(2);
+        
+        String info1=curentLocation.toString();
+        System.out.println(info1);
         
         Map mapSize = new Map();
         mapSize.setLevelCount(20);
         mapSize.setStageCount(10); 
         
+        String info2=mapSize.toString();
+        System.out.println(info2);
+        
         Scene newScene = new Scene();
         newScene.setDescription("the yellow tower");
+        
+        String info3=newScene.toString();
+        System.out.println(info3);
         
         BattleScene battle = new BattleScene();
         battle.setActor("joe");
         battle.setAttribute("Wind");
         battle.setReward("1000 gold");
         
-        String info=battle.toString();
-        System.out.println(info);
+        String info4=battle.toString();
+        System.out.println(info4);
         
         Items knife = new Items();
         knife.setName("sharpstick");
@@ -60,6 +72,8 @@ public class MountKabru {
         knife.setAfect("stab");
         knife.setPower(3);
         
+        String info5=knife.toString();
+        System.out.println(info5);
        
     }
     
