@@ -32,6 +32,9 @@ public class Actors {
         this.weekness = weekness;
     }
 
+    public Actors() {
+    }
+
     
     public int getHelth() {
         return helth;
