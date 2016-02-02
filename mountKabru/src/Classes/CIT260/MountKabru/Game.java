@@ -24,6 +24,9 @@ public class Game implements Serializable{
         this.itemList = itemList;
     }
 
+    public Game() {
+    }
+
     
     public int getScore() {
         return score;
@@ -81,5 +84,14 @@ public class Game implements Serializable{
         }
         return true;
     }
+
+    public void setscore(int i) {
+    }
+
+    public void setstarttime(int i) {
+    }
+
+    public void setitemlist(String knife) {
+     }
     
 }
