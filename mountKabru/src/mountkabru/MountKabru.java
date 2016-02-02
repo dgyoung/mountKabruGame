@@ -60,7 +60,11 @@ public class MountKabru {
         knife.setAfect("stab");
         knife.setPower(3);
         
-       
+        Game game = new Game();
+        game.setscore(24);
+        game.setstarttime(12);
+        game.setitemlist("knife");
+        
     }
     
 }
