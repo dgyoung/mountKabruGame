@@ -7,6 +7,7 @@ package mountkabru;
 
 import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.BattleScene;
+import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
@@ -77,8 +78,8 @@ public class MountKabru {
         game.setstarttime(12);
         game.setitemlist("knife");
         
-        String info5=battle.toString();
-        System.out.println (info5);  
+       
+        System.out.println(game.toString());  
     }
     
 }
