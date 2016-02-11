@@ -24,4 +24,20 @@ public class ActorsControl {
     double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
     return spellDamage;
     }
+
+
+    public double strangthAttack (double strangth, double attack, double defence) {
+
+    if (attack < 5 || attack > 100){
+        return -1;	
+                }
+    if (strangth < 5 || strangth > 100 ){
+        return -2;
+    }
+    if (defence < 5 || defence > 100){
+        return -3;
+    }
+    double spellDamage = ((attack + strangth)- defence) + (Math.random() * 10);
+    return spellDamage;
+    }
 }
