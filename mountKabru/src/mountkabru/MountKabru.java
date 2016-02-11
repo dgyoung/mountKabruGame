@@ -5,6 +5,7 @@
  */
 package mountkabru;
 
+import Classes.CIT260.MountKabru.Actors;
 import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.BattleScene;
 import Classes.CIT260.MountKabru.Game;
@@ -74,12 +75,26 @@ public class MountKabru {
         knife.setPower(3);
         
         Game game = new Game();
-        game.setscore(24);
-        game.setstarttime(12);
-        game.setitemlist("knife");
+        game.setScore(24);
+        game.setStartTime(12);
+        game.setItemList("knife");
         
        
         System.out.println(game.toString());  
+    
+        Actors enamy = new Actors();
+        enamy.setHelth(8);
+        enamy.setAttack(9);
+        enamy.setName("bob");
+        enamy.setLevel(2);
+        enamy.setDefence(7);
+        enamy.setSpell("cold");
+        enamy.setInvintory("knife");
+        enamy.setWeekness("knife");
+        
+        System.out.print(enamy.toString());
+        
+        
     }
     
 }
