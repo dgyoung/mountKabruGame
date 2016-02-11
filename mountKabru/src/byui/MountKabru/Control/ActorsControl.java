@@ -15,7 +15,7 @@ public class ActorsControl {
     if (attack < 5 || attack > 100){
         return -1;	
                 }
-    if (mana < 5 || mana > 103 ){
+    if (mana < 5 || mana > 305 ){
         return -2;
     }
     if (defence < 5 || defence > 100){
