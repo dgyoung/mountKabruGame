@@ -9,17 +9,16 @@ package byui.MountKabru.Control;
  *
  * @author Moose
  */
-    
 public class PlayerControl {
     public double spellAttack (double mana, double attack, double defence) {
 
-    if (attack < 5 || attack > 100){
+    if (attack < 5 || attack > 305){
         return -1;	
                 }
-    if (mana < 5 || mana > 100 ){
+    if (mana < 5 || mana > 305 ){
         return -2;
     }
-    if (defence < 5 || defence > 100){
+    if (defence < 5 || defence > 305){
         return -3;
     }
     double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
@@ -29,13 +28,13 @@ public class PlayerControl {
 
     public double strangthAttack (double strangth, double attack, double defence) {
 
-    if (attack < 5 || attack > 100){
+    if (attack < 5 || attack > 305){
         return -1;	
                 }
-    if (strangth < 5 || strangth > 100 ){
+    if (strangth < 5 || strangth > 305 ){
         return -2;
     }
-    if (defence < 5 || defence > 100){
+    if (defence < 5 || defence > 305){
         return -3;
     }
     double spellDamage = ((attack + strangth)- defence) + (Math.random() * 10);

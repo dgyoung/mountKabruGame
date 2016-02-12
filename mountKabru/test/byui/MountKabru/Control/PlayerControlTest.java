@@ -12,13 +12,13 @@ import static org.junit.Assert.*;
  *
  * @author Moose
  */
-public class ActorsControlTest {
+public class PlayerControlTest {
     
-    public ActorsControlTest() {
+    public PlayerControlTest() {
     }
 
     /**
-     * Test of spellAttack method, of class ActorsControl.
+     * Test of spellAttack method, of class PlayerControl.
      */
     @Test
     public void testSpellAttack() {
@@ -26,14 +26,14 @@ public class ActorsControlTest {
         double mana = 20.0;
         double attack = 25.0;
         double defence = 15.0;
-        ActorsControl instance = new ActorsControl();
+        PlayerControl instance = new PlayerControl();
         double result = instance.spellAttack(mana, attack, defence);
         assertTrue(result > 30 && result < 41);
         // TODO review the generated test code and remove the default call to fail.
-        }
+    }
 
     /**
-     * Test of strangthAttack method, of class ActorsControl.
+     * Test of strangthAttack method, of class PlayerControl.
      */
     @Test
     public void testStrangthAttack() {
@@ -41,7 +41,8 @@ public class ActorsControlTest {
         double strangth = 20.0;
         double attack = 25.0;
         double defence = 15.0;
-        ActorsControl instance = new ActorsControl();
+        PlayerControl instance = new PlayerControl();
+        double expResult = 0.0;
         double result = instance.strangthAttack(strangth, attack, defence);
         assertTrue(result > 30 && result < 41);
         // TODO review the generated test code and remove the default call to fail.
