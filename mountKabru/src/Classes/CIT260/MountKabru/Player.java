@@ -23,7 +23,7 @@ public class Player implements Serializable{
     private String spell;
     private double defense;
     private double level;
-    private String attack;
+    private double attack;
 
     public Player() {
     }
@@ -110,11 +110,11 @@ public class Player implements Serializable{
         this.level = level;
     }
 
-    public String getAttack() {
+    public double getAttack() {
         return attack;
     }
 
-    public void setAttack(String attack) {
+    public void setAttack(double attack) {
         this.attack = attack;
     }
 

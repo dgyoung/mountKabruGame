@@ -26,7 +26,7 @@ public class MountKabru {
     public static void main(String[] args) {
         Player playerOne = new Player();
         
-        playerOne.setAttack("happy");
+        playerOne.setAttack(2);
         playerOne.setDefense(7);
         playerOne.setDexterity(2);
         playerOne.setHealth(9000);
