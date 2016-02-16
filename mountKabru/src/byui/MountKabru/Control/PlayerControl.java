@@ -75,10 +75,12 @@ public class PlayerControl {
                     defense = defense + random + 1;
                     random = (int )(Math.random() * 3);
                     mana = mana + random + 3;
+                    level = level++;
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);
                     player.setMana(mana);
+                    player.setLevel(level);
                     break;
                 case "warrior":
                     random = (int )(Math.random() * 3);
@@ -89,10 +91,12 @@ public class PlayerControl {
                     defense = defense + random + 2;
                     random = (int )(Math.random() * 3);
                     mana = mana + random + 2;
+                    level = level++;
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);
                     player.setMana(mana);
+                    player.setLevel(level);
                     break;
                 case "mage":
                     random = (int )(Math.random() * 3);
@@ -103,10 +107,12 @@ public class PlayerControl {
                     defense = defense + random + 1;
                     random = (int )(Math.random() * 3);
                     mana = mana + random + 4;
+                    level = level++;
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);
                     player.setMana(mana);
+                    player.setLevel(level);
                     break;
                 default:
                     System.out.println(" invalid class " );
