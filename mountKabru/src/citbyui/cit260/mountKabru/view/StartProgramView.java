@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author David
@@ -39,5 +41,88 @@ public class StartProgramView {
         + "\n*                                                    *"
         + "\n******************************************************"
         );
+    }
+
+    public void displayStartProgramView() {
+        /*
+        do
+            prompt for and get the players name
+            if (playersName == "q" then
+                exit
+            do the action and display the nest view
+        while the action is not successful
+        */
+        boolean done = false;
+        do {
+            String playersName = this.getPlayersName();
+            if (playersName.toUpperCase().equals("Q"))
+                return;
+            done = this.doAction(playersName);
+        } while (!done);
+    }
+
+    private String getPlayersName() {
+        /*
+        WHILE valid value has not been entered
+            DISPLAY promptMessage
+            GET the value entered from keayboard
+            Trim the front and trailing blanks off of the name
+            IF the length of the value is blank THEN 
+                DISPLAY "Invalid value: The value can not be blank"
+                CONTINUE
+            ENDIF
+        
+            BREAK
+        
+        ENDWHILE
+        RETURN name
+        */
+        Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        boolean valid = false;
+        while (!valid){
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1){
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return value;
+    }
+        
+
+    private boolean doAction(String playersName) {
+        //if the length of the playesName <2 then
+            // display "invalid name: the name bust be > 1 character"
+            // return false
+        // create Player with specified name
+        //if unscuccessful then
+            // display "invalid naem: the same is too short
+            //return false
+            
+        // display customized welcome message
+        // display mainMenuView
+        // return true
+        Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        boolean valid = false;
+        while (!valid){
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1){
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return true;
     }
 }
