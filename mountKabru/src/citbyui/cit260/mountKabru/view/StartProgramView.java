@@ -128,6 +128,13 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n*** displayNextView() called ***");
+   
+    // display a custom welcome message
+    System.out.println("\n==================================="
+                              + "\n Welcometo the game " +player.getName()
+                              + "\n We Hope you have a lot of fun!"
+                              + "\n=================================="
+                              );     
+    
     }
 }
