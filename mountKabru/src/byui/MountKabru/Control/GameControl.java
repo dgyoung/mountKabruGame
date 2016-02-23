@@ -5,10 +5,26 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Player;
+import mountkabru.MountKabru;
+
 /**
  *
  * @author Moose
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        if (playersName == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(playersName);
+        
+        MountKabru.setPlayer(player); //save the player
+        
+        return player;
+        }
     
 }
