@@ -3,14 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.Mountkabru.view;
+package citbyui.cit260.mountKabru.view;
 
 /**
  *
- * @author Moose
+ * @author David
  */
 public class MainMenuView {
-    void displayMainMenuView() {
-        System.out.println("\n*** displayMenu() function called ***");
+
+    private String menu;
+    public MainMenuView()  {
+        this.menu =  "\n"
+                           + "\n-------------------------------------------------------"
+                           + "\n| Main Menu                                     |"
+                           + "\n-------------------------------------------------------"
+                           + "\nN - Start new game"
+                           + "\nG - Get help on how to play the game"
+                           + "\nH - Get help on how to play the game"
+                           + "\nS - Save game"
+                           + "nQ - Quit"
+                           + "\n-----------------------------------------------------";
+        
     }
+        void displayMainMenuView() {
+        System.out.println("\n*** DisplayMenu() called.");
+    }
+    
 }
