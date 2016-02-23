@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Player;
+import byui.MountKabru.Control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -108,21 +110,19 @@ public class StartProgramView {
         // display customized welcome message
         // display mainMenuView
         // return true
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+        
+            if (playersName.length() < 2) {
+                System.out.println("\nInvalid players name: "
+                    + "the name must be greater than one character in length");
+                return false;
             }
-            break;
-        }
-        return true;
+            Player player = GameControl.createPlayer(playersName);
+            
+            if (player == null) {
+                System.out.println("\nError creating the player.");
+                return false;
+            }
+            return true;
+        
     }
 }
