@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.Mountkabru.view;
+package citbyui.cit260.mountKabru.view;
 
 /**
  *
- * @author Moose
+ * @author David
  */
 public class MainMenuView {
+
     void displayMainMenuView() {
-        System.out.println("\n*** displayMenu() function called ***");
+        System.out.println("\n*** DisplayMenu() called.");
     }
+    
 }
