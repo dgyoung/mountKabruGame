@@ -16,4 +16,4 @@ public class MainMenuView {
         //candy and cake
     }
     
-}
+} // new stuff
