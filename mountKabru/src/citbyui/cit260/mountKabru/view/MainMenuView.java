@@ -76,7 +76,7 @@ public class MainMenuView
                 this.startNewGame();
                 break;
           case "G" :
-                this.startExistionGame();
+                this.startExistingGame();
                 break;  
            case "H" :
                 this.displayHelpMenu();
@@ -95,7 +95,7 @@ public class MainMenuView
       System.out.println("\n*** startNewGame function called ***");
     }
 
-    private void startExistionGame() {
+    private void startExistingGame() {
         System.out.println("\n*** startExistingGame function called ***");
     }
 
