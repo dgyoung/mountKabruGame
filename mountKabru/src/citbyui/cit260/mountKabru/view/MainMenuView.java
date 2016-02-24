@@ -13,6 +13,7 @@ public class MainMenuView {
 
     void displayMainMenuView() {
         System.out.println("\n*** DisplayMenu() called.");
+        //candy and cake
     }
     
 }
