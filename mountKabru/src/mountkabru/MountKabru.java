@@ -37,7 +37,7 @@ public class MountKabru {
    public static void setCurrentGame(Game currentGame) {
        MountKabru.currentGame = currentGame;
    }
-   public static Player getplayer() {
+   public static Player getPlayer() {
        return player;
    }
    public static void setPlayer(Player player) {

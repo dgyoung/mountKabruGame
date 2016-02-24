@@ -5,7 +5,9 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import byui.MountKabru.Control.GameControl;
 import java.util.Scanner;
+import mountkabru.MountKabru;
 
 /**
  *
@@ -76,7 +78,7 @@ public class MainMenuView
                 this.startNewGame();
                 break;
           case "G":
-                this.startExistionGame();
+                this.startExistingGame();
                 break;  
            case "H":
                 this.displayHelpMenu();
@@ -85,25 +87,29 @@ public class MainMenuView
                 this.saveGame();
                 break;      
           default:
-              System.out.println("\n*** Invalid selection *** try again");
+              System.out.println("\n*** Invalid selection *** Try again");
               break;
         }
         return false;
     }
 
     private void startNewGame() {
-      System.out.println("\n*** startNewGame function called ***");
+        GameControl.createNewGame(MountKabru.getPlayer());
+        
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
-    private void startExistionGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void startExistingGame() {
+        System.out.println("*** startExistingGame function called ***");
     }
 
     private void displayHelpMenu() {
-         System.out.println("\n*** startExistingGame function called ***");
+         System.out.println("*** startExistingGame function called ***");
     }
 
     private void saveGame() {
-       System.out.println("\n*** displayHelpMenu function called ***");
+       System.out.println("*** displayHelpMenu function called ***");
     }
 } 
