@@ -72,16 +72,16 @@ public class MainMenuView
                  choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N" :
+            case "N":
                 this.startNewGame();
                 break;
-          case "G" :
+          case "G":
                 this.startExistionGame();
                 break;  
-           case "H" :
+           case "H":
                 this.displayHelpMenu();
                 break;     
-          case "S" :
+          case "S":
                 this.saveGame();
                 break;      
           default:
