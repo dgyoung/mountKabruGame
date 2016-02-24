@@ -27,4 +27,4 @@ public class GameControl {
         return player;
         }
     
-}
+}       // new code
