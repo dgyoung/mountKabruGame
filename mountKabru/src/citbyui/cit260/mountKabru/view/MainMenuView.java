@@ -23,6 +23,7 @@ public class MainMenuView
                         + "\n------------------------------------------------------------------------------"
                         +"\nN - Start new game"
                         +"\nG - Get and start saved game"
+                        +"\nH - Help menu"
                         +"\nS - Save game"
                         +"\nQ - Quit"
                         +"\n-------------------------------------------------------------------------------";
@@ -106,7 +107,8 @@ public class MainMenuView
     }
 
     private void displayHelpMenu() {
-         System.out.println("*** startExistingGame function called ***");
+          HelpMenuView helpMenuView = new HelpMenuView();
+    helpMenuView.displayHelpMenuView();
     }
 
     private void saveGame() {
