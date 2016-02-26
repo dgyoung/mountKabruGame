@@ -5,26 +5,26 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.GameControl;
+import byui.MountKabru.Control.InGameControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
 /**
  *
- * @author David
+ * @author Moose
  */
-public class MainMenuView
+public class InGameMenuView
 {
     private String menu;
-    public MainMenuView() {
+    public InGameMenuView() {
         this.menu = "\n"
                         + "\n------------------------------------------------------------------------------"
-                        + "\n | Main Menu                                                           |"
+                        + "\n|  In Game Menu                                                     |"
                         + "\n------------------------------------------------------------------------------"
-                        +"\nN - Start new game"
-                        +"\nG - Get and start saved game"
-                        +"\nH - Help menu"
-                        +"\nS - Save game"
+                        +"\nM - Map"
+                        +"\nB - Battle Your Foe "
+                        +"\nA - Main Menu"
+                        + "\nI - Invantory"
                         +"\nQ - Quit"
                         +"\n-------------------------------------------------------------------------------";
     }
@@ -35,7 +35,7 @@ public class MainMenuView
         
   //  }
 
-  public  void displayMainMenuView() {
+  public  void displayInGameMenuView() {
      
       boolean done = false; // set flage to not done
       do {
@@ -75,20 +75,17 @@ public class MainMenuView
                  choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N":
-                this.startNewGame();
+            case "M" :
+                this.Map();
                 break;
-          case "G":
-                this.startExistingGame();
+          case "B" :
+                this.Battle();
                 break;  
-           case "H":
-                this.displayHelpMenu();
-                break;     
-          case "S":
-                this.saveGame();
-                break;   
-          case "T":
-                this.testView();
+           case "A" :
+                this.MainMenu();
+                break;
+           case "I" :
+                this.Invantory();
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
@@ -97,30 +94,22 @@ public class MainMenuView
         return false;
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(MountKabru.getPlayer());
-        
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    
+
+    private void Map() {
+        MapMenuView mapMenuView = new MapMenuView();
+    mapMenuView.displayMapMenuView();
     }
 
-    private void startExistingGame() {
-        InGameMenuView inGamMenuView = new InGameMenuView();
-    inGamMenuView.displayInGameMenuView();
+    private void Battle() {
+         System.out.println("*** startExistingGame function called ***");
     }
 
-    private void displayHelpMenu() {
-          HelpMenuView helpMenuView = new HelpMenuView();
-    helpMenuView.displayHelpMenuView();
+    private void MainMenu() {
+       MainMenuView mainMenuView = new MainMenuView();
+   mainMenuView.displayMainMenuView(); }
+    
+    private void Invantory() {
+         System.out.println("*** startExistingGame function called ***");
     }
-
-    private void saveGame() {
-       System.out.println("*** displayHelpMenu function called ***");
-    }
-
-    private void testView() {
-        BattleMenuView battleMenuView = new BattleMenuView();
-        battleMenuView.displayBattleMenuView();
-    }
-} 
+}

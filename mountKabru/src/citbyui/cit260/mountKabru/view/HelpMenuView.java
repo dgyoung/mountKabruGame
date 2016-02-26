@@ -11,7 +11,7 @@ import mountkabru.MountKabru;
 
 /**
  *
- * @author David
+ * @author Moose
  */
 public class HelpMenuView
 {
