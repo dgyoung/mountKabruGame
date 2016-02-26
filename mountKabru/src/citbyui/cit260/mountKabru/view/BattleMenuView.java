@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.GameControl;
+import byui.MountKabru.Control.HelpControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -13,19 +13,18 @@ import mountkabru.MountKabru;
  *
  * @author David
  */
-public class MainMenuView
+public class BattleMenuView
 {
     private String menu;
-    public MainMenuView() {
+    public BattleMenuView() {
         this.menu = "\n"
                         + "\n------------------------------------------------------------------------------"
-                        + "\n | Main Menu                                                           |"
+                        + "\n | You are in a fight what will you do?                                       |"
                         + "\n------------------------------------------------------------------------------"
-                        +"\nN - Start new game"
-                        +"\nG - Get and start saved game"
-                        +"\nH - Help menu"
-                        +"\nS - Save game"
-                        +"\nQ - Quit"
+                        +"\nA - Attack"
+                        +"\nS - Spell Attack"
+                        +"\nI - Open Invatory"
+                        +"\nR - Run"
                         +"\n-------------------------------------------------------------------------------";
     }
         
@@ -35,17 +34,33 @@ public class MainMenuView
         
   //  }
 
-  public  void displayMainMenuView() {
+  public  void displayBattleMenuView() {
      
       boolean done = false; // set flage to not done
       do {
+          int i = 0;
+          
           // prompt for and get players name
-          String menuOption = this.getMenuOption();
-          if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-              return; // exit the game
+          do{
+            
+          String menuOption = this.getMenuOption();    
+          if (menuOption.toUpperCase().equals("R")){ // user wants to quit
+              double random = Math.random();
+              if (random <= .5){
+                  System.out.println("You Ran away.");
+              i++;
+              return;
+              
+              }
+           else {
+              System.out.println("Failed to run");
+          }
+          }
+          done = this.doAction(menuOption);
+          } while (i < 1);
           
           // do the requwsted action and display the next view
-          done = this.doAction(menuOption);
+          
              
       } while ( !done);
   }     
@@ -75,20 +90,14 @@ public class MainMenuView
                  choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N":
-                this.startNewGame();
+            case "A" :
+                this.attack();
                 break;
-          case "G":
-                this.startExistingGame();
+            case "S" :
+                this.spellAttack();
                 break;  
-           case "H":
-                this.displayHelpMenu();
-                break;     
-          case "S":
-                this.saveGame();
-                break;   
-          case "T":
-                this.testView();
+            case "I" :
+                this.openInvatory();
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
@@ -97,29 +106,18 @@ public class MainMenuView
         return false;
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(MountKabru.getPlayer());
-        
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void attack() {
+        System.out.println("\nyou attacked");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void spellAttack() {
+        System.out.println("\nspell attack");
     }
 
-    private void displayHelpMenu() {
-          HelpMenuView helpMenuView = new HelpMenuView();
-    helpMenuView.displayHelpMenuView();
+    private void openInvatory() {
+        System.out.println("\nopen invatory");
     }
 
-    private void saveGame() {
-       System.out.println("*** displayHelpMenu function called ***");
-    }
 
-    private void testView() {
-        BattleMenuView battleMenuView = new BattleMenuView();
-        battleMenuView.displayBattleMenuView();
-    }
+
 } 
