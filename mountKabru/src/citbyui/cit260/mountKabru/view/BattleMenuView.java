@@ -99,6 +99,8 @@ public class BattleMenuView
             case "I" :
                 this.openInvatory();
                 break;
+            case "R" :
+                break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
