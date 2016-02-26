@@ -48,7 +48,7 @@ public class BattleMenuView
               double random = Math.random();
               if (random <= .5){
                   System.out.println("You Ran away.");
-              i++;
+              
               return;
               
               }
@@ -57,8 +57,10 @@ public class BattleMenuView
           }
           }
           done = this.doAction(menuOption);
-          } while (i < 1);
-          
+          i++;
+          } while (i < 6);
+          System.out.println("You Win");
+          return;
           // do the requwsted action and display the next view
           
              
@@ -98,6 +100,8 @@ public class BattleMenuView
                 break;  
             case "I" :
                 this.openInvatory();
+                break;
+            case "R" :
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
