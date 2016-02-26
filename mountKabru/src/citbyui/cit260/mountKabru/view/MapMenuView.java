@@ -117,19 +117,20 @@ public class MapMenuView
     
 
     private void GoToTown() {
-        System.out.println("*** startExistingGame function called ***");
+        TownMenuView townMenuView = new TownMenuView();
+   townMenuView.displayTownMenuView();
     }
     private void GoToDarkForest() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** Its dark.  ***");
     }
     private void GoToPlains() {
-         System.out.println("*** startExistingGame function called ***");
+         System.out.println("*** kind of plain ***");
     }
 
     private void GoToJungle() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** to humid ***");
     }
     private void GoToHighMountin() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** way to much work you go home and play candy land ***");
     }
 } 

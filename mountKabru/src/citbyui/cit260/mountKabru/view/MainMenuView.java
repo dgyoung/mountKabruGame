@@ -116,7 +116,7 @@ public class MainMenuView
     }
 
     private void saveGame() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** only babys save games. Im my day you coulden't save games. you just ran your little plumber tell he died ***");
     }
 
     private void testView() {
