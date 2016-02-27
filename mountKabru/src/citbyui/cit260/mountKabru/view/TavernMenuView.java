@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.MapControl;
+import byui.MountKabru.Control.TavernControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -13,28 +13,28 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class TownMenuView
+public class TavernMenuView
 {
     private String menu;
-    public TownMenuView() {
+    public TavernMenuView() {
         this.menu = "\n"
                         + "\n-------------------------------------------------------------------------------------------------------------------------"        
-                        + "\n|     Town Menu                                                                                                   |"
+                        + "\n|     Tavern Menu                                                                                                   |"
                         + "\n-------------------------------------------------------------------------------------------------------------------------"
-                        +"\nA - Go to Tavern"
-                        +"\nB - Go to Black Smith"
-                        +"\nC - Go to Pit "
-                        +"\nQ - Leave Town"
+                        +"\nA - Talk to Tavern Keep"
+                        +"\nB - Rest"
+                        +"\nC - Buy Stuff"
+                        +"\nQ - Leave Tavern"
                         +"\n-----------------------------------------------------------------------------------------------------------------------------";
     }
         
     
-  // void displayMapMenuView() {
+  // void displayTavernMenuView() {
     //    System.out.println("\n*** DisplayMenu() called.");
         
   //  }
 
-  public  void displayTownMenuView() {
+  public  void displayTavernMenuView() {
      
       boolean done = false; // set flage to not done
       do {
@@ -75,16 +75,15 @@ public class TownMenuView
         
         switch (choice) {
             case "A" :
-                this.GoToTavern();
+                this.TalkToTavernKeep();
                 break;
           case "B" :
-                this.GoToBlackSmith();
+                this.Rest();
                 break;  
            case "C" :
-                this.GoToPit();
+                this.BuyStuff();
                 break;  
-                case "D" :
-              default:
+                default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
         }
@@ -93,15 +92,15 @@ public class TownMenuView
 
     
 
-    private void GoToTavern() {
-            TavernMenuView tavernMenuView = new TavernMenuView();
-    tavernMenuView.displayTavernMenuView();
+    private void TalkToTavernKeep() {
+            TavernKeepMenuView tavernKeepMenuView = new TavernKeepMenuView();
+   tavernKeepMenuView.displayTavernKeepMenuView();
     }
-    private void GoToBlackSmith() {
-       System.out.println("*** Get lost! We are closed! ***");
+    private void Rest() {
+       System.out.println("*** You rest and are lazy. Get back to work ***");
     }
-    private void GoToPit() {
-         System.out.println("*** Sorry we are closed. Go die in the woods. ***");
+    private void BuyStuff() {
+         System.out.println("*** You buy an overpriced piece of junk. You are a fool. ***");
     }
 
     

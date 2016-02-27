@@ -19,7 +19,7 @@ public class TavernKeepMenuView
     public TavernKeepMenuView() {
         this.menu = "\n"
                         + "\n------------------------------------------------------------------------------"
-                        + "\n | Tha tavern keep looks at with one eyebrow rased.                                       |"
+                        + "\n | The tavern keep looks at you with one eyebrow raised.                                       |"
                         + "\n------------------------------------------------------------------------------"
                         +"\nA - Talk to the Tavern Keep"
                         +"\n-------------------------------------------------------------------------------";
@@ -43,20 +43,20 @@ public class TavernKeepMenuView
           String menuOption = this.getMenuOption();    
           if (menuOption.toUpperCase().equals("A")){ // user wants to quit
               double random = Math.random();
-              if (random <= .25){
-                  System.out.println("If you look under all the chairs you might find some Gold.");
+              if (random <= .50){
+                  System.out.println("If you look under all the chairs you might find some gold.");
               
               return;
               
               }
            else {
-              System.out.println("Stop bugging me kid, or I'll kick you out my self.");
+              System.out.println("Stop bugging me kid, or I'll kick you out myself.");
           }
           }
           done = this.doAction(menuOption);
           i++;
           } while (i < 6);
-          System.out.println("You Win");
+          System.out.println("Ok I'm kicking you out");
           return;
           // do the requwsted action and display the next view
           

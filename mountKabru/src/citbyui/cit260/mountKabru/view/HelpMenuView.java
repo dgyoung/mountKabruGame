@@ -93,14 +93,14 @@ public class HelpMenuView
     
 
     private void howToMove() {
-        System.out.println("*** your move  ***");
+        System.out.println("*** Your move  ***");
     }
 
     private void aboutTheGame() {
-         System.out.println("*** its a game ***");
+         System.out.println("*** It's a game ***");
     }
 
     private void howToFight() {
-       System.out.println("*** why you asking me? you sissy ***");
+       System.out.println("*** Why you asking me? You sissy ***");
     }
 } 

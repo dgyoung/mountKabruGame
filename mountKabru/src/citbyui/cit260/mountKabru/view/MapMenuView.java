@@ -41,7 +41,7 @@ public class MapMenuView
                         +"\nB - Go to Plains"
                         +"\nC - Go to Dark Forest "
                         +"\nD - Go to Jungle"
-                        +"\nE - Go to Hight Mountin"
+                        +"\nE - Go to High Mountin"
                         +"\nQ - Quit"
                         +"\n-----------------------------------------------------------------------------------------------------------------------------";
     }
@@ -121,16 +121,16 @@ public class MapMenuView
    townMenuView.displayTownMenuView();
     }
     private void GoToDarkForest() {
-       System.out.println("*** Its dark.  ***");
+       System.out.println("*** It's dark.  ***");
     }
     private void GoToPlains() {
-         System.out.println("*** kind of plain ***");
+         System.out.println("*** Kind of plain ***");
     }
 
     private void GoToJungle() {
-       System.out.println("*** to humid ***");
+       System.out.println("*** Too humid ***");
     }
     private void GoToHighMountin() {
-       System.out.println("*** way to much work you go home and play candy land ***");
+       System.out.println("*** Way to much work. You go home and play Candy Land ***");
     }
 } 

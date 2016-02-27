@@ -19,11 +19,11 @@ public class BattleMenuView
     public BattleMenuView() {
         this.menu = "\n"
                         + "\n------------------------------------------------------------------------------"
-                        + "\n | You are in a fight what will you do?                                       |"
+                        + "\n | You are in a fight! What will you do?                                       |"
                         + "\n------------------------------------------------------------------------------"
                         +"\nA - Attack"
                         +"\nS - Spell Attack"
-                        +"\nI - Open Invatory"
+                        +"\nI - Open Inventory"
                         +"\nR - Run"
                         +"\n-------------------------------------------------------------------------------";
     }

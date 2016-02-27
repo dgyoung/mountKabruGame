@@ -116,7 +116,7 @@ public class MainMenuView
     }
 
     private void saveGame() {
-       System.out.println("*** only babys save games. Im my day you coulden't save games. you just ran your little plumber tell he died ***");
+       System.out.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
     }
 
     private void testView() {
