@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.HelpControl;
+import byui.MountKabru.Control.MapControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -13,28 +13,28 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class HelpMenuView
+public class TownMenuView
 {
     private String menu;
-    public HelpMenuView() {
+    public TownMenuView() {
         this.menu = "\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n | Help Menu                                                           |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nN - How to move"
-                        +"\nG - About the game"
-                        +"\nS - How to fight"
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------";
+                        + "\n-------------------------------------------------------------------------------------------------------------------------"        
+                        + "\n|     Town Menu                                                                                                   |"
+                        + "\n-------------------------------------------------------------------------------------------------------------------------"
+                        +"\nA - Go to Tavern"
+                        +"\nB - Go to Black Smith"
+                        +"\nC - Go to Pit "
+                        +"\nQ - Leave Town"
+                        +"\n-----------------------------------------------------------------------------------------------------------------------------";
     }
         
     
-  // void displayMainMenuView() {
+  // void displayMapMenuView() {
     //    System.out.println("\n*** DisplayMenu() called.");
         
   //  }
 
-  public  void displayHelpMenuView() {
+  public  void displayTownMenuView() {
      
       boolean done = false; // set flage to not done
       do {
@@ -74,16 +74,17 @@ public class HelpMenuView
                  choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N" :
-                this.howToMove();
+            case "A" :
+                this.GoToTavern();
                 break;
-          case "G" :
-                this.aboutTheGame();
+          case "B" :
+                this.GoToBlackSmith();
                 break;  
-           case "S" :
-                this.howToFight();
-                break;               
-          default:
+           case "C" :
+                this.GoToPit();
+                break;  
+                case "D" :
+              default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
         }
@@ -92,15 +93,16 @@ public class HelpMenuView
 
     
 
-    private void howToMove() {
-        System.out.println("*** Your move  ***");
+    private void GoToTavern() {
+            TavernMenuView tavernMenuView = new TavernMenuView();
+    tavernMenuView.displayTavernMenuView();
+    }
+    private void GoToBlackSmith() {
+       System.out.println("*** Get lost! We are closed! ***");
+    }
+    private void GoToPit() {
+         System.out.println("*** Sorry we are closed. Go die in the woods. ***");
     }
 
-    private void aboutTheGame() {
-         System.out.println("*** It's a game ***");
-    }
-
-    private void howToFight() {
-       System.out.println("*** Why you asking me? You sissy ***");
-    }
+    
 } 

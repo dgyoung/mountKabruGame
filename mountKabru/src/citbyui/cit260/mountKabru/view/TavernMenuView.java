@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.HelpControl;
+import byui.MountKabru.Control.TavernControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -13,28 +13,28 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class HelpMenuView
+public class TavernMenuView
 {
     private String menu;
-    public HelpMenuView() {
+    public TavernMenuView() {
         this.menu = "\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n | Help Menu                                                           |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nN - How to move"
-                        +"\nG - About the game"
-                        +"\nS - How to fight"
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------";
+                        + "\n-------------------------------------------------------------------------------------------------------------------------"        
+                        + "\n|     Tavern Menu                                                                                                   |"
+                        + "\n-------------------------------------------------------------------------------------------------------------------------"
+                        +"\nA - Talk to Tavern Keep"
+                        +"\nB - Rest"
+                        +"\nC - Buy Stuff"
+                        +"\nQ - Leave Tavern"
+                        +"\n-----------------------------------------------------------------------------------------------------------------------------";
     }
         
     
-  // void displayMainMenuView() {
+  // void displayTavernMenuView() {
     //    System.out.println("\n*** DisplayMenu() called.");
         
   //  }
 
-  public  void displayHelpMenuView() {
+  public  void displayTavernMenuView() {
      
       boolean done = false; // set flage to not done
       do {
@@ -74,16 +74,16 @@ public class HelpMenuView
                  choice = choice.toUpperCase();
         
         switch (choice) {
-            case "N" :
-                this.howToMove();
+            case "A" :
+                this.TalkToTavernKeep();
                 break;
-          case "G" :
-                this.aboutTheGame();
+          case "B" :
+                this.Rest();
                 break;  
-           case "S" :
-                this.howToFight();
-                break;               
-          default:
+           case "C" :
+                this.BuyStuff();
+                break;  
+                default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
         }
@@ -92,15 +92,16 @@ public class HelpMenuView
 
     
 
-    private void howToMove() {
-        System.out.println("*** Your move  ***");
+    private void TalkToTavernKeep() {
+            TavernKeepMenuView tavernKeepMenuView = new TavernKeepMenuView();
+   tavernKeepMenuView.displayTavernKeepMenuView();
+    }
+    private void Rest() {
+       System.out.println("*** You rest and are lazy. Get back to work ***");
+    }
+    private void BuyStuff() {
+         System.out.println("*** You buy an overpriced piece of junk. You are a fool. ***");
     }
 
-    private void aboutTheGame() {
-         System.out.println("*** It's a game ***");
-    }
-
-    private void howToFight() {
-       System.out.println("*** Why you asking me? You sissy ***");
-    }
+    
 } 

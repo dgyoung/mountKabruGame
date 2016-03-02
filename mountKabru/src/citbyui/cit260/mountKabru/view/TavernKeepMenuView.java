@@ -11,30 +11,27 @@ import mountkabru.MountKabru;
 
 /**
  *
- * @author David
+ * @author Moose
  */
-public class BattleMenuView
+public class TavernKeepMenuView
 {
     private String menu;
-    public BattleMenuView() {
+    public TavernKeepMenuView() {
         this.menu = "\n"
                         + "\n------------------------------------------------------------------------------"
-                        + "\n | You are in a fight! What will you do?                                       |"
+                        + "\n | The tavern keep looks at you with one eyebrow raised.                                       |"
                         + "\n------------------------------------------------------------------------------"
-                        +"\nA - Attack"
-                        +"\nS - Spell Attack"
-                        +"\nI - Open Inventory"
-                        +"\nR - Run"
+                        +"\nA - Talk to the Tavern Keep"
                         +"\n-------------------------------------------------------------------------------";
     }
         
     
-  // void displayMainMenuView() {
+  // void displayTavernKeepMenuView() {
     //    System.out.println("\n*** DisplayMenu() called.");
         
   //  }
 
-  public  void displayBattleMenuView() {
+  public  void displayTavernKeepMenuView() {
      
       boolean done = false; // set flage to not done
       do {
@@ -44,22 +41,22 @@ public class BattleMenuView
           do{
             
           String menuOption = this.getMenuOption();    
-          if (menuOption.toUpperCase().equals("R")){ // user wants to quit
+          if (menuOption.toUpperCase().equals("A")){ // user wants to quit
               double random = Math.random();
-              if (random <= .5){
-                  System.out.println("You Ran away.");
+              if (random <= .50){
+                  System.out.println("If you look under all the chairs you might find some gold.");
               
               return;
               
               }
            else {
-              System.out.println("Failed to run");
+              System.out.println("Stop bugging me kid, or I'll kick you out myself.");
           }
           }
           done = this.doAction(menuOption);
           i++;
           } while (i < 6);
-          System.out.println("You Win");
+          System.out.println("Ok I'm kicking you out");
           return;
           // do the requwsted action and display the next view
           
@@ -67,6 +64,7 @@ public class BattleMenuView
       } while ( !done);
   }     
 
+ 
     private String getMenuOption() {
        Scanner keyboard = new Scanner(System.in);
         String value = "";
@@ -93,34 +91,15 @@ public class BattleMenuView
         
         switch (choice) {
             case "A" :
-                this.attack();
-                break;
-            case "S" :
-                this.spellAttack();
-                break;  
-            case "I" :
-                this.openInvatory();
-                break;
-            case "R" :
-                break;
-          default:
+               break;
+             default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
         }
         return false;
     }
 
-    private void attack() {
-        System.out.println("\nyou attacked");
-    }
 
-    private void spellAttack() {
-        System.out.println("\nspell attack");
-    }
-
-    private void openInvatory() {
-        System.out.println("\nopen invatory");
-    }
 
 
 

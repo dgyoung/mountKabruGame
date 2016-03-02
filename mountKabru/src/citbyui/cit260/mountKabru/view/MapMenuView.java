@@ -41,7 +41,7 @@ public class MapMenuView
                         +"\nB - Go to Plains"
                         +"\nC - Go to Dark Forest "
                         +"\nD - Go to Jungle"
-                        +"\nE - Go to Hight Mountin"
+                        +"\nE - Go to High Mountin"
                         +"\nQ - Quit"
                         +"\n-----------------------------------------------------------------------------------------------------------------------------";
     }
@@ -117,19 +117,20 @@ public class MapMenuView
     
 
     private void GoToTown() {
-        System.out.println("*** startExistingGame function called ***");
+        TownMenuView townMenuView = new TownMenuView();
+   townMenuView.displayTownMenuView();
     }
     private void GoToDarkForest() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** It's dark.  ***");
     }
     private void GoToPlains() {
-         System.out.println("*** startExistingGame function called ***");
+         System.out.println("*** Kind of plain ***");
     }
 
     private void GoToJungle() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** Too humid ***");
     }
     private void GoToHighMountin() {
-       System.out.println("*** displayHelpMenu function called ***");
+       System.out.println("*** Way to much work. You go home and play Candy Land ***");
     }
 } 
