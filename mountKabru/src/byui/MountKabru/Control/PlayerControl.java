@@ -39,8 +39,8 @@ public class PlayerControl {
     if (defence < 5 || defence > 305){
         return -3;
     }
-    double spellDamage = ((attack + strangth)- defence) + (Math.random() * 10);
-    return spellDamage;
+    double attackDamage = ((attack + strangth)- defence) + (Math.random() * 10);
+    return attackDamage;
     }
     
     
