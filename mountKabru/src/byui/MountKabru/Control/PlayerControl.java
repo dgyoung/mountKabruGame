@@ -52,15 +52,19 @@ public class PlayerControl {
         double mana = player.getMana();
         if ((level * 2) < attack){
             System.out.println(" currupt save " );
+            return;
         } 
         if ((level * 2) < dexterity){
             System.out.println(" currupt save " );
+            return;
         } 
         if ((level * 2) < defense){
             System.out.println(" currupt save " );
+            return;
         } 
         if ((level * 2) < mana){
             System.out.println(" currupt save " );
+            return;
         } 
         
         if (exp >= 10 * level * level){
