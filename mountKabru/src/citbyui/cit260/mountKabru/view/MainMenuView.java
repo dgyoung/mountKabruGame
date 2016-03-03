@@ -7,13 +7,14 @@ package citbyui.cit260.mountKabru.view;
 
 import byui.MountKabru.Control.GameControl;
 import java.util.Scanner;
+import javax.swing.text.View;
 import mountkabru.MountKabru;
 
 /**
  *
  * @author David
  */
-public class MainMenuView
+public class MainMenuView extends View 
 {
     private String menu;
     public MainMenuView() {
