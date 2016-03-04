@@ -13,95 +13,51 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class TavernMenuView
-{
-    private String menu;
+public class TavernMenuView extends View {
+
     public TavernMenuView() {
-        this.menu = "\n"
-                        + "\n-------------------------------------------------------------------------------------------------------------------------"        
-                        + "\n|     Tavern Menu                                                                                                   |"
-                        + "\n-------------------------------------------------------------------------------------------------------------------------"
-                        +"\nA - Talk to Tavern Keep"
-                        +"\nB - Rest"
-                        +"\nC - Buy Stuff"
-                        +"\nQ - Leave Tavern"
-                        +"\n-----------------------------------------------------------------------------------------------------------------------------";
+        super("\n"
+                + "\n-------------------------------------------------------------------------------------------------------------------------"
+                + "\n|     Tavern Menu                                                                                                   |"
+                + "\n-------------------------------------------------------------------------------------------------------------------------"
+                + "\nA - Talk to Tavern Keep"
+                + "\nB - Rest"
+                + "\nC - Buy Stuff"
+                + "\nQ - Leave Tavern"
+                + "\n-----------------------------------------------------------------------------------------------------------------------------");
     }
-        
-    
-  // void displayTavernMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
-        
-  //  }
 
-  public  void displayTavernMenuView() {
-     
-      boolean done = false; // set flage to not done
-      do {
-          // prompt for and get players name
-          String menuOption = this.getMenuOption();
-          if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-              return; // exit the game
-          
-          // do the requwsted action and display the next view
-          done = this.doAction(menuOption);
-             
-      } while ( !done);
-  }     
+    @Override
+    public boolean doAction(char choice) {
 
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-   
-            }
-
-            break; 
-        }
-        return value;
-    }
-    public boolean doAction(String choice) 
-    {
-                 choice = choice.toUpperCase();
-        
         switch (choice) {
-            case "A" :
+            case 'A':
                 this.TalkToTavernKeep();
                 break;
-          case "B" :
+            case 'B':
                 this.Rest();
-                break;  
-           case "C" :
+                break;
+            case 'C':
                 this.BuyStuff();
-                break;  
-                default:
-              System.out.println("\n*** Invalid selection *** Try again");
-              break;
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
 
-    
-
     private void TalkToTavernKeep() {
-            TavernKeepMenuView tavernKeepMenuView = new TavernKeepMenuView();
-   tavernKeepMenuView.displayTavernKeepMenuView();
-    }
-    private void Rest() {
-       System.out.println("*** You rest and are lazy. Get back to work ***");
-    }
-    private void BuyStuff() {
-         System.out.println("*** You buy an overpriced piece of junk. You are a fool. ***");
+        TavernKeepMenuView tavernKeepMenuView = new TavernKeepMenuView();
+        tavernKeepMenuView.display();
     }
 
-    
-} 
+    private void Rest() {
+        System.out.println("*** You rest and are lazy. Get back to work ***");
+    }
+
+    private void BuyStuff() {
+        System.out.println("*** You buy an overpriced piece of junk. You are a fool. ***");
+    }
+
+}

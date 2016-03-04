@@ -13,11 +13,10 @@ import mountkabru.MountKabru;
  *
  * @author David
  */
-public class BattleMenuView
-{
-    private String menu;
+public class BattleMenuView extends View{
+    
     public BattleMenuView() {
-        this.menu = "\n"
+        super("\n"
                         + "\n------------------------------------------------------------------------------"
                         + "\n | You are in a fight! What will you do?                                       |"
                         + "\n------------------------------------------------------------------------------"
@@ -25,83 +24,25 @@ public class BattleMenuView
                         +"\nS - Spell Attack"
                         +"\nI - Open Inventory"
                         +"\nR - Run"
-                        +"\n-------------------------------------------------------------------------------";
+                        +"\n-------------------------------------------------------------------------------");
     }
-        
-    
-  // void displayMainMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
-        
-  //  }
 
-  public  void displayBattleMenuView() {
-     
-      boolean done = false; // set flage to not done
-      do {
-          int i = 0;
-          
-          // prompt for and get players name
-          do{
-            
-          String menuOption = this.getMenuOption();    
-          if (menuOption.toUpperCase().equals("R")){ // user wants to quit
-              double random = Math.random();
-              if (random <= .5){
-                  System.out.println("You Ran away.");
-              
-              return;
-              
-              }
-           else {
-              System.out.println("Failed to run");
-          }
-          }
-          done = this.doAction(menuOption);
-          i++;
-          } while (i < 6);
-          System.out.println("You Win");
-          return;
-          // do the requwsted action and display the next view
-          
-             
-      } while ( !done);
-  }     
-
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-   
-            }
-
-            break; 
-        }
-        return value;
-    }
-    public boolean doAction(String choice) 
+    @Override
+    public boolean doAction(char choice) 
     {
-                 choice = choice.toUpperCase();
+                 
         
         switch (choice) {
-            case "A" :
+            case 'A' :
                 this.attack();
                 break;
-            case "S" :
+            case 'S' :
                 this.spellAttack();
                 break;  
-            case "I" :
+            case 'I' :
                 this.openInvatory();
                 break;
-            case "R" :
+            case 'R' :
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");

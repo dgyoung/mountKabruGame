@@ -13,11 +13,9 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class HelpMenuView
-{
-    private String menu;
-    public HelpMenuView() {
-        this.menu = "\n"
+public class HelpMenuView extends View{
+    public HelpMenuView(){
+    super("\n"
                         + "\n------------------------------------------------------------------------------"
                         + "\n | Help Menu                                                           |"
                         + "\n------------------------------------------------------------------------------"
@@ -25,62 +23,23 @@ public class HelpMenuView
                         +"\nG - About the game"
                         +"\nS - How to fight"
                         +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------";
-    }
-        
+                        +"\n-------------------------------------------------------------------------------");
     
-  // void displayMainMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
-        
-  //  }
-
-  public  void displayHelpMenuView() {
-     
-      boolean done = false; // set flage to not done
-      do {
-          // prompt for and get players name
-          String menuOption = this.getMenuOption();
-          if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-              return; // exit the game
-          
-          // do the requwsted action and display the next view
-          done = this.doAction(menuOption);
-             
-      } while ( !done);
-  }     
-
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-   
-            }
-
-            break; 
-        }
-        return value;
-    }
-    public boolean doAction(String choice) 
+}
+    
+@Override
+    public boolean doAction(char choice) 
     {
-                 choice = choice.toUpperCase();
+                 
         
         switch (choice) {
-            case "N" :
+            case 'N' :
                 this.howToMove();
                 break;
-          case "G" :
+          case 'G' :
                 this.aboutTheGame();
                 break;  
-           case "S" :
+           case 'S':
                 this.howToFight();
                 break;               
           default:
@@ -103,4 +62,6 @@ public class HelpMenuView
     private void howToFight() {
        System.out.println("*** Why you asking me? You sissy ***");
     }
+
+    
 } 

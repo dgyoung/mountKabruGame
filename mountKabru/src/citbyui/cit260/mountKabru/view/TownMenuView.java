@@ -13,96 +13,52 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class TownMenuView
-{
-    private String menu;
+public class TownMenuView extends View {
+
     public TownMenuView() {
-        this.menu = "\n"
-                        + "\n-------------------------------------------------------------------------------------------------------------------------"        
-                        + "\n|     Town Menu                                                                                                   |"
-                        + "\n-------------------------------------------------------------------------------------------------------------------------"
-                        +"\nA - Go to Tavern"
-                        +"\nB - Go to Black Smith"
-                        +"\nC - Go to Pit "
-                        +"\nQ - Leave Town"
-                        +"\n-----------------------------------------------------------------------------------------------------------------------------";
+        super("\n"
+                + "\n-------------------------------------------------------------------------------------------------------------------------"
+                + "\n|     Town Menu                                                                                                   |"
+                + "\n-------------------------------------------------------------------------------------------------------------------------"
+                + "\nA - Go to Tavern"
+                + "\nB - Go to Black Smith"
+                + "\nC - Go to Pit "
+                + "\nQ - Leave Town"
+                + "\n-----------------------------------------------------------------------------------------------------------------------------");
     }
-        
-    
-  // void displayMapMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
-        
-  //  }
 
-  public  void displayTownMenuView() {
-     
-      boolean done = false; // set flage to not done
-      do {
-          // prompt for and get players name
-          String menuOption = this.getMenuOption();
-          if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-              return; // exit the game
-          
-          // do the requwsted action and display the next view
-          done = this.doAction(menuOption);
-             
-      } while ( !done);
-  }     
+    @Override
+    public boolean doAction(char choice) {
 
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-   
-            }
-
-            break; 
-        }
-        return value;
-    }
-    public boolean doAction(String choice) 
-    {
-                 choice = choice.toUpperCase();
-        
         switch (choice) {
-            case "A" :
+            case 'A':
                 this.GoToTavern();
                 break;
-          case "B" :
+            case 'B':
                 this.GoToBlackSmith();
-                break;  
-           case "C" :
+                break;
+            case 'C':
                 this.GoToPit();
-                break;  
-                case "D" :
-              default:
-              System.out.println("\n*** Invalid selection *** Try again");
-              break;
+                break;
+            case 'D':
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
 
-    
-
     private void GoToTavern() {
-            TavernMenuView tavernMenuView = new TavernMenuView();
-    tavernMenuView.displayTavernMenuView();
-    }
-    private void GoToBlackSmith() {
-       System.out.println("*** Get lost! We are closed! ***");
-    }
-    private void GoToPit() {
-         System.out.println("*** Sorry we are closed. Go die in the woods. ***");
+        TavernMenuView tavernMenuView = new TavernMenuView();
+        tavernMenuView.display();
     }
 
-    
-} 
+    private void GoToBlackSmith() {
+        System.out.println("*** Get lost! We are closed! ***");
+    }
+
+    private void GoToPit() {
+        System.out.println("*** Sorry we are closed. Go die in the woods. ***");
+    }
+
+}

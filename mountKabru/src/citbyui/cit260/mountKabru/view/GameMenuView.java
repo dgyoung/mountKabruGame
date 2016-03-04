@@ -9,8 +9,13 @@ package citbyui.cit260.mountKabru.view;
  *
  * @author Moose
  */
-public class GameMenuView {
+public class GameMenuView extends View{
   void displayMenu() {
       System.out.println("\n*** displayMenu stub function called ***");
   }  
+
+    @Override
+    public boolean doAction(char value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

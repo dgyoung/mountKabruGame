@@ -68,12 +68,12 @@ public class MainMenuView extends View{
 
     private void startExistingGame() {
         InGameMenuView inGamMenuView = new InGameMenuView();
-        inGamMenuView.displayInGameMenuView();
+        inGamMenuView.display();
     }
 
     private void displayHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {
@@ -82,6 +82,6 @@ public class MainMenuView extends View{
 
     private void testView() {
         BattleMenuView battleMenuView = new BattleMenuView();
-        battleMenuView.displayBattleMenuView();
+        battleMenuView.display();
     }
 }
