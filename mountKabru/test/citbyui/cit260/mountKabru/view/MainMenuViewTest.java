@@ -40,7 +40,7 @@ public class MainMenuViewTest {
     @Test
     public void testDoAction() {
         System.out.println("doAction");
-        String choice = "";
+        char choice = ' ';
         MainMenuView instance = new MainMenuView();
         boolean expResult = false;
         boolean result = instance.doAction(choice);
