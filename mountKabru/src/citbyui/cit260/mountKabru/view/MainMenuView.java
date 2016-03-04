@@ -13,114 +13,75 @@ import mountkabru.MountKabru;
  *
  * @author David
  */
-public class MainMenuView
-{
-    private String menu;
-    public MainMenuView() {
-        this.menu = "\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n | Main Menu                                                           |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nN - Start new game"
-                        +"\nG - Get and start saved game"
-                        +"\nH - Help menu"
-                        +"\nS - Save game"
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------";
-    }
-        
+public class MainMenuView extends View{
     
-  // void displayMainMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
-        
-  //  }
+    public MainMenuView(){
 
-  public  void displayMainMenuView() {
-     
-      boolean done = false; // set flage to not done
-      do {
-          // prompt for and get players name
-          String menuOption = this.getMenuOption();
-          if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-              return; // exit the game
-          
-          // do the requwsted action and display the next view
-          done = this.doAction(menuOption);
-             
-      } while ( !done);
-  }     
-
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-   
-            }
-
-            break; 
-        }
-        return value;
+    super("\n"
+                + "\n------------------------------------------------------------------------------"
+                + "\n | Main Menu                                                           |"
+                + "\n------------------------------------------------------------------------------"
+                + "\nN - Start new game"
+                + "\nG - Get and start saved game"
+                + "\nH - Help menu"
+                + "\nS - Save game"
+                + "\nQ - Quit"
+                + "\n-------------------------------------------------------------------------------");
+    
     }
-    public boolean doAction(String choice) 
-    {
-                 choice = choice.toUpperCase();
-        
+    // void displayMainMenuView() {
+    //    System.out.println("\n*** DisplayMenu() called.");
+    //  }
+
+@Override
+    public boolean doAction(char choice) {
+
         switch (choice) {
-            case "N":
+            case 'N':
                 this.startNewGame();
                 break;
-          case "G":
+            case 'G':
                 this.startExistingGame();
-                break;  
-           case "H":
+                break;
+            case 'H':
                 this.displayHelpMenu();
-                break;     
-          case "S":
+                break;
+            case 'S':
                 this.saveGame();
-                break;   
-          case "T":
+                break;
+            case 'T':
                 this.testView();
                 break;
-          default:
-              System.out.println("\n*** Invalid selection *** Try again");
-              break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
 
     private void startNewGame() {
         GameControl.createNewGame(MountKabru.getPlayer());
-        
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
         InGameMenuView inGamMenuView = new InGameMenuView();
-    inGamMenuView.displayInGameMenuView();
+        inGamMenuView.displayInGameMenuView();
     }
 
     private void displayHelpMenu() {
-          HelpMenuView helpMenuView = new HelpMenuView();
-    helpMenuView.displayHelpMenuView();
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
 
     private void saveGame() {
-       System.out.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
+        System.out.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
     }
 
     private void testView() {
         BattleMenuView battleMenuView = new BattleMenuView();
         battleMenuView.displayBattleMenuView();
     }
-} 
+}

@@ -107,7 +107,7 @@ public class InGameMenuView
 
     private void MainMenu() {
        MainMenuView mainMenuView = new MainMenuView();
-   mainMenuView.displayMainMenuView(); }
+   mainMenuView.display(); }
     
     private void Invantory() {
          System.out.println("*** startExistingGame function called ***");
