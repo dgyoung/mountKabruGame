@@ -81,14 +81,17 @@ public class MapMenuView extends View {
     }
 
     private void GoToPlains() {
-        System.out.println("*** Kind of plain ***");
+        PlansMenuView plansMenuView= new PlansMenuView();
+        plansMenuView.display();
     }
 
     private void GoToJungle() {
-        System.out.println("*** Too humid ***");
+        JungleMenuView jungleMenuView = new JungleMenuView();
+       jungleMenuView.display();
     }
 
     private void GoToHighMountin() {
-        System.out.println("*** Way to much work. You go home and play Candy Land ***");
+       HighMountainMenuView highMountainMenuView = new HighMountainMenuView();
+        highMountainMenuView.display();
     }
 }
