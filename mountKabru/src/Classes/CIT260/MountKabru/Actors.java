@@ -5,13 +5,14 @@
  */
 package Classes.CIT260.MountKabru;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Moose
  */
-public class Actors {
+public class Actors implements Serializable {
     private int helth;
     private int attack;
     private String name;
