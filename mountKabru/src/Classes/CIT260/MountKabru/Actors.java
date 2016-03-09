@@ -12,15 +12,41 @@ import java.util.Objects;
  *
  * @author Moose
  */
-public class Actors implements Serializable {
-    private int helth;
-    private int attack;
-    private String name;
-    private int level;
-    private int defence;
-    private String spell;
-    private String invintory;
-    private String weekness; 
+public enum Actors implements Serializable {
+    
+    LargeSpider("Kill it, kill it with fire."),
+    GiantRat("Rodents of unusual size?"),
+    MeanDog("I hate mean dogs."),
+    Snake("Sssssssave yourssssssssselvessss From itsssss poisssson. "),
+    SwarmOfCentipedes("Kind of makes your skin crawl."),
+    Bandit("Give me your money!"),
+    OldMan("Get of my lawn!"),
+    Wolf("I hope its just the one."),
+    AngryDear("Why is it so angry?"),
+    SwampHagg("Want to see my ginger bread house?"),
+    SwarmOfSquirrels("This is nuts!"),
+    Boar("Hakuna matata"),
+    RabidBoa("It's foaming at the fangs"),
+    Tiger("All we need now is a bar and a lion....o my."),
+    SwarmOfMonkys("This is bananas!"),
+    FeralJungleBoy("You tell him Put some pants on you hippy."),
+    Bear("Just the bear necessities"),
+    TrollWithLeprosy("He seams to be falling apart"),
+    MysteriousMaster("You can always just quit the game."),
+    Dragon("I hope you have dwarf to feed it."),
+    RockGolem("You shall name him Rocky and he shall be yours."),
+    Roc("Thats a big bird."),
+    Giant("You have seen bigger."),
+    SwarmOfKobolds("May be thay might think your a god and not kill you");
+    
+    private final int helth;
+    private final int attack;
+    
+    private final int level;
+    private final int defence;
+    private final String spell;
+    private final String invintory;
+    private final String weekness; 
 
     public Actors(int helth, int attack, String name, int level, int defence, String spell, String invintory, String weekness) {
         this.helth = helth;
@@ -33,7 +59,9 @@ public class Actors implements Serializable {
         this.weekness = weekness;
     }
 
-    public Actors() {
+    public Actors(String description) {
+this.description = description;
+coordinates = new Point (1,1);
     }
 
     
@@ -41,123 +69,44 @@ public class Actors implements Serializable {
         return helth;
     }
 
-    public void setHelth(int helth) {
-        this.helth = helth;
-    }
+   
 
     public int getAttack() {
         return attack;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+   
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
+    
     public int getDefence() {
         return defence;
     }
 
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
-
+   
     public String getSpell() {
         return spell;
     }
 
-    public void setSpell(String spell) {
-        this.spell = spell;
-    }
-
+   
     public String getInvintory() {
         return invintory;
     }
 
-    public void setInvintory(String invintory) {
-        this.invintory = invintory;
-    }
-
+    
     public String getWeekness() {
         return weekness;
     }
 
-    public void setWeekness(String weekness) {
-        this.weekness = weekness;
-    }
-
+  
     @Override
     public String toString() {
         return "Actors{" + "helth=" + helth + ", attack=" + attack + ", name=" + name + ", level=" + level + ", defence=" + defence + ", spell=" + spell + ", invintory=" + invintory + ", weekness=" + weekness + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + this.helth;
-        hash = 61 * hash + this.attack;
-        hash = 61 * hash + Objects.hashCode(this.name);
-        hash = 61 * hash + this.level;
-        hash = 61 * hash + this.defence;
-        hash = 61 * hash + Objects.hashCode(this.spell);
-        hash = 61 * hash + Objects.hashCode(this.invintory);
-        hash = 61 * hash + Objects.hashCode(this.weekness);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actors other = (Actors) obj;
-        if (this.helth != other.helth) {
-            return false;
-        }
-        if (this.attack != other.attack) {
-            return false;
-        }
-        if (this.level != other.level) {
-            return false;
-        }
-        if (this.defence != other.defence) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.spell, other.spell)) {
-            return false;
-        }
-        if (!Objects.equals(this.invintory, other.invintory)) {
-            return false;
-        }
-        if (!Objects.equals(this.weekness, other.weekness)) {
-            return false;
-        }
-        return true;
-    }
+    
     
     
 }
