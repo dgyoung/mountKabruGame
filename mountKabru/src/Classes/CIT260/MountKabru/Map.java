@@ -16,7 +16,8 @@ public class Map implements Serializable{
     // Map instance veriables 
     private int levelCount; 
     private int stageCount;
-
+    private Location[][] locations;
+    
     public Map(int levelCount, int stageCount) {
         this.levelCount = levelCount;
         this.stageCount = stageCount;
@@ -33,6 +34,14 @@ public class Map implements Serializable{
         this.levelCount = levelCount;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+                
     public int getStageCount() {
         return stageCount;
     }

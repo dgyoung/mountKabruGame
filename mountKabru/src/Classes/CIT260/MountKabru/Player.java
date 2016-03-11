@@ -7,7 +7,7 @@ package Classes.CIT260.MountKabru;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+//add an aray list of items
 /**
  *
  * @author David

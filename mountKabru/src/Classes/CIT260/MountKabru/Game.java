@@ -18,7 +18,7 @@ public class Game implements Serializable{
     private int startTime; 
     private String itemList;
 
-    private Player[] player;
+    private Player player;
     private Map map;
     private Items[] items;
     
@@ -54,7 +54,32 @@ public class Game implements Serializable{
 
     public void setItemList(String itemList) {
         this.itemList = itemList;
+    } 
+    
+    public Player getPlayer() {
+        return player;
     }
+     
+    public void setPlayer(Player player){
+        this.player =player;
+    }
+    
+       public Map getMap() {
+        return map;
+    }
+     
+    public void setMap(Map map){
+        this.map =map;
+    }
+    
+       public Items[] getItems() {
+        return items;
+    }
+     
+    public void setItems(Items[] items) {
+        this.items =items;
+    }
+    
 
     @Override
     public int hashCode() {

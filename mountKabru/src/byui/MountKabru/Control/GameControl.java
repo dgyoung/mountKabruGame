@@ -5,7 +5,10 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Game;
+import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
+import static jdk.nashorn.internal.objects.NativeArray.map;
 import mountkabru.MountKabru;
 
 /**
@@ -30,7 +33,14 @@ public class GameControl {
    
 
     public static void createNewGame(Player player) {
-      System.out.println("\n*** createNewGame stub function called ***");  
+        Game game = new Game(); // create new game
+        MountKabru.setCurrentGame(game); // save in MountKabru
+        
+        game.setPlayer(player); // save player in game
+        Map map = MapControl.createMap(); // create and initalize new map
+        game.setMap(map); // save map in game
+       // move actor to starting position in the mad
+      MapControl.moveActorsToStartingLocation(map);
     }
     
 }       // new code

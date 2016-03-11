@@ -60,6 +60,7 @@ public class MainMenuView extends View{
     }
 
     private void startNewGame() {
+        // create a new game
         GameControl.createNewGame(MountKabru.getPlayer());
 
         GameMenuView gameMenu = new GameMenuView();
