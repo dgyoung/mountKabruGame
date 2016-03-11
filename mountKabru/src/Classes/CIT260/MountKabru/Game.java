@@ -18,6 +18,10 @@ public class Game implements Serializable{
     private int startTime; 
     private String itemList;
 
+    private Player[] player;
+    private Map map;
+    private Items[] items;
+    
     public Game(int score, int startTime, String itemList) {
         this.score = score;
         this.startTime = startTime;
