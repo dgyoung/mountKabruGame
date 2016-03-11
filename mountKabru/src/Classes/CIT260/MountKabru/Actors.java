@@ -14,42 +14,48 @@ import java.util.Objects;
  */
 public enum Actors implements Serializable {
     
-    LargeSpider("Kill it, kill it with fire."),
-    GiantRat("Rodents of unusual size?"),
-    MeanDog("I hate mean dogs."),
-    Snake("Sssssssave yourssssssssselvessss From itsssss poisssson. "),
-    SwarmOfCentipedes("Kind of makes your skin crawl."),
-    Bandit("Give me your money!"),
-    OldMan("Get of my lawn!"),
-    Wolf("I hope its just the one."),
-    AngryDear("Why is it so angry?"),
-    SwampHagg("Want to see my ginger bread house?"),
-    SwarmOfSquirrels("This is nuts!"),
-    Boar("Hakuna matata"),
-    RabidBoa("It's foaming at the fangs"),
-    Tiger("All we need now is a bar and a lion....o my."),
-    SwarmOfMonkys("This is bananas!"),
-    FeralJungleBoy("You tell him Put some pants on you hippy."),
-    Bear("Just the bear necessities"),
-    TrollWithLeprosy("He seams to be falling apart"),
-    MysteriousMaster("You can always just quit the game."),
-    Dragon("I hope you have dwarf to feed it."),
-    RockGolem("You shall name him Rocky and he shall be yours."),
-    Roc("Thats a big bird."),
-    Giant("You have seen bigger."),
-    SwarmOfKobolds("May be thay might think your a god and not kill you");
+    LargeSpider(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "Kill it. kill it with fire."),
+    GiantRat(5, 3, "GiantRat", 1, 1, "Spell", "Empty", "Fire", "Rodents of unusual size?"),
+    MeanDog(4, 4, "MeanDog", 1, 1, "Spell", "Empty", "Stick", "I hate mean dogs."),
+    Snake(5, 2, "Snake", 1, 2, "Spell", "Empty", "Fire","Sssssssave yourssssssssselvessss From itsssss poisssson."),
+    SwarmOfCentipedes(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "Kind of makes your skin crawl."),
+    Bandit(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "Give me your money!"),
+    OldMan(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","Get of my lawn!"),
+    Wolf(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "I hope its just the one."),
+    AngryDear(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","Why is it so angry?"),
+    SwampHagg(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "Want to see my ginger bread house?"),
+    SwarmOfSquirrels(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "This is nuts!"),
+    Boar(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","Hakuna matata"),
+    RabidBoa(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","It's foaming at the fangs"),
+    Tiger(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "All we need now is a bar and a lion....o my."),
+    SwarmOfMonkys(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "This is bananas!"),
+    FeralJungleBoy(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "You tell him Put some pants on you hippy."),
+    Bear(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","Just the bear necessities"),
+    TrollWithLeprosy(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "He seams to be falling apart"),
+    MysteriousMaster(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","You can always just quit the game."),
+    Dragon(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "I hope you have dwarf to feed it."),
+    RockGolem(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "You shall name him Rocky and he shall be yours."),
+    Roc(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","Thats a big bird."),
+    Giant(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire","You have seen bigger."),
+    SwarmOfKobolds(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "May be thay might think your a god and not kill you");
     
-    private final int helth;
+    private final int health;
     private final int attack;
-    
     private final int level;
     private final int defence;
     private final String spell;
     private final String invintory;
     private final String weekness; 
-
-    public Actors(int helth, int attack, String name, int level, int defence, String spell, String invintory, String weekness) {
-        this.helth = helth;
+    private final String name;
+    private final String enamyDiscription;
+    
+  
+    
+    
+     Actors(int health, int attack, String name, int level, int defence, String spell, String invintory, String weekness,String enamyDiscription) {
+       
+        this.enamyDiscription = enamyDiscription;
+        this.health = health;
         this.attack = attack;
         this.name = name;
         this.level = level;
@@ -59,17 +65,19 @@ public enum Actors implements Serializable {
         this.weekness = weekness;
     }
 
-    public Actors(String description) {
-this.description = description;
-coordinates = new Point (1,1);
-    }
+
+
+   
 
     
-    public int getHelth() {
-        return helth;
+    public int getHealth() {
+        return health;
     }
 
    
+    public String getenamyDiscription() {
+         return enamyDiscription;   
+    }
 
     public int getAttack() {
         return attack;
@@ -103,7 +111,7 @@ coordinates = new Point (1,1);
   
     @Override
     public String toString() {
-        return "Actors{" + "helth=" + helth + ", attack=" + attack + ", name=" + name + ", level=" + level + ", defence=" + defence + ", spell=" + spell + ", invintory=" + invintory + ", weekness=" + weekness + '}';
+        return "Actors{" + "health=" + health + ", attack=" + attack + ", name=" + name + ", level=" + level + ", defence=" + defence + ", spell=" + spell + ", invintory=" + invintory + ", weekness=" + weekness + '}';
     }
 
     
