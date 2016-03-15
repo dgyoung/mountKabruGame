@@ -14,7 +14,10 @@ import java.util.Objects;
  */
 public class Scene implements Serializable{
     private String description;
-
+    private String name;
+    private String eventType;
+    
+    
     public Scene() {
     }
     
@@ -26,6 +29,22 @@ public class Scene implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
+     public String getname() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    } 
+    
+    public String getEventType() {
+             return eventType;
+    }
+
+    public void seteventType(String eventType) {
+        this.eventType = eventType;
+    }
+    
 
     @Override
     public int hashCode() {

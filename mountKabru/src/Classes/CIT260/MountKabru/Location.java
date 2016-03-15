@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Location implements Serializable{
     private int level;
     private int stage;
-  
+
 
     public Location() {
     }
