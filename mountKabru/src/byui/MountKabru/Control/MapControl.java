@@ -13,9 +13,7 @@ import Classes.CIT260.MountKabru.Scene;
  * @author Moose
  */
 public class MapControl {
-    static ArrayList <Location>createLocation(){
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    } 
+ 
     
     public static Map createMap() {
     // create the map
