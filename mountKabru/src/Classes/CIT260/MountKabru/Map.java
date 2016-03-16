@@ -18,13 +18,32 @@ public class Map implements Serializable{
     private int stageCount;
     private Location[][] locations;
     
-    public Map(int levelCount, int stageCount) {
-        this.levelCount = levelCount;
-        this.stageCount = stageCount;
-    }
-
     public Map() {
     }
+    
+    public Map(int levelCount, int stageCount) {
+        if (levelCount < 1 || stageCount < 1){
+            System.out.println("The number of rows and colums must be > zero");
+            return;
+        }
+        this.levelCount = levelCount;
+        this.stageCount = stageCount;
+        
+        this.locations = new Location[levelCount][stageCount];
+        
+        for (int row = 0; row < levelCount; row++){
+            for(int column = 0; column < stageCount; column++){
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                
+                locations[row][column] = location;
+            }
+        }
+
+    }
+
+    
   
     public int getLevelCount() {
         return levelCount;

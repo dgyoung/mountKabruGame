@@ -46,6 +46,7 @@ public class PlayerControl {
     
     public void levelUp (Player player, double exp, String attribute) {
         double level = player.getLevel();
+        double health = player.getHealth();
         double attack = player.getAttack();
         double dexterity = player.getDexterity();
         double defense = player.getDefense();
@@ -72,6 +73,8 @@ public class PlayerControl {
             switch (attribute) {
                 case "bard":
                     random = (int )(Math.random() * 3);
+                    health = health + random + 5;
+                    random = (int )(Math.random() * 3);
                     attack = attack + random + 3;
                     random = (int )(Math.random() * 3);
                     dexterity = dexterity + random + 3;
@@ -88,6 +91,8 @@ public class PlayerControl {
                     break;
                 case "warrior":
                     random = (int )(Math.random() * 3);
+                    health = health + random + 5;
+                    random = (int )(Math.random() * 3);
                     attack = attack + random + 4;
                     random = (int )(Math.random() * 3);
                     dexterity = dexterity + random + 2;
@@ -96,6 +101,7 @@ public class PlayerControl {
                     random = (int )(Math.random() * 3);
                     mana = mana + random + 2;
                     level = level++;
+                    player.setHealth(health);
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);
@@ -103,6 +109,8 @@ public class PlayerControl {
                     player.setLevel(level);
                     break;
                 case "mage":
+                    random = (int )(Math.random() * 3);
+                    health = health + random + 5;
                     random = (int )(Math.random() * 3);
                     attack = attack + random + 2;
                     random = (int )(Math.random() * 3);
@@ -112,6 +120,7 @@ public class PlayerControl {
                     random = (int )(Math.random() * 3);
                     mana = mana + random + 4;
                     level = level++;
+                    player.setHealth(health);
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);
