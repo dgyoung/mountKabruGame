@@ -26,7 +26,14 @@ public class MapControl {
 // assigne the different scenes to locations in the map
         assignScenesToLocations(map, scenes);
 
-        return map;
+
+return map;
+    }
+    static void moveActorsToStartingLocation(Map map) {
+        
+    }
+    private static void assignScenesToLocations(Map map,Scene[] scenes){
+        
     }
 
     private static Scene[] createScenes() {

@@ -6,15 +6,24 @@
 package Classes.CIT260.MountKabru;
 
 import java.io.Serializable;
-
+import java.awt.Point;
 /**
  *
  * @author David
  */
 public class Location implements Serializable{
-    private int level;
-    private int stage;
-  
+    
+    tavern(tavern, new Point(0, 0));
+    
+    private final int level;
+    private final int stage;
+    private final String name;
+    
+    Location(String name, int level, int stage){
+        this.level = level;
+        this.stage = stage;
+        this.name = name;
+    }
 
     public Location() {
     }

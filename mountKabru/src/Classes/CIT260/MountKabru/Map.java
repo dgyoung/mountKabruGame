@@ -14,43 +14,46 @@ import java.io.Serializable;
 public class Map implements Serializable{
    
     // Map instance veriables 
-    private int levelCount; 
-    private int stageCount;
+    private int noOfLevels; 
+    private int noOfStages;
     private Location[][] locations;
     
+  
+
     public Map() {
     }
     
-    public Map(int levelCount, int stageCount) {
-        if (levelCount < 1 || stageCount < 1){
-            System.out.println("The number of rows and colums must be > zero");
+    public Map(int noOfLevels, int noOfStages) {
+    
+        if (noOfLevels < 1 || noOfStages <1) {
+            System.out.println("the number of levels and stages must be > zero");
             return;
         }
-        this.levelCount = levelCount;
-        this.stageCount = stageCount;
+        this.noOfLevels = noOfLevels;
+        this.noOfStages = noOfStages;
         
-        this.locations = new Location[levelCount][stageCount];
+        // creats 2-D array for location objects
+        this.locations = new Location [noOfLevels][noOfStages];
         
-        for (int row = 0; row < levelCount; row++){
-            for(int column = 0; column < stageCount; column++){
-                Location location = new Location();
-                location.setColumn(column);
-                location.setRow(row);
-                
-                locations[row][column] = location;
-            }
+        for (int level = 0; level < noOfLevels; level++) {
+             for (int stage = 0; stage < noOfStages; stage++){
+// creat and initialize object instance
+            Location location = new Location();
+            location.setStage(stage);
+            location.setLevel(level);
+            
+            
+            // assign the location object to the current position in array
+            locations[level][stage] = location;
         }
-
     }
-
-    
-  
+    }
     public int getLevelCount() {
-        return levelCount;
+        return noOfLevels;
     }
 
     public void setLevelCount(int levelCount) {
-        this.levelCount = levelCount;
+        this.noOfLevels = levelCount;
     }
 
     public Location[][] getLocations() {
@@ -62,23 +65,23 @@ public class Map implements Serializable{
     }
                 
     public int getStageCount() {
-        return stageCount;
+        return noOfStages;
     }
 
     public void setStageCount(int stageCount) {
-        this.stageCount = stageCount;
+        this.noOfStages = stageCount;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "levelCount=" + levelCount + ", stageCount=" + stageCount + '}';
+        return "Map{" + "levelCount=" + noOfLevels + ", stageCount=" + noOfStages + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.levelCount;
-        hash = 59 * hash + this.stageCount;
+        hash = 59 * hash + this.noOfLevels;
+        hash = 59 * hash + this.noOfStages;
         return hash;
     }
 
@@ -94,10 +97,10 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (this.levelCount != other.levelCount) {
+        if (this.noOfLevels != other.noOfLevels) {
             return false;
         }
-         if(this.stageCount != other.stageCount) {
+         if(this.noOfStages != other.noOfStages) {
             return false;
         }
         return true;
