@@ -14,6 +14,8 @@ import java.io.Serializable;
 public class Map implements Serializable{
    
     // Map instance veriables 
+   
+    
     private int noOfLevels; 
     private int noOfStages;
     private Location[][] locations;

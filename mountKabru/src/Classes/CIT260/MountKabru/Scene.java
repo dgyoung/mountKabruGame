@@ -12,16 +12,28 @@ import java.util.Objects;
  *
  * @author David
  */
-public class Scene implements Serializable{
+public enum Scene implements Serializable{
+  
+    Hightmountin("HighMountin", "BossFight", "FightEvent"),
+    Jungle,
+    DarkForest,
+    Plans,
+    Tavern,
+    BlackSmith;
+    
     private String description;
     private String name;
     private String eventType;
     
     
-    public Scene() {
-    }
+  Scene(String name, String description, String eventType ) {
+   
+  this.name = name;
+  this.description = description;
+  this.eventType = eventType;
+  }
     
-
+  
     public String getDescription() {
         return description;
     }

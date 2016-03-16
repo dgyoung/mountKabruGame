@@ -13,8 +13,7 @@ import java.awt.Point;
  */
 public class Location implements Serializable{
     
-    tavern(tavern, new Point(0, 0));
-    
+      
     private final int level;
     private final int stage;
     private final String name;
@@ -44,6 +43,14 @@ public class Location implements Serializable{
         this.stage = stage;
     }
 
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name){
+        this.name = name; 
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
