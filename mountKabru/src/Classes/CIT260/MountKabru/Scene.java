@@ -12,26 +12,26 @@ import java.util.Objects;
  *
  * @author David
  */
-public enum Scene implements Serializable{
+public class Scene implements Serializable{
   
-    Hightmountin("HighMountin", "BossFight", "FightEvent"),
-    Jungle,
-    DarkForest,
-    Plans,
-    Tavern,
-    BlackSmith;
+//    Hightmountin("HighMountin", "BossFight", "FightEvent"),
+//    Jungle,
+//    DarkForest,
+//    Plans,
+//    Tavern,
+//    BlackSmith;
     
     private String description;
     private String name;
     private String eventType;
-    
-    
-  Scene(String name, String description, String eventType ) {
-   
-  this.name = name;
-  this.description = description;
-  this.eventType = eventType;
-  }
+    private String locationType;
+
+    public Scene(String description, String name, String eventType, String locationType) {
+        this.description = description;
+        this.name = name;
+        this.eventType = eventType;
+        this.locationType = locationType;
+    }
     
   
     public String getDescription() {
@@ -53,8 +53,16 @@ public enum Scene implements Serializable{
              return eventType;
     }
 
-    public void seteventType(String eventType) {
+    public void setEventType(String eventType) {
         this.eventType = eventType;
+    }
+    
+     public String getLocationType() {
+             return locationType;
+    }
+
+    public void setLocationType(String LocationType) {
+        this.locationType = LocationType;
     }
     
 

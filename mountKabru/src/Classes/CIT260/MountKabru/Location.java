@@ -14,17 +14,37 @@ import java.awt.Point;
 public class Location implements Serializable{
     
       
-    private final int level;
-    private final int stage;
-    private final String name;
-    
-    Location(String name, int level, int stage){
+    private int level;
+    private int stage;
+    private String name;
+    private Scene[] scene;
+    private boolean explored;
+
+    public Location( ){
+        
+    }
+    public Location(int level, int stage, String name, Scene[] scene, boolean explored) {
         this.level = level;
         this.stage = stage;
         this.name = name;
+        this.scene = scene;
+        this.explored = explored;
     }
 
-    public Location() {
+    public Scene[] getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene[] scene) {
+        this.scene = scene;
+    }
+
+    public boolean isExplored() {
+        return explored;
+    }
+
+    public void setExplored(boolean explored) {
+        this.explored = explored;
     }
 
     public int getLevel() {
@@ -46,10 +66,19 @@ public class Location implements Serializable{
     public String getName() {
         return name;
     }
-    
-    public void setName(String name){
-        this.name = name; 
+
+    public void setName(String name) {
+        this.name = name;
     }
+    
+    
+
+    
+    
+    
+    
+    
+   
     
     @Override
     public int hashCode() {
