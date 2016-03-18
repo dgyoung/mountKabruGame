@@ -16,13 +16,13 @@ public class Items implements Serializable{
     // Items instance veriables
     private String name;
     private String type;
-    private String afect;
+    private String effect;
     private double power;
 
-    public Items(String name, String type, String afect, double power) {
+    public Items(String name, String type, String effect, double power) {
         this.name = name;
         this.type = type;
-        this.afect = afect;
+        this.effect = effect;
         this.power = power;
     }
 
@@ -47,12 +47,12 @@ public class Items implements Serializable{
         this.type = type;
     }
 
-    public String getAfect() {
-        return afect;
+    public String getEffect() {
+        return effect;
     }
 
-    public void setAfect(String afect) {
-        this.afect = afect;
+    public void setEffect(String effect) {
+        this.effect = effect;
     }
 
     public double getPower() {
@@ -65,7 +65,7 @@ public class Items implements Serializable{
 
     @Override
     public String toString() {
-        return "Items{" + "name=" + name + ", type=" + type + ", afect=" + afect + ", power=" + power + '}';
+        return "Items{" + "name=" + name + ", type=" + type + ", afect=" + effect + ", power=" + power + '}';
     }
     
     @Override
@@ -73,7 +73,7 @@ public class Items implements Serializable{
         int hash = 7;
         hash = 41 * hash + Objects.hashCode(this.name);
         hash = 41 * hash + Objects.hashCode(this.type);
-        hash = 41 * hash + Objects.hashCode(this.afect);
+        hash = 41 * hash + Objects.hashCode(this.effect);
         hash = 41 * hash + (int) (Double.doubleToLongBits(this.power) ^ (Double.doubleToLongBits(this.power) >>> 32));
         return hash;
     }
@@ -99,7 +99,7 @@ public class Items implements Serializable{
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.afect, other.afect)) {
+        if (!Objects.equals(this.effect, other.effect)) {
             return false;
         }
         return true;

@@ -6,6 +6,7 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Game;
+import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
 import static jdk.nashorn.internal.objects.NativeArray.map;
@@ -41,6 +42,10 @@ public class GameControl {
         game.setMap(map); // save map in game
        // move actor to starting position in the mad
       MapControl.moveActorsToStartingLocation(map);
+    }
+
+    public static Items[] getSortedInventoryList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }       // new code

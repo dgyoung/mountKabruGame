@@ -64,7 +64,7 @@ public class MainMenuView extends View{
         GameControl.createNewGame(MountKabru.getPlayer());
 
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
