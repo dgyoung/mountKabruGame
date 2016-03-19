@@ -5,7 +5,10 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Location;
+import Classes.CIT260.MountKabru.Map;
 import byui.MountKabru.Control.InvatoryControl;
+import java.util.Arrays;
 
 /**
  *
@@ -61,8 +64,28 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
+        Location location = new Location();
+        Map map = new Map();
+        int level = location.getLevel();
+        int stage = location.getStage();
+        int noOfLevels = map.getLevelCount();
+        int noOfStages = map.getStageCount();
+        String row[] = null;
+        System.out.print("\nMount Kabru");
+        for(level = 0; level < noOfLevels; level++)
+            for(stage = 0; level < noOfStages; stage++){
+                if(location.isExplored() == true){
+                    row[stage] = "!!";
+                }
+                else{
+                    row[stage] = "??";
+                }
+            }
+            System.out.print("\n" + Arrays.toString(row));
+            row = null;
+        }
         
-    }
+    
 
     private void explore() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
