@@ -68,21 +68,21 @@ public class GameMenuView extends View {
         Map map = new Map();
         int level = location.getLevel();
         int stage = location.getStage();
-        int noOfLevels = map.getLevelCount();
-        int noOfStages = map.getStageCount();
-        String row[] = null;
-        System.out.print("\nMount Kabru");
+        int noOfLevels = 4;
+        int noOfStages = 6;
+        System.out.print("\nMount Kabru"
+                + "\n       ");
         for(level = 0; level < noOfLevels; level++)
-            for(stage = 0; level < noOfStages; stage++){
+            
+            for(stage = 0; stage < noOfStages; stage++){
                 if(location.isExplored() == true){
-                    row[stage] = "!!";
+                    System.out.print(" !! ");
                 }
                 else{
-                    row[stage] = "??";
+                    System.out.print(" ?? ");
                 }
             }
-            System.out.print("\n" + Arrays.toString(row));
-            row = null;
+        System.out.print("\r\n    ");
         }
         
     
