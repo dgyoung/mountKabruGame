@@ -76,13 +76,13 @@ public class GameMenuView extends View {
             
             for(stage = 0; stage < noOfStages; stage++){
                 if(location.isExplored() == true){
-                    System.out.print(" !! ");
+                    System.out.print("!! ");
                 }
                 else{
-                    System.out.print(" ?? ");
+                    System.out.print("?? ");
                 }
             }
-        System.out.print("\r\n    ");
+        System.out.print("\r\n*    ");
         }
         
     
