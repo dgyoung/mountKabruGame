@@ -9,7 +9,6 @@ import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
 import byui.MountKabru.Control.InvatoryControl;
 import java.util.Arrays;
-import mountkabru.MountKabru;
 
 /**
  *
@@ -65,40 +64,27 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-          //Show the player the map
-         Location[][] locations = MountKabru.getCurrentGame().getMap().getLocations();
-         int rowCount = MountKabru.getCurrentGame().getMap().getStageCount();
-         int columnCount = MountKabru.getCurrentGame().getMap().getLevelCount();
-         
-         
-         System.out.println("This is the map");
-         
-         
-        for (int row = rowCount-1; row >= 0; row--) {
+        Location location = new Location();
+        Map map = new Map();
+        int level = location.getLevel();
+        int stage = location.getStage();
+        int noOfLevels = 4;
+        int noOfStages = 6;
+        System.out.print("\nMount Kabru"
+                + "\n       ");
+        for(level = 0; level < noOfLevels; level++)
             
-            System.out.print(" " + (row+1) + " ");
-            for (int column = 0; column < columnCount; column++) {
-                System.out.print("|");
-                Location location = locations[row][column];
-                boolean discovered = location.isDiscovered(); 
-                if (discovered == true) {
-                 System.out.print("---");
-                 System.out.print("/\\");
+            for(stage = 0; stage < noOfStages; stage++){
+                if(location.isExplored() == true){
+                    System.out.print("!! ");
                 }
-                else {
-                 System.out.print("---");   
-                 System.out.print("??");
+                else{
+                    System.out.print("?? ");
                 }
-                System.out.print("---");
             }
-        System.out.print("| \n");
+        System.out.print("\r\n*    ");
         }
-                
-       System.out.println("   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |"); 
-         
-       MapMenuView adventureView = new MapMenuView();
-       adventureView.display();
-    }
+        
     
 
     private void explore() {
