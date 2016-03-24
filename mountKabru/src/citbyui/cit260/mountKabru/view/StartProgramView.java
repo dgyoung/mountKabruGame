@@ -7,27 +7,20 @@ package citbyui.cit260.mountKabru.view;
 
 import Classes.CIT260.MountKabru.Player;
 import byui.MountKabru.Control.GameControl;
+import byui.MountKabru.exceptions.GameControlException;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 
 /**
  *
  * @author David
  */
-public class StartProgramView { 
+public class StartProgramView extends View { 
     
     private String promptMessage;
     
     public StartProgramView(){
-        
-        this.promptMessage = "\nPlease enter your name: ";
-    
-        this.displayBanner();
-        
-    }
-
-    private void displayBanner() {
-        System.out.println(
-          "\n******************************************************"
+        super("\n******************************************************"
         + "\n*                                                    *"
         + "\n* Welcome to Mount Kabru                             *"
         + "\n* In this game you will be an adventurer who will    *"
@@ -42,82 +35,45 @@ public class StartProgramView {
         + "\n* May good fortune follow you on your quest.          *"
         + "\n*                                                    *"
         + "\n******************************************************"
-        );
-    }
-
-    public void displayStartProgramView() {
-        /*
-        do
-            prompt for and get the players name
-            if (playersName == "q" then
-                exit
-            do the action and display the nest view
-        while the action is not successful
-        */
-        boolean done = false;
-        do {
-            String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(playersName);
-        } while (!done);
-    }
-
-    private String getPlayersName() {
-        /*
-        WHILE valid value has not been entered
-            DISPLAY promptMessage
-            GET the value entered from keayboard
-            Trim the front and trailing blanks off of the name
-            IF the length of the value is blank THEN 
-                DISPLAY "Invalid value: The value can not be blank"
-                CONTINUE
-            ENDIF
-        
-            BREAK
-        
-        ENDWHILE
-        RETURN name
-        */
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-        
-
-    private boolean doAction(String playersName) {
-        //if the length of the playesName <2 then
-            // display "invalid name: the name bust be > 1 character"
-            // return false
-        // create Player with specified name
-        //if unscuccessful then
-            // display "invalid naem: the same is too short
-            //return false
-            
-        // display customized welcome message
-        // display mainMenuView
-        // return true
+        + "\n"
+        + "\n What is your name player?"
+        ); }
+    
+    private String year = "\n"
+            + "\n"
+            + "\n I forgot, what year is it?";
+    
+    @Override
+    public boolean doAction(String playersName) {
+ 
         
             if (playersName.length() < 2) {
                 System.out.println("\nInvalid players name: "
                     + "the name must be greater than one character in length");
                 return false;
             }
-            Player player = GameControl.createPlayer(playersName);
             
+            // ask what year is it
+            this.displayMessage = this.year;
+            String year = this.getInput().toUpperCase();
+            int currentYear = 0;
+            
+            try {
+                currentYear = parseInt(year);
+            } catch (NumberFormatException nf) {
+                System.out.println("You entered the wrong number");
+            }
+            
+            System.out.println(currentYear + " is really the current year!!");
+            
+            
+            Player player = null;
+                    
+            try{
+                 player = GameControl.createPlayer(playersName);
+            } catch (GameControlException me) {
+                System.out.println(me.getMessage());
+            }
             if (player == null) {
                 System.out.println("\nError creating the player.");
                 return false;
@@ -126,6 +82,9 @@ public class StartProgramView {
             return true;
         
     }
+     
+
+    
 
     private void displayNextView(Player player) {
    

@@ -26,18 +26,18 @@ public class HighMountainMenuView extends View{
 }
     
 @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String choice) 
     {
                  
         
         switch (choice) {
-            case 'N' :
+            case "N" :
                 this.LookForMonsters();
                 break;
-          case 'G' :
+          case "G" :
                 this.SerchInvantory();
                 break;  
-           case 'S':
+           case "S":
                 this.UsePotion();
                 break;               
           default:

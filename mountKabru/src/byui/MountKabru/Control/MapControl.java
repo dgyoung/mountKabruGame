@@ -18,7 +18,7 @@ public class MapControl {
 
     public static Map createMap() {
         // create the map
-        Map map = new Map(20, 20);
+        Map map = new Map(4, 8);
 
 // create a list of the different scenes in the game
         Scene[] scenes = createScenes();
@@ -30,8 +30,8 @@ public class MapControl {
 return map;
  }
     private static void assignScenesToLocations(Map map,Scene[] scenes){
-    int noOfLevels = map.getLevelCount();
-    int noOfStages = map.getStageCount();
+    int noOfLevels = map.getNoOfLevels();
+    int noOfStages = map.getNoOfStages();
     Location[][] locations = map.getLocations();
     
      for (int level = 0; level < noOfLevels; level++) {

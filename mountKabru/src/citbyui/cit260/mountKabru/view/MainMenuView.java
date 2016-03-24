@@ -22,7 +22,6 @@ public class MainMenuView extends View{
                 + "\n | Main Menu                                                           |"
                 + "\n------------------------------------------------------------------------------"
                 + "\nN - Start new game"
-                + "\nG - Get and start saved game"
                 + "\nH - Help menu"
                 + "\nS - Save game"
                 + "\nQ - Quit"
@@ -34,22 +33,19 @@ public class MainMenuView extends View{
     //  }
 
 @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'N':
+            case "N":
                 this.startNewGame();
                 break;
-            case 'G':
-                this.startExistingGame();
-                break;
-            case 'H':
+            case "H":
                 this.displayHelpMenu();
                 break;
-            case 'S':
+            case "S":
                 this.saveGame();
                 break;
-            case 'T':
+            case "T":
                 this.testView();
                 break;
             default:
@@ -67,10 +63,7 @@ public class MainMenuView extends View{
         gameMenu.display();
     }
 
-    private void startExistingGame() {
-        InGameMenuView inGamMenuView = new InGameMenuView();
-        inGamMenuView.display();
-    }
+
 
     private void displayHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();

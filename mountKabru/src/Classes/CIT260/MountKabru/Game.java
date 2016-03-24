@@ -6,6 +6,7 @@
 package Classes.CIT260.MountKabru;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -17,10 +18,11 @@ public class Game implements Serializable{
     private int score;
     private int startTime; 
     private String itemList;
-
+   
     private Player player;
     private Map map;
     private Items[] items;
+    private Actors[] actors;
     
     public Game(int score, int startTime, String itemList) {
         this.score = score;
@@ -29,6 +31,14 @@ public class Game implements Serializable{
     }
 
     public Game() {
+    }
+
+    public Actors[] getActors() {
+        return actors;
+    }
+
+    public void setActors(Actors[] actors) {
+        this.actors = actors;
     }
 
     
@@ -48,6 +58,8 @@ public class Game implements Serializable{
         this.startTime = startTime;
     }
 
+    
+     
     public String getItemList() {
         return itemList;
     }
@@ -79,14 +91,17 @@ public class Game implements Serializable{
     public void setItems(Items[] items) {
         this.items =items;
     }
-    
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.score;
-        hash = 89 * hash + this.startTime;
-        hash = 89 * hash + Objects.hashCode(this.itemList);
+        int hash = 7;
+        hash = 53 * hash + this.score;
+        hash = 53 * hash + this.startTime;
+        hash = 53 * hash + Objects.hashCode(this.itemList);
+        hash = 53 * hash + Objects.hashCode(this.player);
+        hash = 53 * hash + Objects.hashCode(this.map);
+        hash = 53 * hash + Arrays.deepHashCode(this.items);
+        hash = 53 * hash + Arrays.deepHashCode(this.actors);
         return hash;
     }
 
@@ -111,8 +126,22 @@ public class Game implements Serializable{
         if (!Objects.equals(this.itemList, other.itemList)) {
             return false;
         }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.items, other.items)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.actors, other.actors)) {
+            return false;
+        }
         return true;
     }
+    
+
 
     public void setscore(int i) {
     }
@@ -122,5 +151,9 @@ public class Game implements Serializable{
 
     public void setitemlist(String knife) {
      }
+
+
+
+ 
     
 }

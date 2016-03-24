@@ -24,23 +24,25 @@ public class TownMenuView extends View {
                 + "\nB - Go to Black Smith"
                 + "\nC - Go to Pit "
                 + "\nQ - Leave Town"
+                + "\nD - Dapper Dan"
                 + "\n-----------------------------------------------------------------------------------------------------------------------------");
     }
 
     @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'A':
+            case "A":
                 this.GoToTavern();
                 break;
-            case 'B':
+            case "B":
                 this.GoToBlackSmith();
                 break;
-            case 'C':
+            case "C":
                 this.GoToPit();
                 break;
-            case 'D':
+            case "D":
+                this.GoToDapperDan();
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -61,4 +63,9 @@ public class TownMenuView extends View {
         System.out.println("*** Sorry we are closed. Go die in the woods. ***");
     }
 
+    private void GoToDapperDan() {
+        GameTipsView gameTipsView = new GameTipsView();
+        gameTipsView.display();
+        
+    }
 }

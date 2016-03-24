@@ -28,16 +28,16 @@ public class TavernMenuView extends View {
     }
 
     @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'A':
+            case "A":
                 this.TalkToTavernKeep();
                 break;
-            case 'B':
+            case "B":
                 this.Rest();
                 break;
-            case 'C':
+            case "C":
                 this.BuyStuff();
                 break;
             default:

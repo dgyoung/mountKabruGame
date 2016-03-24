@@ -25,10 +25,10 @@ public class TavernKeepMenuView extends View {
     }
 
     @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'A':
+            case "A":
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");

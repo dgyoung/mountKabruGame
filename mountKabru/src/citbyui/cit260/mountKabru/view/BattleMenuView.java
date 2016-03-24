@@ -10,6 +10,7 @@ import Classes.CIT260.MountKabru.Player;
 import Classes.CIT260.MountKapru.exceptions.AttackControlException;
 import byui.MountKabru.Control.ActorsControl;
 import byui.MountKabru.Control.HelpControl;
+import byui.MountKabru.exceptions.ActorControlException;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -32,21 +33,21 @@ public class BattleMenuView extends View{
     }
 
     @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String choice) 
     {
                  
         
         switch (choice) {
-            case 'A' :
+            case "A":
                 this.attack();
                 break;
-            case 'S' :
+            case "S":
                 this.spellAttack();
                 break;  
-            case 'I' :
+            case "I" :
                 this.openInvatory();
                 break;
-            case 'R' :
+            case "R":
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
@@ -56,21 +57,28 @@ public class BattleMenuView extends View{
     }
 
     private void attack() {
-        System.out.println("\nyou attacked");
+         System.out.println("MeleeAttack");
+        double strength = -20.0;
+        double attack = 25.0;
+        double defence = 15.0;
+            try{    
+              double result = ActorsControl.strengthAttack (strength, attack, defence);
+            } catch (ActorControlException me) {
+                System.out.println(me.getMessage());
+            }
     }
-    
-    public void spellAttack() {
-        Actors actors = null;
-        Player player = null;
-        double defence = player.getDefense();
-        double mana = actors.getHealth();
-        double attack = actors.getAttack();
-        
-        try {
-            ActorsControl.spellAttack(mana, attack, defence);
-        } catch (AttackControlException me) {
-            
-        }
+
+    private void spellAttack() {
+        System.out.println("SpellAttack");
+        double mana = 20.0;
+        double attack = 25.0;
+        double defence = 815.0;
+        double result = 0;
+            try{    
+                result = ActorsControl.spellAttack(mana, attack, defence);
+            } catch (ActorControlException me) {
+                System.out.println(me.getMessage());
+            }
     }
 
     private void openInvatory() {

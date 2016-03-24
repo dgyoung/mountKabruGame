@@ -11,8 +11,8 @@ package citbyui.cit260.mountKabru.view;
  */
 public interface ViewInterface {
     
-    public void display();
-    public String getInput();
-    public boolean doAction(char value);
+    void display();
+    String getInput();
+    boolean doAction(String value);
     
 }

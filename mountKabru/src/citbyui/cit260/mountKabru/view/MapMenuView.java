@@ -46,22 +46,22 @@ public class MapMenuView extends View {
     }
 
     @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'A':
+            case "A" :
                 this.GoToTown();
                 break;
-            case 'B':
+            case "B":
                 this.GoToPlains();
                 break;
-            case 'C':
+            case "C":
                 this.GoToDarkForest();
                 break;
-            case 'D':
+            case "D":
                 this.GoToJungle();
                 break;
-            case 'E':
+            case "E":
                 this.GoToHighMountin();
                 break;
             default:

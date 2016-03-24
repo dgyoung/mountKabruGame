@@ -5,47 +5,45 @@
  */
 package byui.MountKabru.Control;
 
-import Classes.CIT260.MountKapru.exceptions.AttackControlException;
+import byui.MountKabru.exceptions.ActorControlException;
 
 /**
  *
  * @author Moose
  */
 public class ActorsControl {
-    public static void spellAttack (double mana, double attack, double defence)
-                                    throws AttackControlException {
+
+    public static double spellAttack(double mana, double attack, double defence) throws ActorControlException {
+
+        if (attack < 5 || attack > 305) {
+            throw new ActorControlException("the attack is either less then 5 or greater then 305");
+        }
+        if (mana < 5 || mana > 305) {
+            throw new ActorControlException("the Mana is either less then 5 or greater then 305");
+        }
+        if (defence < 5 || defence > 305) {
+            throw new ActorControlException("the Defence is either less then 5 or greater then 305");
+        }
+        double spellDamage = ((attack + mana) - defence) + (Math.random() * 10);
+        if (spellDamage > 0) {
+            return spellDamage;
+        }
         
-    if (attack < 5 || attack > 305){
-        throw new AttackControlException("invalid save file "
-                + "please start a new game");	
-    }
-    if (mana < 5 || mana > 305 ){
-        throw new AttackControlException("invalid save file "
-                + "please start a new game");	
-                
-    }
-    if (defence < 5 || defence > 305){
-        throw new AttackControlException("invalid save file "
-                + "please start a new game");	
-                
-    }
-    double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
-    
+        return 0;
     }
 
+    public static double strengthAttack(double strength, double attack, double defence) throws ActorControlException {
 
-    public double strangthAttack (double strangth, double attack, double defence) {
-
-    if (attack < 5 || attack > 305){
-        return -1;	
-                }
-    if (strangth < 5 || strangth > 305 ){
-        return -2;
-    }
-    if (defence < 5 || defence > 305){
-        return -3;
-    }
-    double spellDamage = ((attack + strangth)- defence) + (Math.random() * 10);
-    return spellDamage;
+        if (attack < 5 || attack > 305) {
+            throw new ActorControlException("the attack is either less then 5 or greater then 305");
+        }
+        if (strength < 5 || strength > 305) {
+            throw new ActorControlException("the Strength is either less then 5 or greater then 305");
+        }
+        if (defence < 5 || defence > 305) {
+            throw new ActorControlException("the defence is either less then 5 or greater then 305");
+        }
+        double spellDamage = ((attack + strength) - defence) + (Math.random() * 10);
+        return spellDamage;
     }
 }
