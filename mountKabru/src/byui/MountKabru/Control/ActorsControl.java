@@ -5,39 +5,42 @@
  */
 package byui.MountKabru.Control;
 
+import byui.MountKabru.exceptions.ActorControlException;
+
 /**
  *
  * @author Moose
  */
 public class ActorsControl {
-    public double spellAttack (double mana, double attack, double defence) {
+    
+    public static double spellAttack (double mana, double attack, double defence) throws ActorControlException{
 
     if (attack < 5 || attack > 305){
-        return -1;	
+       throw new ActorControlException("the attack is either less then 5 or greater then 305");	
                 }
     if (mana < 5 || mana > 305 ){
-        return -2;
+        throw new ActorControlException("the Mana is either less then 5 or greater then 305");
     }
     if (defence < 5 || defence > 305){
-        return -3;
+        throw new ActorControlException("the Defence is either less then 5 or greater then 305");
     }
     double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
     return spellDamage;
     }
 
 
-    public double strangthAttack (double strangth, double attack, double defence) {
+    public static double strengthAttack (double strength, double attack, double defence) throws ActorControlException{
 
     if (attack < 5 || attack > 305){
-        return -1;	
+       throw new ActorControlException("the attack is either less then 5 or greater then 305");	
                 }
-    if (strangth < 5 || strangth > 305 ){
-        return -2;
+    if (strength < 5 || strength > 305 ){
+        throw new ActorControlException("the Strength is either less then 5 or greater then 305");
     }
     if (defence < 5 || defence > 305){
-        return -3;
+        throw new ActorControlException("the defence is either less then 5 or greater then 305");
     }
-    double spellDamage = ((attack + strangth)- defence) + (Math.random() * 10);
+    double spellDamage = ((attack + strength)- defence) + (Math.random() * 10);
     return spellDamage;
     }
 }

@@ -5,6 +5,7 @@
  */
 package byui.MountKabru.Control;
 
+import byui.MountKabru.exceptions.ActorControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -27,7 +28,12 @@ public class ActorsControlTest {
         double attack = 25.0;
         double defence = 15.0;
         ActorsControl instance = new ActorsControl();
-        double result = instance.spellAttack(mana, attack, defence);
+        double result = 0;
+            try{    
+                result = instance.spellAttack(mana, attack, defence);
+            } catch (ActorControlException me) {
+                System.out.println(me.getMessage());
+            }
         assertTrue(result > 30 && result < 41);
         // TODO review the generated test code and remove the default call to fail.
         }

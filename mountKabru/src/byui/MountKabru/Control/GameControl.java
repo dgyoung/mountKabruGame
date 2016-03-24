@@ -10,6 +10,7 @@ import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
+import byui.MountKabru.exceptions.GameControlException;
 import java.util.Arrays;
 import static jdk.nashorn.internal.objects.NativeArray.map;
 import mountkabru.MountKabru;
@@ -20,9 +21,9 @@ import mountkabru.MountKabru;
  */
 public class GameControl {
 
-    public static Player createPlayer(String playersName) {
+    public static Player createPlayer(String playersName) throws GameControlException {
         if (playersName == null) {
-            return null;
+           throw new GameControlException("the players name is null");
         }
         
         Player player = new Player();
@@ -52,8 +53,12 @@ public class GameControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-     public static String listOfTheMonsters(Actors[] actors) {
+     public static String listOfTheMonsters(Actors[] actors) throws GameControlException{
         
+         if (actors == null) {
+             throw new GameControlException("the array of actors is null");
+         }
+         
         // Here I am creating a new array that I will sort the names into to arrange them.
         String[] newNames = new String[actors.length];
 

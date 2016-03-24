@@ -28,18 +28,18 @@ public class HelpMenuView extends View{
 }
     
 @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String choice) 
     {
                  
         
         switch (choice) {
-            case 'N' :
+            case "N":
                 this.howToMove();
                 break;
-          case 'G' :
+          case "G" :
                 this.aboutTheGame();
                 break;  
-           case 'S':
+           case "S":
                 this.howToFight();
                 break;               
           default:

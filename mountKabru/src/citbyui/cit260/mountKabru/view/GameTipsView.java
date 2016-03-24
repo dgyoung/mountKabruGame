@@ -7,6 +7,8 @@ package citbyui.cit260.mountKabru.view;
 
 import byui.MountKabru.Control.GameControl;
 import Classes.CIT260.MountKabru.Actors;
+import byui.MountKabru.exceptions.GameControlException;
+import static java.lang.Integer.parseInt;
 import mountkabru.MountKabru;
 /**
  *
@@ -16,6 +18,11 @@ public class GameTipsView extends View {
     
     public GameTipsView() {
         super("\n"
+                + "\n Before you can have any hints you have to guess what number I am thinking between 1 and 1");
+    }
+
+    private String realDisplay = "\n"
+            + "\n"
                 + "\n------------------------------------------"
                 + "\n|  You come upon an dapper man        |"
                 + "\n|  in twon. He streches his hand out      |"
@@ -27,24 +34,35 @@ public class GameTipsView extends View {
                 + "\nL - List of Monsters Alphabetically "
                 + "\nS - Your Stats "
                 + "\nQ - Quit"
-                + "\n--------------------------------------");
-    }
-
+                + "\n--------------------------------------";
+    
     private String promptMessage;
 
 @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String dapsNumb) 
     {
-
+            int playersNumber = 0;
+            
+            try {
+                playersNumber = parseInt(dapsNumb);
+            } catch (NumberFormatException nf) {
+                System.out.println("You entered the wrong number");
+            }
+            
+            System.out.println(playersNumber + " is Excactly what I was thinking, Amazing!!");
+            
+            this.displayMessage = this.realDisplay;
+            
+            String choice = this.getInput().toUpperCase();
 
         switch (choice) {
-            case 'A': 
+            case "A" : 
                 this.avgMonsters();
                 break;
-            case 'L':
+            case "L":
                 this.listMonsters();
                 break;
-            case 'S':
+            case "S":
                 this.heroStats();
                 break;
 
@@ -57,7 +75,12 @@ public class GameTipsView extends View {
 
     private void listMonsters() {
         Actors[] actors = MountKabru.getCurrentGame().getActors();
-        String listOMonsters = GameControl.listOfTheMonsters(actors);
+        String listOMonsters = null;
+        try {
+        listOMonsters = GameControl.listOfTheMonsters(actors);
+        } catch (GameControlException e) {
+            e.printStackTrace();
+        }
         System.out.println("\n Enjoy the lits try not to die too fast. \n"
             + listOMonsters);
     }

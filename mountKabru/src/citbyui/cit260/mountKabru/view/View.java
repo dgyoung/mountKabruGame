@@ -25,37 +25,32 @@ public abstract class View implements ViewInterface{
     @Override
     public void display() {
 
-        char selection = ' ';
+         boolean done = false;
         do {
-            
-            System.out.println(displayMessage);
-            
-            // prompt for and get players name
-            String input = this.getInput();
-            selection = input.charAt(0);
-            // do the requwsted action and display the next view
-            this.doAction(selection);
-
-        } while (selection != 'Q');
+            String playersName = this.getInput();
+            if (playersName.toUpperCase().equals("Q"))
+                return;
+            done = this.doAction(playersName);
+        } while (!done);
     }
     @Override
     public String getInput() {
+       
         Scanner keyboard = new Scanner(System.in);
+        String value = "";
         boolean valid = false;
-        String selection = "";
-        while (!valid) {
+        while (!valid){
+            System.out.println("\n" + this.displayMessage);
             
-            selection = keyboard.nextLine();
-            selection = selection.trim().toUpperCase();
-
-            if (selection.length() < 1) {
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1){
                 System.out.println("\nInvalid value: value can not be blank");
                 continue;
-
             }
-
             break;
         }
-        return selection;
+        return value;
     }
 }

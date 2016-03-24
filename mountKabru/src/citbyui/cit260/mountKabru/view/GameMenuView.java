@@ -27,20 +27,20 @@ public class GameMenuView extends View{
                         +"\n-------------------------------------------------------------------------------");
     }
 @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String choice) 
     {
                  
         switch (choice) {
-            case 'M' :
+            case "M" :
                 this.Map();
                 break;
-          case 'B' :
+            case "B":
                 this.Battle();
                 break;  
-           case 'A' :
+           case "A" :
                 this.MainMenu();
                 break;
-           case 'I' :
+           case "I" :
                 this.Invantory();
                 break;
           default:

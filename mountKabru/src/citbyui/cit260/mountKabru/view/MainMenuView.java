@@ -33,19 +33,19 @@ public class MainMenuView extends View{
     //  }
 
 @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'N':
+            case "N":
                 this.startNewGame();
                 break;
-            case 'H':
+            case "H":
                 this.displayHelpMenu();
                 break;
-            case 'S':
+            case "S":
                 this.saveGame();
                 break;
-            case 'T':
+            case "T":
                 this.testView();
                 break;
             default:

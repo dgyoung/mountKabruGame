@@ -29,19 +29,19 @@ public class TownMenuView extends View {
     }
 
     @Override
-    public boolean doAction(char choice) {
+    public boolean doAction(String choice) {
 
         switch (choice) {
-            case 'A':
+            case "A":
                 this.GoToTavern();
                 break;
-            case 'B':
+            case "B":
                 this.GoToBlackSmith();
                 break;
-            case 'C':
+            case "C":
                 this.GoToPit();
                 break;
-            case 'D':
+            case "D":
                 this.GoToDapperDan();
             default:
                 System.out.println("\n*** Invalid selection *** Try again");

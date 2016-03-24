@@ -5,9 +5,8 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import byui.MountKabru.Control.HelpControl;
-import java.util.Scanner;
-import mountkabru.MountKabru;
+import byui.MountKabru.Control.ActorsControl;
+import byui.MountKabru.exceptions.ActorControlException;
 
 /**
  *
@@ -28,21 +27,21 @@ public class BattleMenuView extends View{
     }
 
     @Override
-    public boolean doAction(char choice) 
+    public boolean doAction(String choice) 
     {
                  
         
         switch (choice) {
-            case 'A' :
+            case "A":
                 this.attack();
                 break;
-            case 'S' :
+            case "S":
                 this.spellAttack();
                 break;  
-            case 'I' :
+            case "I" :
                 this.openInvatory();
                 break;
-            case 'R' :
+            case "R":
                 break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
@@ -52,11 +51,28 @@ public class BattleMenuView extends View{
     }
 
     private void attack() {
-        System.out.println("\nyou attacked");
+         System.out.println("MeleeAttack");
+        double strength = -20.0;
+        double attack = 25.0;
+        double defence = 15.0;
+            try{    
+              double result = ActorsControl.strengthAttack (strength, attack, defence);
+            } catch (ActorControlException me) {
+                System.out.println(me.getMessage());
+            }
     }
 
     private void spellAttack() {
-        System.out.println("\nspell attack");
+        System.out.println("SpellAttack");
+        double mana = 20.0;
+        double attack = 25.0;
+        double defence = 815.0;
+        double result = 0;
+            try{    
+                result = ActorsControl.spellAttack(mana, attack, defence);
+            } catch (ActorControlException me) {
+                System.out.println(me.getMessage());
+            }
     }
 
     private void openInvatory() {
