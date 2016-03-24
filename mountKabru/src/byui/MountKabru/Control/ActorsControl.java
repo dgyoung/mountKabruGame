@@ -25,7 +25,9 @@ public class ActorsControl {
         throw new ActorControlException("the Defence is either less then 5 or greater then 305");
     }
     double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
-    return spellDamage;
+    if (spellDamage > 0){
+        return spellDamage;
+    }
     }
 
 
