@@ -24,6 +24,7 @@ public class TownMenuView extends View {
                 + "\nB - Go to Black Smith"
                 + "\nC - Go to Pit "
                 + "\nQ - Leave Town"
+                + "\nD - Dapper Dan"
                 + "\n-----------------------------------------------------------------------------------------------------------------------------");
     }
 
@@ -41,6 +42,7 @@ public class TownMenuView extends View {
                 this.GoToPit();
                 break;
             case 'D':
+                this.GoToDapperDan();
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -61,4 +63,9 @@ public class TownMenuView extends View {
         System.out.println("*** Sorry we are closed. Go die in the woods. ***");
     }
 
+    private void GoToDapperDan() {
+        GameTipsView gameTipsView = new GameTipsView();
+        gameTipsView.display();
+        
+    }
 }

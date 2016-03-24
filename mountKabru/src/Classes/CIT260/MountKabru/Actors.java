@@ -71,7 +71,10 @@ public enum Actors implements Serializable {
 
    
 
-    
+    public String getName(){
+        return name;
+    }
+     
      public Point getLocation() {
          return location;
      }

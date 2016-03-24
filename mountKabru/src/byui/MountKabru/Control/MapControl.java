@@ -30,8 +30,8 @@ public class MapControl {
 return map;
  }
     private static void assignScenesToLocations(Map map,Scene[] scenes){
-    int noOfLevels = map.getLevelCount();
-    int noOfStages = map.getStageCount();
+    int noOfLevels = map.getNoOfLevels();
+    int noOfStages = map.getNoOfStages();
     Location[][] locations = map.getLocations();
     
      for (int level = 0; level < noOfLevels; level++) {
