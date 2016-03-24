@@ -5,6 +5,10 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Player;
+import Classes.CIT260.MountKapru.exceptions.AttackControlException;
+import byui.MountKabru.Control.ActorsControl;
 import byui.MountKabru.Control.HelpControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
@@ -54,9 +58,19 @@ public class BattleMenuView extends View{
     private void attack() {
         System.out.println("\nyou attacked");
     }
-
-    private void spellAttack() {
-        System.out.println("\nspell attack");
+    
+    public void spellAttack() {
+        Actors actors = null;
+        Player player = null;
+        double defence = player.getDefense();
+        double mana = actors.getHealth();
+        double attack = actors.getAttack();
+        
+        try {
+            ActorsControl.spellAttack(mana, attack, defence);
+        } catch (AttackControlException me) {
+            
+        }
     }
 
     private void openInvatory() {

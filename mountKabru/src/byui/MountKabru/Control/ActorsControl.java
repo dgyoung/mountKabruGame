@@ -12,7 +12,8 @@ import Classes.CIT260.MountKapru.exceptions.AttackControlException;
  * @author Moose
  */
 public class ActorsControl {
-    public void spellAttack (double mana, double attack, double defence) throws AttackControlException {
+    public static void spellAttack (double mana, double attack, double defence)
+                                    throws AttackControlException {
         
     if (attack < 5 || attack > 305){
         throw new AttackControlException("invalid save file "
@@ -29,9 +30,7 @@ public class ActorsControl {
                 
     }
     double spellDamage = ((attack + mana)- defence) + (Math.random() * 10);
-    if (spellDamage > 0){
-        return spellDamage;
-    }
+    
     }
 
 
