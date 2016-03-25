@@ -71,7 +71,15 @@ public class MainMenuView extends View{
     }
 
     private void saveGame() {
-        this.console.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
+        this.console.println("\n\n Enter the file path for file where the game"
+                + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.saveGame(MountKabru.getCurrentGame(), filePath);
+        }catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void testView() {
