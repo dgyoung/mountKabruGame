@@ -6,6 +6,7 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Player;
+import byui.MountKabru.exceptions.PlayerControlExceptions;
 
 /**
  *
@@ -44,7 +45,7 @@ public class PlayerControl {
     }
     
     
-    public void levelUp (Player player, double exp, String attribute) {
+    public static void levelUp (Player player, double exp, String attribute) throws PlayerControlExceptions{
         double level = player.getLevel();
         double health = player.getHealth();
         double attack = player.getAttack();
@@ -52,20 +53,16 @@ public class PlayerControl {
         double defense = player.getDefense();
         double mana = player.getMana();
         if ((level * 2) < attack){
-            System.out.println(" currupt save " );
-            return;
+            throw new PlayerControlExceptions(" currupt save " );
         } 
         if ((level * 2) < dexterity){
-            System.out.println(" currupt save " );
-            return;
+            throw new PlayerControlExceptions(" currupt save " );
         } 
         if ((level * 2) < defense){
-            System.out.println(" currupt save " );
-            return;
+            throw new PlayerControlExceptions(" currupt save " );
         } 
         if ((level * 2) < mana){
-            System.out.println(" currupt save " );
-            return;
+            throw new PlayerControlExceptions(" currupt save " );
         } 
         
         if (exp >= 10 * level * level){
@@ -128,8 +125,7 @@ public class PlayerControl {
                     player.setLevel(level);
                     break;
                 default:
-                    System.out.println(" invalid class " );
-                    break;
+                    throw new PlayerControlExceptions(" Invalid Class " );
             }
         }
     }
