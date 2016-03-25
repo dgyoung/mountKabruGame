@@ -65,7 +65,7 @@ public class MapMenuView extends View {
                 this.GoToHighMountin();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+               ErrorView.display("MapMenuView","\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -77,7 +77,7 @@ public class MapMenuView extends View {
     }
 
     private void GoToDarkForest() {
-        System.out.println("*** It's dark.  ***");
+        this.console.println("*** It's dark.  ***");
     }
 
     private void GoToPlains() {

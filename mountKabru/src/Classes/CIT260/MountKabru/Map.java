@@ -5,6 +5,7 @@
  */
 package Classes.CIT260.MountKabru;
 
+import citbyui.cit260.mountKabru.view.ErrorView;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -26,7 +27,7 @@ public class Map implements Serializable {
     public Map(int noOfLevels, int noOfStages) {
 
         if (noOfLevels < 1 || noOfStages < 1) {
-            System.out.println("the number of levels and stages must be > zero");
+            ErrorView.display( "Map" , "the number of levels and stages must be > zero");
             return;
         }
         this.noOfLevels = noOfLevels;

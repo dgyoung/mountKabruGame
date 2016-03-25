@@ -6,6 +6,7 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Player;
+import citbyui.cit260.mountKabru.view.ErrorView;
 
 /**
  *
@@ -52,19 +53,19 @@ public class PlayerControl {
         double defense = player.getDefense();
         double mana = player.getMana();
         if ((level * 2) < attack){
-            System.out.println(" currupt save " );
+            ErrorView.display("PlayerControl",  "currupt save " );
             return;
         } 
         if ((level * 2) < dexterity){
-            System.out.println(" currupt save " );
+            ErrorView.display("PlayerControle", " currupt save " );
             return;
         } 
         if ((level * 2) < defense){
-            System.out.println(" currupt save " );
+           ErrorView.display("PlayerControle"," currupt save " );
             return;
         } 
         if ((level * 2) < mana){
-            System.out.println(" currupt save " );
+            ErrorView.display("PlayerControle", " currupt save " );
             return;
         } 
         
@@ -128,7 +129,7 @@ public class PlayerControl {
                     player.setLevel(level);
                     break;
                 default:
-                    System.out.println(" invalid class " );
+                    ErrorView.display("PlayerControle"," invalid class " );
                     break;
             }
         }

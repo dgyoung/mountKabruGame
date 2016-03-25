@@ -44,7 +44,7 @@ public class TownMenuView extends View {
             case "D":
                 this.GoToDapperDan();
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("StartProgramView","\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -56,11 +56,11 @@ public class TownMenuView extends View {
     }
 
     private void GoToBlackSmith() {
-        System.out.println("*** Get lost! We are closed! ***");
+        this.console.println("*** Get lost! We are closed! ***");
     }
 
     private void GoToPit() {
-        System.out.println("*** Sorry we are closed. Go die in the woods. ***");
+        this.console.println("*** Sorry we are closed. Go die in the woods. ***");
     }
 
     private void GoToDapperDan() {

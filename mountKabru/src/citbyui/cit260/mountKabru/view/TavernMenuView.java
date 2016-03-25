@@ -41,7 +41,7 @@ public class TavernMenuView extends View {
                 this.BuyStuff();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+               ErrorView.display("StartProgramView","\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -53,11 +53,11 @@ public class TavernMenuView extends View {
     }
 
     private void Rest() {
-        System.out.println("*** You rest and are lazy. Get back to work ***");
+        this.console.println("*** You rest and are lazy. Get back to work ***");
     }
 
     private void BuyStuff() {
-        System.out.println("*** You buy an overpriced piece of junk. You are a fool. ***");
+        this.console.println("*** You buy an overpriced piece of junk. You are a fool. ***");
     }
 
 }
