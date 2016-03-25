@@ -40,7 +40,7 @@ public class JungleMenuView extends View{
                 this.UsePotion();
                 break;               
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+             ErrorView.display("JungleMenuView","\n*** Invalid selection *** Try again");
               break;
         }
         return false;
@@ -54,11 +54,11 @@ public class JungleMenuView extends View{
     }
 
     private void SerchInvantory() {
-         System.out.println("*** you for got your bag, you have nothing ***");
+         this.console.println("*** you for got your bag, you have nothing ***");
     }
 
     private void UsePotion() {
-       System.out.println("*** you have no potions ***");
+       this.console.println("*** you have no potions ***");
     }
 
 

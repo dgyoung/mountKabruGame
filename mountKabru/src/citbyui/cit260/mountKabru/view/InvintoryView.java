@@ -12,20 +12,25 @@ import byui.MountKabru.Control.GameControl;
  *
  * @author Moose
  */
-public class InvintoryView {
+public class InvintoryView extends View {
     private void invintoryView(){
         Items[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" + "Effect" + "\t" + "Type of Item");
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t" + "Effect" + "\t" + "Type of Item");
         
         for (Items items : inventory) {
-            System.out.println(items.getName() + "\t   "
+            this.console.println(items.getName() + "\t   "
             + items.getEffect() + "\t   " + items.getType());
         }
     }
 
     void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
