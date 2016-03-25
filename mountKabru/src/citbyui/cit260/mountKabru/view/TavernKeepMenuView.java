@@ -31,7 +31,7 @@ public class TavernKeepMenuView extends View {
             case "A":
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("StartProgramView","\n*** Invalid selection *** Try again");
                 break;
         }
         return false;

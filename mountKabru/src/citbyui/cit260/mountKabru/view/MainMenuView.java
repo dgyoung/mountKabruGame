@@ -34,7 +34,7 @@ public class MainMenuView extends View{
 
 @Override
     public boolean doAction(String choice) {
-
+        choice = choice.toUpperCase();
         switch (choice) {
             case "N":
                 this.startNewGame();

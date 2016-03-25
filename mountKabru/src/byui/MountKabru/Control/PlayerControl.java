@@ -6,6 +6,7 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Player;
+import citbyui.cit260.mountKabru.view.ErrorView;
 import byui.MountKabru.exceptions.PlayerControlExceptions;
 
 /**

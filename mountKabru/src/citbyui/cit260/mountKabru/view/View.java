@@ -5,7 +5,13 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mountkabru.MountKabru;
 
 /**
  *
@@ -14,12 +20,15 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface{
     
     protected String displayMessage;
-
-    public View() {
-    }
+    
+    protected final BufferedReader keyboard;
+    protected final PrintWriter console;
 
     public View(String displayMessage) {
         this.displayMessage = displayMessage;
+        
+        keyboard = MountKabru.getInFile();
+        console = MountKabru.getOutFile();
     }
     
     @Override
@@ -36,17 +45,21 @@ public abstract class View implements ViewInterface{
     @Override
     public String getInput() {
        
-        Scanner keyboard = new Scanner(System.in);
+       
         String value = "";
         boolean valid = false;
         while (!valid){
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
+            try {
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+               ErrorView.display("StartProgramView","Key board Error: " + ex.getMessage());
+            }
             value = value.trim();
             
             if (value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
+                this.console.println("\nInvalid value: value can not be blank");
                 continue;
             }
             break;

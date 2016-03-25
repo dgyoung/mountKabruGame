@@ -48,7 +48,7 @@ public class StartProgramView extends View {
  
         
             if (playersName.length() < 2) {
-                System.out.println("\nInvalid players name: "
+               ErrorView.display( "StartProgramView","\nInvalid players name: "
                     + "the name must be greater than one character in length");
                 return false;
             }
@@ -61,10 +61,10 @@ public class StartProgramView extends View {
             try {
                 currentYear = parseInt(year);
             } catch (NumberFormatException nf) {
-                System.out.println("You entered the wrong number");
+                ErrorView.display( "StartProgramView","You entered the wrong number");
             }
             
-            System.out.println(currentYear + " is really the current year!!");
+            this.console.println(currentYear + " is really the current year!!");
             
             
             Player player = null;
@@ -72,10 +72,10 @@ public class StartProgramView extends View {
             try{
                  player = GameControl.createPlayer(playersName);
             } catch (GameControlException me) {
-                System.out.println(me.getMessage());
+                this.console.println(me.getMessage());
             }
             if (player == null) {
-                System.out.println("\nError creating the player.");
+                 ErrorView.display("StartProgramView","\nError creating the player.");
                 return false;
             }
             this.displayNextView(player);
@@ -89,7 +89,7 @@ public class StartProgramView extends View {
     private void displayNextView(Player player) {
    
     // display a custom welcome message
-    System.out.println("\n==================================="
+    this.console.println("\n==================================="
                               + "\n Welcometo the game " +player.getName()
                               + "\n We Hope you have a lot of fun!"
                               + "\n=================================="
