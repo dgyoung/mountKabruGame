@@ -29,7 +29,7 @@ public class MainMenuView extends View{
     
     }
     // void displayMainMenuView() {
-    //    System.out.println("\n*** DisplayMenu() called.");
+    //    this.console.println("\n*** DisplayMenu() called.");
     //  }
 
 @Override
@@ -49,7 +49,7 @@ public class MainMenuView extends View{
                 this.testView();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("MainMenuView","\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -71,7 +71,7 @@ public class MainMenuView extends View{
     }
 
     private void saveGame() {
-        System.out.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
+        this.console.println("*** Only babies save games. In my day, you couldn't save games. You just ran your little plumber till he died ***");
     }
 
     private void testView() {
