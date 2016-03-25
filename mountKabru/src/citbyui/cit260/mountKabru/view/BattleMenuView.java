@@ -50,7 +50,7 @@ public class BattleMenuView extends View{
             case "R":
                 break;
           default:
-              this.console.println("\n*** Invalid selection *** Try again");
+              ErrorView.display("BattleMenuView", "\n*** Invalid selection *** Try again");
               break;
         }
         return false;

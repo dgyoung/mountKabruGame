@@ -46,10 +46,10 @@ public class GameTipsView extends View {
             try {
                 playersNumber = parseInt(dapsNumb);
             } catch (NumberFormatException nf) {
-                System.out.println("You entered the wrong number");
+                ErrorView.display("GameTipsView", "You entered the wrong number");
             }
             
-            System.out.println(playersNumber + " is Excactly what I was thinking, Amazing!!");
+            this.console.println(playersNumber + " is Excactly what I was thinking, Amazing!!");
             
             this.displayMessage = this.realDisplay;
             
@@ -67,7 +67,7 @@ public class GameTipsView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Invalid selection *** Get lost");
+                ErrorView.display("GameTipsView", "\n*** Invalid selection *** Get lost");
         }
         return false;
     }
@@ -81,13 +81,13 @@ public class GameTipsView extends View {
         } catch (GameControlException e) {
             e.printStackTrace();
         }
-        System.out.println("\n Enjoy the lits try not to die too fast. \n"
+        this.console.println("\n Enjoy the lits try not to die too fast. \n"
             + listOMonsters);
     }
 
     private void heroStats() {
         
-        System.out.println("\nI Don't know don't care.");
+        this.console.println("\nI Don't know don't care.");
     } 
 
     private void avgMonsters() {

@@ -44,7 +44,7 @@ public class GameMenuView extends View{
                 this.Invantory();
                 break;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              ErrorView.display("GameMenuView","\n*** Invalid selection *** Try again");
               break;
         }
         return false;
@@ -58,7 +58,7 @@ public class GameMenuView extends View{
     }
 
     private void Battle() {
-         System.out.println("*** startExistingGame function called ***");
+         this.console.println("*** startExistingGame function called ***");
     }
 
     private void MainMenu() {
@@ -66,6 +66,6 @@ public class GameMenuView extends View{
    mainMenuView.display(); }
     
     private void Invantory() {
-         System.out.println("*** startExistingGame function called ***");
+         this.console.println("*** startExistingGame function called ***");
     }
 }

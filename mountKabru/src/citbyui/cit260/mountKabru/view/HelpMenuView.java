@@ -43,7 +43,7 @@ public class HelpMenuView extends View{
                 this.howToFight();
                 break;               
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              ErrorView.display("HelpMenuView","\n*** Invalid selection *** Try again");
               break;
         }
         return false;
@@ -52,15 +52,15 @@ public class HelpMenuView extends View{
     
 
     private void howToMove() {
-        System.out.println("*** Your move  ***");
+        this.console.println("*** Your move  ***");
     }
 
     private void aboutTheGame() {
-         System.out.println("*** It's a game ***");
+         this.console.println("*** It's a game ***");
     }
 
     private void howToFight() {
-       System.out.println("*** Why you asking me? You sissy ***");
+       this.console.println("*** Why you asking me? You sissy ***");
     }
 
     
