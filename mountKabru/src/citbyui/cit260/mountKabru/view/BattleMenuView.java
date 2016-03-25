@@ -50,26 +50,26 @@ public class BattleMenuView extends View{
             case "R":
                 break;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              ErrorView.display("BattleMenuView", "\n*** Invalid selection *** Try again");
               break;
         }
         return false;
     }
 
     private void attack() {
-         System.out.println("MeleeAttack");
+         this.console.println("MeleeAttack");
         double strength = -20.0;
         double attack = 25.0;
         double defence = 15.0;
             try{    
               double result = ActorsControl.strengthAttack (strength, attack, defence);
             } catch (ActorControlException me) {
-                System.out.println(me.getMessage());
+                this.console.println(me.getMessage());
             }
     }
 
     private void spellAttack() {
-        System.out.println("SpellAttack");
+        this.console.println("SpellAttack");
         double mana = 20.0;
         double attack = 25.0;
         double defence = 815.0;
@@ -77,12 +77,12 @@ public class BattleMenuView extends View{
             try{    
                 result = ActorsControl.spellAttack(mana, attack, defence);
             } catch (ActorControlException me) {
-                System.out.println(me.getMessage());
+                this.console.println(me.getMessage());
             }
     }
 
     private void openInvatory() {
-        System.out.println("\nopen invatory");
+        this.console.println("\nopen invatory");
     }
 
 
