@@ -36,52 +36,56 @@ public class MountKabru {
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
-    
+
     public static void main(String[] args) {
-        
-          StartProgramView startProgramView = new StartProgramView();
+
         try {
-        
-    
-         MountKabru.inFile = new BufferedReader(new InputStreamReader(System.in));
-         
-          MountKabru.outFile = new PrintWriter(System.out, true);
-        
-          String filePath = "log.txt";
-          MountKabru.logFile = new PrintWriter(filePath);
-       
-        startProgramView.display();
-    } catch (Throwable te) {
-            ErrorView.display("StartProgramView, There is an error",te.getMessage());
+
+            MountKabru.inFile = new BufferedReader(new InputStreamReader(System.in));
+
+            MountKabru.outFile = new PrintWriter(System.out, true);
+
+            String filePath = "log.txt";
+            MountKabru.logFile = new PrintWriter(filePath);
+            StartProgramView startProgramView = new StartProgramView();
+
+            startProgramView.display();
+        } catch (Throwable te) {
+            ErrorView.display("StartProgramView, There is an error", te.getMessage());
             te.printStackTrace();
+        } finally {
+            try {
+                if (MountKabru.outFile != null) {
+                    MountKabru.outFile.close();
+                }
+                if (MountKabru.inFile != null) {
+                    MountKabru.inFile.close();
+                }
+                if (MountKabru.logFile != null) {
+                    MountKabru.logFile.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(MountKabru.class.getName()).log(Level.SEVERE, null, ex);
             }
-        finally {
-              try {
-                  if (MountKabru.outFile != null)
-                   MountKabru.outFile.close();
-                  if ( MountKabru.inFile != null)
-                  MountKabru.inFile.close();
-                   if (MountKabru.logFile != null)
-                   MountKabru.logFile.close();
-              } catch (IOException ex) {
-                  Logger.getLogger(MountKabru.class.getName()).log(Level.SEVERE, null, ex);
-              }
-           
+
         }
     }
-    
-   public static Game getCurrentGame() {
-       return currentGame;
-   }
-   public static void setCurrentGame(Game currentGame) {
-       MountKabru.currentGame = currentGame;
-   }
-   public static Player getPlayer() {
-       return player;
-   }
-   public static void setPlayer(Player player) {
-       MountKabru.player = player;
-   }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        MountKabru.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        MountKabru.player = player;
+    }
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -106,6 +110,5 @@ public class MountKabru {
     public static void setLogFile(PrintWriter logFile) {
         MountKabru.logFile = logFile;
     }
-    
 
 }
