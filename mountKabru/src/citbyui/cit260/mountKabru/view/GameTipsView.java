@@ -32,6 +32,7 @@ public class GameTipsView extends View {
                 + "\n"
                 + "\nA - Average Hit Points for monsters in the world"
                 + "\nL - List of Monsters Alphabetically "
+                + "\np - You want me to write  that down for you?"
                 + "\nS - Your Stats "
                 + "\nQ - Quit"
                 + "\n--------------------------------------";
@@ -65,7 +66,9 @@ public class GameTipsView extends View {
             case "S":
                 this.heroStats();
                 break;
-
+            case "P":
+                this.PrintOut();
+                break; 
             default:
                 ErrorView.display("GameTipsView", "\n*** Invalid selection *** Get lost");
         }
@@ -90,7 +93,13 @@ public class GameTipsView extends View {
         this.console.println("\nI Don't know don't care.");
     } 
 
+    
+    
     private void avgMonsters() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void PrintOut() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
