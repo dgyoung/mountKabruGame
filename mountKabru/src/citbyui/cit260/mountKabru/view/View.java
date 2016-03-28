@@ -19,7 +19,7 @@ import mountkabru.MountKabru;
  */
 public abstract class View implements ViewInterface{
     
-    protected String displayMessage;
+    protected String displayMessage = " ";
     
     protected final BufferedReader keyboard;
     protected final PrintWriter console;
@@ -44,6 +44,29 @@ public abstract class View implements ViewInterface{
     }
     @Override
     public String getInput() {
+       
+       
+        String value = "";
+        boolean valid = false;
+        while (!valid){
+            this.console.println("\n" + this.displayMessage);
+            
+            try {
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+               ErrorView.display("StartProgramView","Key board Error: " + ex.getMessage());
+            }
+            value = value.trim();
+            
+            if (value.length() < 1){
+                this.console.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return value;
+    }
+      public String getOutput() {
        
        
         String value = "";
