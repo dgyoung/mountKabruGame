@@ -11,7 +11,9 @@ import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Player;
 import byui.MountKabru.exceptions.GameControlException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import static jdk.nashorn.internal.objects.NativeArray.map;
@@ -96,4 +98,18 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }   
+
+    public static void getSavedGame(String filePath) throws GameControlException{
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        MountKabru.setCurrentGame(game);
+    }
 }      

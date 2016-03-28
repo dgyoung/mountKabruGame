@@ -57,12 +57,20 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
         // create a new game
-        GameControl.createNewGame(MountKabru.getPlayer());
-
+        this.console.println("\n\nEnter the file path for the file where "
+                + "the game is saved.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
-
 
 
     private void displayHelpMenu() {
