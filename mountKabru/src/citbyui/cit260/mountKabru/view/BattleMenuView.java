@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Player;
 import Classes.CIT260.MountKapru.exceptions.AttackControlException;
 import byui.MountKabru.Control.ActorsControl;

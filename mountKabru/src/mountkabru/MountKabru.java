@@ -5,7 +5,7 @@
  */
 package mountkabru;
 
-import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.BattleScene;
 import Classes.CIT260.MountKabru.Game;

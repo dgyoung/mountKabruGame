@@ -6,10 +6,11 @@
 package citbyui.cit260.mountKabru.view;
 
 import byui.MountKabru.Control.GameControl;
-import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Actor;
 import byui.MountKabru.exceptions.GameControlException;
 import static java.lang.Integer.parseInt;
 import mountkabru.MountKabru;
+import static java.lang.Integer.parseInt;
 
 /**
  *
@@ -76,7 +77,7 @@ public class GameTipsView extends View {
     }
 
     private void listMonsters() {
-        Actors[] actors = MountKabru.getCurrentGame().getActors();
+        Actor[] actors = MountKabru.getCurrentGame().getActors();
         String listOMonsters = null;
         try {
             listOMonsters = GameControl.listOfTheMonsters(actors);
