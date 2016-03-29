@@ -37,7 +37,7 @@ public class MainMenuView extends View{
         choice = choice.toUpperCase();
         switch (choice) {
             case "N":
-                this.startNewGame();
+                this.startSavedGame();
                 break;
             case "H":
                 this.displayHelpMenu();
