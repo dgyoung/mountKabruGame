@@ -55,7 +55,7 @@ public class MainMenuView extends View{
         return false;
     }
 
-    private void startNewGame() {
+    private void startSavedGame() {
         // create a new game
         this.console.println("\n\nEnter the file path for the file where "
                 + "the game is saved.");
@@ -71,6 +71,7 @@ public class MainMenuView extends View{
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
+    
 
 
     private void displayHelpMenu() {
