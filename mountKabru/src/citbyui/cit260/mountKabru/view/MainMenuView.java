@@ -54,7 +54,15 @@ public class MainMenuView extends View{
         }
         return false;
     }
+    
+    private void startNewGame() {
+        // create a new game
+        GameControl.createNewGame(MountKabru.getPlayer());
 
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
+    
     private void startSavedGame() {
         // create a new game
         this.console.println("\n\nEnter the file path for the file where "
