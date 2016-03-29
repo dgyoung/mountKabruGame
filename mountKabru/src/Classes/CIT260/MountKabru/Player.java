@@ -8,11 +8,13 @@ package Classes.CIT260.MountKabru;
 import java.io.Serializable;
 import java.util.Objects;
 //add an aray list of items
+
 /**
  *
  * @author David
  */
-public class Player implements Serializable{
+public class Player implements Serializable {
+
     private String name;
     private String attribute;
     private String inventory;
@@ -27,8 +29,6 @@ public class Player implements Serializable{
 
     public Player() {
     }
-    
-    
 
     public String getName() {
         return name;
@@ -187,7 +187,5 @@ public class Player implements Serializable{
         }
         return true;
     }
-    
-    
-}
 
+}

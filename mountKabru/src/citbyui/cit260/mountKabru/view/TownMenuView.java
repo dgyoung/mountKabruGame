@@ -30,7 +30,7 @@ public class TownMenuView extends View {
 
     @Override
     public boolean doAction(String choice) {
-
+        choice = choice.toUpperCase();
         switch (choice) {
             case "A":
                 this.GoToTavern();
@@ -44,7 +44,7 @@ public class TownMenuView extends View {
             case "D":
                 this.GoToDapperDan();
             default:
-                ErrorView.display("StartProgramView","\n*** Invalid selection *** Try again");
+                ErrorView.display("StartProgramView", "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -66,6 +66,6 @@ public class TownMenuView extends View {
     private void GoToDapperDan() {
         GameTipsView gameTipsView = new GameTipsView();
         gameTipsView.display();
-        
+
     }
 }

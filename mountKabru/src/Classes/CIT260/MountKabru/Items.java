@@ -12,7 +12,8 @@ import java.util.Objects;
  *
  * @author Moose
  */
-public class Items implements Serializable{
+public class Items implements Serializable {
+
     // Items instance veriables
     private String name;
     private String type;
@@ -29,8 +30,6 @@ public class Items implements Serializable{
     public Items() {
     }
 
-    
-    
     public String getName() {
         return name;
     }
@@ -67,7 +66,7 @@ public class Items implements Serializable{
     public String toString() {
         return "Items{" + "name=" + name + ", type=" + type + ", afect=" + effect + ", power=" + power + '}';
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -104,6 +103,5 @@ public class Items implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

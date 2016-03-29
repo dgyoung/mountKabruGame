@@ -29,7 +29,7 @@ public class TavernMenuView extends View {
 
     @Override
     public boolean doAction(String choice) {
-
+        choice = choice.toUpperCase();
         switch (choice) {
             case "A":
                 this.TalkToTavernKeep();
@@ -41,7 +41,7 @@ public class TavernMenuView extends View {
                 this.BuyStuff();
                 break;
             default:
-               ErrorView.display("StartProgramView","\n*** Invalid selection *** Try again");
+                ErrorView.display("StartProgramView", "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;

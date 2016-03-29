@@ -10,5 +10,5 @@ package byui.MountKabru.Control;
  * @author Moose
  */
 public class TavernControl {
-    
+
 }

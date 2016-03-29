@@ -27,7 +27,7 @@ public class Map implements Serializable {
     public Map(int noOfLevels, int noOfStages) {
 
         if (noOfLevels < 1 || noOfStages < 1) {
-            ErrorView.display( "Map" , "the number of levels and stages must be > zero");
+            ErrorView.display("Map", "the number of levels and stages must be > zero");
             return;
         }
         this.noOfLevels = noOfLevels;
@@ -111,5 +111,4 @@ public class Map implements Serializable {
         return "Map{" + "noOfLevels=" + noOfLevels + ", noOfStages=" + noOfStages + '}';
     }
 
-   
 }

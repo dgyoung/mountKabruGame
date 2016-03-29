@@ -6,22 +6,23 @@
 package Classes.CIT260.MountKabru;
 
 import java.io.Serializable;
+
 /**
  *
  * @author David
  */
-public class Location implements Serializable{
-    
-      
+public class Location implements Serializable {
+
     private int level;
     private int stage;
     private String name;
     private Scene[] scene;
     private boolean explored;
 
-    public Location( ){
-        
+    public Location() {
+
     }
+
     public Location(int level, int stage, String name, Scene[] scene, boolean explored) {
         this.level = level;
         this.stage = stage;
@@ -69,16 +70,7 @@ public class Location implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    
-    
 
-    
-    
-    
-    
-    
-   
-    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -124,6 +116,5 @@ public class Location implements Serializable{
     void setColumn(int column) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

@@ -47,9 +47,9 @@ public class MapMenuView extends View {
 
     @Override
     public boolean doAction(String choice) {
-
+        choice = choice.toUpperCase();
         switch (choice) {
-            case "A" :
+            case "A":
                 this.GoToTown();
                 break;
             case "B":
@@ -65,7 +65,7 @@ public class MapMenuView extends View {
                 this.GoToHighMountin();
                 break;
             default:
-               ErrorView.display("MapMenuView","\n*** Invalid selection *** Try again");
+                ErrorView.display("MapMenuView", "\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -81,17 +81,17 @@ public class MapMenuView extends View {
     }
 
     private void GoToPlains() {
-        PlansMenuView plansMenuView= new PlansMenuView();
+        PlansMenuView plansMenuView = new PlansMenuView();
         plansMenuView.display();
     }
 
     private void GoToJungle() {
         JungleMenuView jungleMenuView = new JungleMenuView();
-       jungleMenuView.display();
+        jungleMenuView.display();
     }
 
     private void GoToHighMountin() {
-       HighMountainMenuView highMountainMenuView = new HighMountainMenuView();
+        HighMountainMenuView highMountainMenuView = new HighMountainMenuView();
         highMountainMenuView.display();
     }
 }

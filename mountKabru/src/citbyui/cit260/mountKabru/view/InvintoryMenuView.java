@@ -13,28 +13,29 @@ import byui.MountKabru.Control.GameControl;
  * @author Moose
  */
 public class InvintoryMenuView extends View {
-    public InvintoryMenuView(){
-    super("\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n | Invintory Menu                                                           |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nN - Look in Invintory"                
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------");
-}
-   @Override
-    public boolean doAction(String choice) 
-    {
-                 
-        
+
+    public InvintoryMenuView() {
+        super("\n"
+                + "\n------------------------------------------------------------------------------"
+                + "\n | Invintory Menu                                                           |"
+                + "\n------------------------------------------------------------------------------"
+                + "\nN - Look in Invintory"
+                + "\nQ - Quit"
+                + "\n-------------------------------------------------------------------------------");
+    }
+
+    @Override
+    public boolean doAction(String choice) {
+
+        choice = choice.toUpperCase();
         switch (choice) {
-            case "N" :
+            case "N":
                 this.Invintory();
                 break;
-                    
-          default:
-             ErrorView.display("InvintoryMenuView","\n*** Invalid selection *** Try again");
-              break;
+
+            default:
+                ErrorView.display("InvintoryMenuView", "\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
@@ -43,4 +44,3 @@ public class InvintoryMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
-    

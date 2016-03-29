@@ -29,6 +29,5 @@ public class ActorControlException extends Exception {
     public ActorControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
-    
+
 }

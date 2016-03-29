@@ -13,17 +13,18 @@ import java.util.Objects;
  *
  * @author Moose
  */
-public class Game implements Serializable{
+public class Game implements Serializable {
+
     // Game instance vereable 
     private int score;
-    private int startTime; 
+    private int startTime;
     private String itemList;
-   
+
     private Player player;
     private Map map;
     private Items[] items;
     private Actors[] actors;
-    
+
     public Game(int score, int startTime, String itemList) {
         this.score = score;
         this.startTime = startTime;
@@ -41,7 +42,6 @@ public class Game implements Serializable{
         this.actors = actors;
     }
 
-    
     public int getScore() {
         return score;
     }
@@ -58,38 +58,36 @@ public class Game implements Serializable{
         this.startTime = startTime;
     }
 
-    
-     
     public String getItemList() {
         return itemList;
     }
 
     public void setItemList(String itemList) {
         this.itemList = itemList;
-    } 
-    
+    }
+
     public Player getPlayer() {
         return player;
     }
-     
-    public void setPlayer(Player player){
-        this.player =player;
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
-    
-       public Map getMap() {
+
+    public Map getMap() {
         return map;
     }
-     
-    public void setMap(Map map){
-        this.map =map;
+
+    public void setMap(Map map) {
+        this.map = map;
     }
-    
-       public Items[] getItems() {
+
+    public Items[] getItems() {
         return items;
     }
-     
+
     public void setItems(Items[] items) {
-        this.items =items;
+        this.items = items;
     }
 
     @Override
@@ -140,8 +138,6 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
-
 
     public void setscore(int i) {
     }
@@ -150,10 +146,6 @@ public class Game implements Serializable{
     }
 
     public void setitemlist(String knife) {
-     }
+    }
 
-
-
- 
-    
 }

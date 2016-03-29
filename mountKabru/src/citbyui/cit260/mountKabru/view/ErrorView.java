@@ -13,16 +13,17 @@ import mountkabru.MountKabru;
  * @author Moose
  */
 public class ErrorView {
+
     private static final PrintWriter errorFile = MountKabru.getOutFile();
-   private static final PrintWriter logFile = MountKabru.getLogFile();
-    
+    private static final PrintWriter logFile = MountKabru.getLogFile();
+
     public static void display(String className, String errorMessage) {
         errorFile.println(
-                       "-----------------------------------------------------------------------------------------"
-                    + "\n- ERROR - " + errorMessage 
-                    + "\n-------------------------------------------------------------------------------------");
-        
+                "-----------------------------------------------------------------------------------------"
+                + "\n- ERROR - " + errorMessage
+                + "\n-------------------------------------------------------------------------------------");
+
         logFile.println(className + " - " + errorMessage);
-        
+
     }
 }

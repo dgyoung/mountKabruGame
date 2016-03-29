@@ -13,59 +13,59 @@ import mountkabru.MountKabru;
  *
  * @author Moose
  */
-public class GameMenuView extends View{
+public class GameMenuView extends View {
+
     public GameMenuView() {
         super("\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n|  In Game Menu                                                     |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nM - Map"
-                        +"\nB - Battle Your Foe "
-                        +"\nA - Main Menu"
-                        + "\nI - Invantory"
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------");
+                + "\n------------------------------------------------------------------------------"
+                + "\n|  In Game Menu                                                     |"
+                + "\n------------------------------------------------------------------------------"
+                + "\nM - Map"
+                + "\nB - Battle Your Foe "
+                + "\nA - Main Menu"
+                + "\nI - Invantory"
+                + "\nQ - Quit"
+                + "\n-------------------------------------------------------------------------------");
     }
-@Override
-    public boolean doAction(String choice) 
-    {
-                 
+
+    @Override
+    public boolean doAction(String choice) {
+        choice = choice.toUpperCase();
         switch (choice) {
-            case "M" :
+            case "M":
                 this.Map();
                 break;
             case "B":
                 this.Battle();
-                break;  
-           case "A" :
+                break;
+            case "A":
                 this.MainMenu();
                 break;
-           case "I" :
+            case "I":
                 this.Invantory();
                 break;
-          default:
-              ErrorView.display("GameMenuView","\n*** Invalid selection *** Try again");
-              break;
+            default:
+                ErrorView.display("GameMenuView", "\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
 
-    
-
     private void Map() {
         MapMenuView mapMenuView = new MapMenuView();
-    mapMenuView.display();
+        mapMenuView.display();
     }
 
     private void Battle() {
-         this.console.println("*** startExistingGame function called ***");
+        this.console.println("*** startExistingGame function called ***");
     }
 
     private void MainMenu() {
-       MainMenuView mainMenuView = new MainMenuView();
-   mainMenuView.display(); }
-    
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.display();
+    }
+
     private void Invantory() {
-         this.console.println("*** startExistingGame function called ***");
+        this.console.println("*** startExistingGame function called ***");
     }
 }

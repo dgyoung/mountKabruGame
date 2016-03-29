@@ -28,7 +28,7 @@ public class ActorsControl {
         if (spellDamage > 0) {
             return spellDamage;
         }
-        
+
         return 0;
     }
 

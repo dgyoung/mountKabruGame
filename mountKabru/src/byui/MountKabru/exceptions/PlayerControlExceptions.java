@@ -29,6 +29,5 @@ public class PlayerControlExceptions extends Exception {
     public PlayerControlExceptions(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
-    
+
 }

@@ -9,7 +9,7 @@ package Classes.CIT260.MountKapru.exceptions;
  *
  * @author David
  */
-public class AttackControlException extends Exception{
+public class AttackControlException extends Exception {
 
     public AttackControlException() {
     }
@@ -29,5 +29,5 @@ public class AttackControlException extends Exception{
     public AttackControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
+
 }

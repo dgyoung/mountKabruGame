@@ -12,15 +12,14 @@ import java.util.Objects;
  *
  * @author David
  */
-public class Scene implements Serializable{
-  
+public class Scene implements Serializable {
+
 //    Hightmountin("HighMountin", "BossFight", "FightEvent"),
 //    Jungle,
 //    DarkForest,
 //    Plans,
 //    Tavern,
 //    BlackSmith;
-    
     private String description;
     private String name;
     private String eventType;
@@ -32,8 +31,7 @@ public class Scene implements Serializable{
         this.eventType = eventType;
         this.locationType = locationType;
     }
-    
-  
+
     public String getDescription() {
         return description;
     }
@@ -41,30 +39,30 @@ public class Scene implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
-     public String getname() {
+
+    public String getname() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    } 
-    
+    }
+
     public String getEventType() {
-             return eventType;
+        return eventType;
     }
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
-    
-     public String getLocationType() {
-             return locationType;
+
+    public String getLocationType() {
+        return locationType;
     }
 
     public void setLocationType(String LocationType) {
         this.locationType = LocationType;
     }
-    
 
     @Override
     public int hashCode() {
@@ -77,7 +75,6 @@ public class Scene implements Serializable{
     public String toString() {
         return "Scene{" + "description=" + description + '}';
     }
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -96,6 +93,5 @@ public class Scene implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

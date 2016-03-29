@@ -12,14 +12,14 @@ import java.util.Objects;
  *
  * @author David
  */
-public class BattleScene implements Serializable{
+public class BattleScene implements Serializable {
+
     private String actor;
     private String reward;
     private String attribute;
 
     public BattleScene() {
     }
-    
 
     public String getActor() {
         return actor;
@@ -58,7 +58,6 @@ public class BattleScene implements Serializable{
     public String toString() {
         return "BattleScene{" + "actor=" + actor + ", reward=" + reward + ", attribute=" + attribute + '}';
     }
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -83,6 +82,5 @@ public class BattleScene implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

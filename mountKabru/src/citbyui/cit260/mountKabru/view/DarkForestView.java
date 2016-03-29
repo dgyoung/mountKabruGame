@@ -5,62 +5,57 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-
 /**
  *
  * @author David
  */
-public class DarkForestView extends View{
-    public DarkForestView(){
-    super("\n"
-                        + "\n------------------------------------------------------------------------------"
-                        + "\n | Jungle Menu                                                           |"
-                        + "\n------------------------------------------------------------------------------"
-                        +"\nN - Look for monsters"
-                        +"\nG - Serch Invantory"
-                        +"\nS - Use potion"
-                        +"\nQ - Quit"
-                        +"\n-------------------------------------------------------------------------------");
-    
-}
-    
-@Override
-    public boolean doAction(String choice) 
-    {
-                 
-        
+public class DarkForestView extends View {
+
+    public DarkForestView() {
+        super("\n"
+                + "\n------------------------------------------------------------------------------"
+                + "\n | Jungle Menu                                                           |"
+                + "\n------------------------------------------------------------------------------"
+                + "\nN - Look for monsters"
+                + "\nG - Serch Invantory"
+                + "\nS - Use potion"
+                + "\nQ - Quit"
+                + "\n-------------------------------------------------------------------------------");
+
+    }
+
+    @Override
+    public boolean doAction(String choice) {
+
+        choice = choice.toUpperCase();
         switch (choice) {
-            case "N" :
+            case "N":
                 this.LookForMonsters();
                 break;
-          case "G" :
+            case "G":
                 this.SerchInvantory();
-                break;  
-           case "S":
+                break;
+            case "S":
                 this.UsePotion();
-                break;               
-          default:
-              ErrorView.display("DarkForestView", "\n*** Invalid selection *** Try again");
-              break;
+                break;
+            default:
+                ErrorView.display("DarkForestView", "\n*** Invalid selection *** Try again");
+                break;
         }
         return false;
     }
 
-    
-
     private void LookForMonsters() {
-         BattleMenuView battleMenuView = new BattleMenuView();
+        BattleMenuView battleMenuView = new BattleMenuView();
         battleMenuView.display();
     }
 
     private void SerchInvantory() {
-         this.console.println("*** you for got your bag, you have nothing ***");
+        this.console.println("*** you for got your bag, you have nothing ***");
     }
 
     private void UsePotion() {
-       this.console.println("*** you have no potions ***");
+        this.console.println("*** you have no potions ***");
     }
 
-
-    
-} 
+}

@@ -9,7 +9,7 @@ package byui.MountKabru.exceptions;
  *
  * @author Moose
  */
-public class NumberFormatException extends Exception{
+public class NumberFormatException extends Exception {
 
     public NumberFormatException() {
     }
@@ -29,6 +29,5 @@ public class NumberFormatException extends Exception{
     public NumberFormatException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
-    
+
 }
