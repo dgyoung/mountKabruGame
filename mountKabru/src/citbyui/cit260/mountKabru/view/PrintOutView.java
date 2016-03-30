@@ -9,6 +9,7 @@ import Classes.CIT260.MountKabru.Actor;
 import byui.MountKabru.Control.GameControl;
 import byui.MountKabru.exceptions.GameControlException;
 import java.io.IOException;
+import java.util.Arrays;
 import mountkabru.MountKabru;
 
 /**
@@ -39,7 +40,7 @@ public class PrintOutView extends View {
         
         switch (choice) {
             case "N":
-                this.monsterList();
+                this.listMonsters();
                 break;
             default:
                 ErrorView.display("PrintOutView ", "\n*** Invalid selection *** Try again");
@@ -48,9 +49,10 @@ public class PrintOutView extends View {
         return false;
     }
 
-   public void monsterList( ) {
+   public void listMonsters( ) {
     Actor[] monsters = Actor.values();
-    String monsterList = "\n"
+    String[] monsterNames = new String[monsters.length];
+          String listMonsters = "\n"
                 + "\n|--------------------------------------------------|"
                 + "\n|                                                  |"
                 + "\n|     ****        Monster  List     ****       |"
@@ -60,14 +62,22 @@ public class PrintOutView extends View {
                 + "\n----Monters-------------------Locations-----------------------------"
           
                 + "\n--------------------------------------";
-    for (Actor actors : monsters) {
-        System.out.println(actors + ":    \t" + actors.getName() + actors.getLocation());
+   for (int i=0; i<monsters.length; i++){
+            monsterNames[i] = monsters[i].getName() + monsters[i].getLocation();
+        }
+        
+        Arrays.sort(monsterNames);
+        
+        for (int i=0;i<monsterNames.length;i++){
+            
+            this.console.println("monster names: " +monsterNames[i] );
+        }
     }
 }
 
    
 
-            }
+            
 
 
 
