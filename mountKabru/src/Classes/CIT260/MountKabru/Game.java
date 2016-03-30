@@ -23,7 +23,7 @@ public class Game implements Serializable {
     private Player player;
     private Map map;
     private Items[] items;
-    private Actors[] actors;
+    private Actor[] actors;
 
     public Game(int score, int startTime, String itemList) {
         this.score = score;
@@ -34,11 +34,11 @@ public class Game implements Serializable {
     public Game() {
     }
 
-    public Actors[] getActors() {
+    public Actor[] getActors() {
         return actors;
     }
 
-    public void setActors(Actors[] actors) {
+    public void setActors(Actor[] actors) {
         this.actors = actors;
     }
 

@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Moose
  */
-public enum Actors implements Serializable {
+public enum Actor implements Serializable {
 
     LargeSpider(5, 2, "LargeSpider", 1, 2, "Spell", "Empty", "Fire", "Kill it. kill it with fire", new Point(0, 0)),
     GiantRat(5, 3, "GiantRat", 1, 1, "Spell", "Empty", "Fire", "Rodents of unusual size?", new Point(0, 0)),
@@ -51,7 +51,7 @@ public enum Actors implements Serializable {
     private final String enamyDiscription;
     private final Point location;
 
-    Actors(int health, int attack, String name, int level, int defence, String spell, String invintory, String weekness, String enamyDiscription, Point location) {
+    Actor(int health, int attack, String name, int level, int defence, String spell, String invintory, String weekness, String enamyDiscription, Point location) {
 
         this.enamyDiscription = enamyDiscription;
         this.health = health;

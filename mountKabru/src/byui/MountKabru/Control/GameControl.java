@@ -5,7 +5,7 @@
  */
 package byui.MountKabru.Control;
 
-import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Items;
 import Classes.CIT260.MountKabru.Map;
@@ -43,7 +43,7 @@ public class GameControl {
         MountKabru.setCurrentGame(game); // save in MountKabru
 
         game.setPlayer(player); // save player in game
-        game.setActors(Actors.values());
+        game.setActors(Actor.values());
 
         Map map = MapControl.createMap(); // create and initalize new map
         game.setMap(map); // save map in game
@@ -55,7 +55,7 @@ public class GameControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static String listOfTheMonsters(Actors[] actors) throws GameControlException {
+    public static String listOfTheMonsters(Actor[] actors) throws GameControlException {
 
         if (actors == null) {
             throw new GameControlException("the array of actors is null");

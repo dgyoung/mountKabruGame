@@ -5,10 +5,11 @@
  */
 package citbyui.cit260.mountKabru.view;
 
-import Classes.CIT260.MountKabru.Actors;
+import Classes.CIT260.MountKabru.Actor;
 import byui.MountKabru.Control.GameControl;
 import byui.MountKabru.exceptions.GameControlException;
 import java.io.IOException;
+import java.util.Arrays;
 import mountkabru.MountKabru;
 
 /**
@@ -23,7 +24,7 @@ public class PrintOutView extends View {
                 + "\n | Dapper Dan pulls out a quill and asks                        |"
                 + "\n | 'so what do you want me to write ?'                            |"
                 + "\n------------------------------------------------------------------------------"
-                + "\nN - Write out a list for Monsters"
+                + "\nN - Write out a list for Monsters and there location"
                 + "\nQ - Quit"
                 + "\n-------------------------------------------------------------------------------");
 
@@ -39,7 +40,7 @@ public class PrintOutView extends View {
         
         switch (choice) {
             case "N":
-                this.PrintMonsters();
+                this.listMonsters();
                 break;
             default:
                 ErrorView.display("PrintOutView ", "\n*** Invalid selection *** Try again");
@@ -48,60 +49,36 @@ public class PrintOutView extends View {
         return false;
     }
 
-    private void PrintMonsters() {
-        String value = " ";
-   
-      this.console.println(" Where would you like to save this list? ");
-      
-         try {
-                value = this.keyboard.readLine();
-                value = value.trim();
-    }
-    catch (Exception e ) {
-               ErrorView.display("StartProgramView", "Key board Error: " + e.getMessage());
-    }
- 
-     String filePath = value;
-        Actors[] actors = MountKabru.getCurrentGame().getActors();
-        String listOMonsters = null;
-        try {
-        listOMonsters = GameControl.listOfTheMonsters(actors);
-        } catch (GameControlException e) {
-            e.printStackTrace();
-
-   
-
-            }
-    }
-String monsterList = "\n"
+   public void listMonsters( ) {
+    Actor[] monsters = Actor.values();
+    String[] monsterNames = new String[monsters.length];
+          String listMonsters = "\n"
                 + "\n|--------------------------------------------------|"
                 + "\n|                                                  |"
                 + "\n|     ****        Monster  List     ****       |"
                 + "\n|                                                  |"
                 + "\n|--------------------------------------------------|"
                 + "\n The Monsters                               "
-                + "\n----------------------------------------------------"
+                + "\n----Monters-------------------Locations-----------------------------"
           
                 + "\n--------------------------------------";
-
-        FileOutputStream fops = null;
-        try {
-            fops = new FileOutputStream(filePath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObjectOutputStream output = null;
-        try {
-            output = new ObjectOutputStream(fops);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            output.writeObject(monsterReport); //write game to object File
-        } catch (IOException e) {
-            e.printStackTrace();
+   for (int i=0; i<monsters.length; i++){
+            monsterNames[i] = monsters[i].getName() + monsters[i].getLocation();
         }
         
+        Arrays.sort(monsterNames);
         
-        this.console.println(monsterReport);
+        for (int i=0;i<monsterNames.length;i++){
+            
+            this.console.println("monster names: " +monsterNames[i] );
+        }
+    }
+}
+
+   
+
+            
+
+
+
+  
