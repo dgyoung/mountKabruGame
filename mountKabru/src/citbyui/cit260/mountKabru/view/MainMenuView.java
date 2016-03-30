@@ -37,6 +37,9 @@ public class MainMenuView extends View{
         choice = choice.toUpperCase();
         switch (choice) {
             case "N":
+                this.startNewGame();
+                break;
+            case "G":
                 this.startSavedGame();
                 break;
             case "H":
@@ -64,7 +67,7 @@ public class MainMenuView extends View{
     }
     
     private void startSavedGame() {
-        // create a new game
+        
         this.console.println("\n\nEnter the file path for the file where "
                 + "the game is saved.");
         
