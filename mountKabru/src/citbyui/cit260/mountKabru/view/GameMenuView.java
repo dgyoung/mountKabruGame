@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Location;
+import Classes.CIT260.MountKabru.Map;
 import byui.MountKabru.Control.InGameControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
@@ -33,6 +35,7 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase();
         switch (choice) {
             case "M":
+                this.viewMap();
                 this.Map();
                 break;
             case "B":
@@ -55,7 +58,27 @@ public class GameMenuView extends View {
         MapMenuView mapMenuView = new MapMenuView();
         mapMenuView.display();
     }
-
+    private void viewMap() {
+        Location location = new Location();
+        Map map = new Map();
+        int level = location.getLevel();
+        int stage = location.getStage();
+        int noOfLevels = level;
+        int noOfStages = stage;
+        this.console.print("\nMount Kabru"
+                + "\n       ");
+        for(level = 0; level < noOfLevels; level++)
+            
+            for(stage = 0; stage < noOfStages; stage++){
+                if(location.isExplored() == true){
+                    this.console.print("!! ");
+                }
+                else{
+                    this.console.print("?? ");
+                }
+            }
+        this.console.print("\r\n*    ");
+        }
     private void Battle() {
         this.console.println("*** startExistingGame function called ***");
     }
