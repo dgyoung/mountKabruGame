@@ -5,6 +5,7 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
 import Classes.CIT260.MountKabru.Scene;
@@ -77,6 +78,8 @@ public class MapControl {
     }
 
     static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Location[][] locations = map.getLocations();
+        MountKabru.getCurrentGame().getPlayer().setLocation(locations[0][0]);
     }
 }

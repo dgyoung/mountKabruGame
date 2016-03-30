@@ -47,7 +47,7 @@ public class GameControl {
 
         Map map = MapControl.createMap(); // create and initalize new map
         game.setMap(map); // save map in game
-        // move actor to starting position in the mad
+        // move actor to starting position in the map
         MapControl.moveActorsToStartingLocation(map);
     }
 

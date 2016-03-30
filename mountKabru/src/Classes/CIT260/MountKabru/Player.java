@@ -26,8 +26,18 @@ public class Player implements Serializable {
     private double defense;
     private double level;
     private double attack;
+    private Location location;
 
+    
     public Player() {
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String getName() {
@@ -119,25 +129,26 @@ public class Player implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.attribute);
-        hash = 83 * hash + Objects.hashCode(this.inventory);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.dexterity) ^ (Double.doubleToLongBits(this.dexterity) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.mana) ^ (Double.doubleToLongBits(this.mana) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.spell);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.level) ^ (Double.doubleToLongBits(this.level) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.attack);
-        return hash;
+    public String toString() {
+        return "Player{" + "name=" + name + ", attribute=" + attribute + ", inventory=" + inventory + ", strength=" + strength + ", dexterity=" + dexterity + ", mana=" + mana + ", health=" + health + ", spell=" + spell + ", defense=" + defense + ", level=" + level + ", attack=" + attack + ", location=" + location + '}';
     }
 
     @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", attribute=" + attribute + ", inventory=" + inventory + ", strength=" + strength + ", dexterity=" + dexterity + ", mana=" + mana + ", health=" + health + ", spell=" + spell + ", defense=" + defense + ", level=" + level + ", attack=" + attack + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.name);
+        hash = 23 * hash + Objects.hashCode(this.attribute);
+        hash = 23 * hash + Objects.hashCode(this.inventory);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.dexterity) ^ (Double.doubleToLongBits(this.dexterity) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.mana) ^ (Double.doubleToLongBits(this.mana) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.spell);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.level) ^ (Double.doubleToLongBits(this.level) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.attack) ^ (Double.doubleToLongBits(this.attack) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.location);
+        return hash;
     }
 
     @Override
@@ -170,6 +181,9 @@ public class Player implements Serializable {
         if (Double.doubleToLongBits(this.level) != Double.doubleToLongBits(other.level)) {
             return false;
         }
+        if (Double.doubleToLongBits(this.attack) != Double.doubleToLongBits(other.attack)) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -182,10 +196,13 @@ public class Player implements Serializable {
         if (!Objects.equals(this.spell, other.spell)) {
             return false;
         }
-        if (!Objects.equals(this.attack, other.attack)) {
+        if (!Objects.equals(this.location, other.location)) {
             return false;
         }
         return true;
     }
+
+    
+    
 
 }
