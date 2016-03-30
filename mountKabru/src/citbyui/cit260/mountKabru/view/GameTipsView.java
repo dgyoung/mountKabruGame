@@ -11,6 +11,7 @@ import byui.MountKabru.exceptions.GameControlException;
 import static java.lang.Integer.parseInt;
 import mountkabru.MountKabru;
 import static java.lang.Integer.parseInt;
+import java.util.Arrays;
 
 /**
  *
@@ -77,15 +78,25 @@ public class GameTipsView extends View {
     }
 
     private void listMonsters() {
-        Actor[] actors = MountKabru.getCurrentGame().getActors();
-        String listOMonsters = null;
-        try {
-            listOMonsters = GameControl.listOfTheMonsters(actors);
-        } catch (GameControlException e) {
-            e.printStackTrace();
+        Actor[] monsters = Actor.values();
+        String[] monsterNames = new String[monsters.length];
+        
+        for (int i=0; i<monsters.length; i++){
+            monsterNames[i] = monsters[i].getName();
         }
-        this.console.println("\n Enjoy the lits try not to die too fast. \n"
-                + listOMonsters);
+        
+        Arrays.sort(monsterNames);
+        
+        for (int i=0;i<monsterNames.length;i++){
+            
+
+
+
+            this.console.println("monster names: " +monsterNames[i] );
+        }
+        
+    
+       
     }
 
     private void heroStats() {
