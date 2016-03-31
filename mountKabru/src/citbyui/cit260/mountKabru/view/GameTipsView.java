@@ -35,7 +35,7 @@ public class GameTipsView extends View {
             + "\n"
             + "\nA - Average Hit Points for monsters in the world"
             + "\nL - List of Monsters Alphabetically "
-            + "\np - You want me to write  that down for you?"
+            + "\nP - You want me to write  that down for you?"
             + "\nS - Your Stats "
             + "\nQ - Quit"
             + "\n--------------------------------------";
@@ -109,7 +109,8 @@ public class GameTipsView extends View {
     }
 
     private void PrintOut() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PrintOutView printOutView = new PrintOutView();
+       printOutView.display();
     }
 
 }

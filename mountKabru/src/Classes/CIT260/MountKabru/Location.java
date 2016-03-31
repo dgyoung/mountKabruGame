@@ -5,6 +5,7 @@
  */
 package Classes.CIT260.MountKabru;
 
+import byui.MountKabru.Control.MapControl;
 import java.io.Serializable;
 
 /**
