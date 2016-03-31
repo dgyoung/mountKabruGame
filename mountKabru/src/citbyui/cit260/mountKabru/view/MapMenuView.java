@@ -24,7 +24,7 @@ public class MapMenuView extends View {
             + "\n  (1 0) - (1 6) - Jungle         Hero Level: 10-25"
             + "\n  (2 0) - (2 6) - Dark Forest    Hero Level: 25-40"
             + "\n  (3 0) - (2 6) - High Mountain  Hero Level: 40-50"
-            + "\n"
+            + "\n  (T) - go to twon"
             + "\n  (Q) - quit");
     }
     
@@ -33,6 +33,17 @@ public class MapMenuView extends View {
     @Override
     public boolean doAction(String value) {
         String choice = value.toUpperCase(); 
+        
+          switch (choice) {
+            case "T":
+                this.Town();
+                break;
+                 default:
+                ErrorView.display("GameTipsView", "\n*** Invalid selection *** Get lost");
+        }
+       
+        
+        
         String[] valueArray = choice.split(" ");
         int stage;
         int level;
@@ -54,10 +65,14 @@ public class MapMenuView extends View {
             return true;
         }
         
-      
+   //     Location location = MapControl.getLocation(stage, level);
+     //   MountKabru.getCurrentGame().getPlayer().setCurrentLocation(location);
+     //   this.Adventure();
+       
         
-        
-        
+
+
+       
         return false;
     }
 
@@ -67,6 +82,11 @@ public class MapMenuView extends View {
         BattleMenuView adventureView = new BattleMenuView();
         adventureView.display();
         
+    }
+
+    private void Town() {
+    TownMenuView townMenuView = new TownMenuView();
+      townMenuView.display(); 
     }
 
 }

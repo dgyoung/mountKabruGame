@@ -55,8 +55,7 @@ public class GameMenuView extends View {
     }
 
     private void Map() {
-        MapMenuView mapMenuView = new MapMenuView();
-        mapMenuView.display();
+    
     }
     private void viewMap() {
         Location location = new Location();
@@ -83,6 +82,10 @@ public class GameMenuView extends View {
                 this.console.print("| \n");
         }
         this.console.println(" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |");
+        
+            MapMenuView mapMenuView = new MapMenuView();
+        mapMenuView.display();
+        
     }
     private void Battle() {
         this.console.println("*** startExistingGame function called ***");
