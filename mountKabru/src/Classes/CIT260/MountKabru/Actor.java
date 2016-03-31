@@ -5,7 +5,10 @@
  */
 package Classes.CIT260.MountKabru;
 
+import byui.MountKabru.exceptions.ActorControlException;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -103,6 +106,17 @@ public enum Actor implements Serializable {
 
     public String getWeekness() {
         return weekness;
+    }
+    
+    public static void getName(String filePath) throws ActorControlException {
+        Actor actor = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            actor = (Actor) input.readObject();
+        } catch (Exception e) {
+            throw new ActorControlException(e.getMessage());
+        }
     }
 
     @Override
