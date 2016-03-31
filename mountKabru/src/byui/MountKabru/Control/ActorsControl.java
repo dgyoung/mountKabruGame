@@ -8,7 +8,9 @@ package byui.MountKabru.Control;
 import Classes.CIT260.MountKabru.Actor;
 import byui.MountKabru.exceptions.ActorControlException;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -52,10 +54,11 @@ public class ActorsControl {
 
     public static void getName(String filePath) throws ActorControlException {
         Actor actor = null;
-        try (FileInputStream fips = new FileInputStream(filePath)) {
-            ObjectInputStream input = new ObjectInputStream(fips);
+        try (FileOutputStream fips = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fips);
 
-            actor = (Actor) input.readObject();
+            output.writeObject(Actor.values());
+
         } catch (Exception e) {
             throw new ActorControlException(e.getMessage());
         }
