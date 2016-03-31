@@ -5,7 +5,10 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Actor;
 import byui.MountKabru.exceptions.ActorControlException;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -45,5 +48,16 @@ public class ActorsControl {
         }
         double spellDamage = ((attack + strength) - defence) + (Math.random() * 10);
         return spellDamage;
+    }
+
+    public static void getName(String filePath) throws ActorControlException {
+        Actor actor = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            actor = (Actor) input.readObject();
+        } catch (Exception e) {
+            throw new ActorControlException(e.getMessage());
+        }
     }
 }

@@ -6,6 +6,7 @@
 package citbyui.cit260.mountKabru.view;
 
 import Classes.CIT260.MountKabru.Actor;
+import byui.MountKabru.Control.ActorsControl;
 import byui.MountKabru.Control.GameControl;
 
 /**
@@ -72,7 +73,7 @@ public class DarkForestView extends View {
         String filePath = this.getInput();
         
         try{
-            Actor.getName(filePath);
+            ActorsControl.getName(filePath);
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }

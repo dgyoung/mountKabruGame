@@ -108,16 +108,7 @@ public enum Actor implements Serializable {
         return weekness;
     }
     
-    public static void getName(String filePath) throws ActorControlException {
-        Actor actor = null;
-        try (FileInputStream fips = new FileInputStream(filePath)) {
-            ObjectInputStream input = new ObjectInputStream(fips);
 
-            actor = (Actor) input.readObject();
-        } catch (Exception e) {
-            throw new ActorControlException(e.getMessage());
-        }
-    }
 
     @Override
     public String toString() {
