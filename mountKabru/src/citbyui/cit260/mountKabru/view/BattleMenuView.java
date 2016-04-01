@@ -10,7 +10,9 @@ import Classes.CIT260.MountKabru.Player;
 import Classes.CIT260.MountKapru.exceptions.AttackControlException;
 import byui.MountKabru.Control.ActorsControl;
 import byui.MountKabru.Control.HelpControl;
+import byui.MountKabru.Control.PlayerControl;
 import byui.MountKabru.exceptions.ActorControlException;
+import byui.MountKabru.exceptions.PlayerControlExceptions;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -57,12 +59,12 @@ public class BattleMenuView extends View {
 
     private void attack() {
         this.console.println("MeleeAttack");
-        double strength = -20.0;
-        double attack = 25.0;
-        double defence = 15.0;
+
+        Player player = MountKabru.getPlayer();
+        Actor[] actors = player.getLocation().getActors();
         try {
-            double result = ActorsControl.strengthAttack(strength, attack, defence);
-        } catch (ActorControlException me) {
+            boolean result = PlayerControl.strangthAttack(player, actors[2]);
+        } catch (PlayerControlExceptions me) {
             this.console.println(me.getMessage());
         }
     }

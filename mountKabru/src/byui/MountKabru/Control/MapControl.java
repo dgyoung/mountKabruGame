@@ -5,6 +5,7 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
@@ -42,6 +43,20 @@ public class MapControl {
             }
         }
 
+    }
+    
+    private static void assignActorsToLocations(Map map){
+        Location[][] locations = map.getLocations();
+        Actor[] actors = new Actor[5];
+        actors[0] = Actor.LargeSpider;
+        actors[1] = Actor.GiantRat;
+        actors[2] = Actor.MeanDog;
+        actors[3] = Actor.Snake;
+        actors[4] = Actor.SwarmOfCentipedes;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[1][col].setActors(actors);
+                    
+        }
     }
 
     private static Scene[] createScenes() {

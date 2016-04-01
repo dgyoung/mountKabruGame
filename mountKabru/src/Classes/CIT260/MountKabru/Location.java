@@ -18,6 +18,7 @@ public class Location implements Serializable {
     private String name;
     private Scene[] scene;
     private boolean explored;
+    private Actor[] actors;
 
     public Location() {
 
@@ -70,6 +71,16 @@ public class Location implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Actor[] getActors() {
+        return actors;
+    }
+
+    public void setActors(Actor[] actors) {
+        this.actors = actors;
+    }
+
+   
 
     @Override
     public int hashCode() {
