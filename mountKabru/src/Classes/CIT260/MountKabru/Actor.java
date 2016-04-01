@@ -5,7 +5,10 @@
  */
 package Classes.CIT260.MountKabru;
 
+import byui.MountKabru.exceptions.ActorControlException;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -104,6 +107,8 @@ public enum Actor implements Serializable {
     public String getWeekness() {
         return weekness;
     }
+    
+
 
     @Override
     public String toString() {

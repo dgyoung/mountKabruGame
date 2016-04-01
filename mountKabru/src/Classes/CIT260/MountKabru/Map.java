@@ -32,7 +32,7 @@ public class Map implements Serializable {
         }
         this.noOfLevels = noOfLevels;
         this.noOfStages = noOfStages;
-
+        
         // creats 2-D array for location objects
         this.locations = new Location[noOfLevels][noOfStages];
 
@@ -100,9 +100,7 @@ public class Map implements Serializable {
         if (this.noOfStages != other.noOfStages) {
             return false;
         }
-        if (!Arrays.deepEquals(this.locations, other.locations)) {
-            return false;
-        }
+      
         return true;
     }
 

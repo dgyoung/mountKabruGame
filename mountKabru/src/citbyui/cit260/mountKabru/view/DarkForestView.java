@@ -5,6 +5,10 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Actor;
+import byui.MountKabru.Control.ActorsControl;
+import byui.MountKabru.Control.GameControl;
+
 /**
  *
  * @author David
@@ -19,6 +23,7 @@ public class DarkForestView extends View {
                 + "\nN - Look for monsters"
                 + "\nG - Serch Invantory"
                 + "\nS - Use potion"
+                + "\nE - Seen Monsters"
                 + "\nQ - Quit"
                 + "\n-------------------------------------------------------------------------------");
 
@@ -38,6 +43,9 @@ public class DarkForestView extends View {
             case "S":
                 this.UsePotion();
                 break;
+            case "E":
+                this.doAction();
+                break;
             default:
                 ErrorView.display("DarkForestView", "\n*** Invalid selection *** Try again");
                 break;
@@ -56,6 +64,20 @@ public class DarkForestView extends View {
 
     private void UsePotion() {
         this.console.println("*** you have no potions ***");
+    }
+
+    private void doAction() {
+        this.console.println("\n\nEnter the file path for the file where "
+                + "you want the list printed.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            ActorsControl.getName(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+
     }
 
 }

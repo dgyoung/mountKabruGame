@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Location;
 import byui.MountKabru.Control.MapControl;
 import java.util.Scanner;
 import mountkabru.MountKabru;
@@ -16,67 +17,76 @@ import mountkabru.MountKabru;
 public class MapMenuView extends View {
 
     public MapMenuView() {
-        super("\n"
-                + "\n--------------------------------------------------------------------------------------------------------------------------"
-                + "\n|     Map Menu                                                                                                    |"
-                + "\n-------------------------------------------------------------------------------------------------------------------------"
-                
-                + "\nA - Go to Town"
-                + "\nB - Go to Plains"
-                + "\nC - Go to Dark Forest "
-                + "\nD - Go to Jungle"
-                + "\nE - Go to High Mountin"
-                + "\nQ - Quit"
-                + "\n-----------------------------------------------------------------------------------------------------------------------------");
+        super("\n   must follow example= '0 6' "
+            + "\n "  
+            + "\n         (0 0) - Return to town "
+            + "\n  (0 1) - (0 6) - Plains         Hero Level: 1-10"
+            + "\n  (1 0) - (1 6) - Jungle         Hero Level: 10-25"
+            + "\n  (2 0) - (2 6) - Dark Forest    Hero Level: 25-40"
+            + "\n  (3 0) - (2 6) - High Mountain  Hero Level: 40-50"
+            + "\n  (T) - go to twon"
+            + "\n  (Q) - quit");
     }
-
+    
+    
+    
     @Override
-    public boolean doAction(String choice) {
-        choice = choice.toUpperCase();
-        switch (choice) {
-            case "A":
-                this.GoToTown();
+    public boolean doAction(String value) {
+        String choice = value.toUpperCase(); 
+        
+          switch (choice) {
+            case "T":
+                this.Town();
                 break;
-            case "B":
-                this.GoToPlains();
-                break;
-            case "C":
-                this.GoToDarkForest();
-                break;
-            case "D":
-                this.GoToJungle();
-                break;
-            case "E":
-                this.GoToHighMountin();
-                break;
-            default:
-                ErrorView.display("MapMenuView", "\n*** Invalid selection *** Try again");
-                break;
+                 default:
+                ErrorView.display("GameTipsView", "\n*** Invalid selection *** Get lost");
         }
+       
+        
+        
+        String[] valueArray = choice.split(" ");
+        int stage;
+        int level;
+        
+        try {
+            stage = Integer.parseInt(valueArray[0]);
+            level = Integer.parseInt(valueArray[1]);
+        } catch (NumberFormatException nfe) {
+            ErrorView.display("MapMenuView", "You entered the wrong number");
+            return false;
+        }
+        
+        if ((stage < 1 || stage > 4) || (level < 1 || level > 8)) {
+        ErrorView.display("MapMenuView", "You have entered in the wrong number please try again.");
+        return false;
+        }
+        
+        if (stage == 1 && stage == 1) {
+            return true;
+        }
+        
+   //     Location location = MapControl.getLocation(stage, level);
+     //   MountKabru.getCurrentGame().getPlayer().setCurrentLocation(location);
+     //   this.Adventure();
+       
+        
+
+
+       
         return false;
     }
 
-    private void GoToTown() {
-        TownMenuView townMenuView = new TownMenuView();
-        townMenuView.display();
+    
+    
+    private void Adventure() {
+        BattleMenuView adventureView = new BattleMenuView();
+        adventureView.display();
+        
     }
 
-    private void GoToDarkForest() {
-        this.console.println("*** It's dark.  ***");
+    private void Town() {
+    TownMenuView townMenuView = new TownMenuView();
+      townMenuView.display(); 
     }
 
-    private void GoToPlains() {
-        PlansMenuView plansMenuView = new PlansMenuView();
-        plansMenuView.display();
-    }
-
-    private void GoToJungle() {
-        JungleMenuView jungleMenuView = new JungleMenuView();
-        jungleMenuView.display();
-    }
-
-    private void GoToHighMountin() {
-        HighMountainMenuView highMountainMenuView = new HighMountainMenuView();
-        highMountainMenuView.display();
-    }
 }
