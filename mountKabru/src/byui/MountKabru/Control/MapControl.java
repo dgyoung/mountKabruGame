@@ -20,7 +20,7 @@ public class MapControl {
 
     public static Map createMap() {
         // create the map
-        Map map = new Map(4, 8);
+        Map map = new Map(5, 8);
 
 // create a list of the different scenes in the game
         Scene[] scenes = createScenes();
@@ -43,51 +43,6 @@ public class MapControl {
             }
         }
 
-    }
-    
-    private static void assignActorsToLocations(Map map){
-        Location[][] locations = map.getLocations();
-        Actor[] actors = new Actor[5];
-        actors[0] = Actor.LargeSpider;
-        actors[1] = Actor.GiantRat;
-        actors[2] = Actor.MeanDog;
-        actors[3] = Actor.Snake;
-        actors[4] = Actor.SwarmOfCentipedes;
-        for (int col = 0; col < locations.length; col++ ){
-            locations[1][col].setActors(actors);
-        }
-        actors[0] = Actor.Bandit;
-        actors[1] = Actor.OldMan;
-        actors[2] = Actor.Wolf;
-        actors[3] = Actor.AngryDear;
-        actors[4] = Actor.SwampHagg;
-        for (int col = 0; col < locations.length; col++ ){
-            locations[2][col].setActors(actors);
-        }
-        actors[0] = Actor.SwarmOfSquirrels;
-        actors[1] = Actor.Boar;
-        actors[2] = Actor.RabidBoa;
-        actors[3] = Actor.Tiger;
-        actors[4] = Actor.SwarmOfMonkys;
-        for (int col = 0; col < locations.length; col++ ){
-            locations[3][col].setActors(actors);
-        }
-        actors[0] = Actor.FeralJungleBoy;
-        actors[1] = Actor.Bear;
-        actors[2] = Actor.TrollWithLeprosy;
-        actors[3] = Actor.Dragon;
-        actors[4] = null;
-        for (int col = 0; col < locations.length; col++ ){
-            locations[4][col].setActors(actors);
-        }
-        actors[0] = Actor.MysteriousMaster;
-        actors[1] = Actor.RockGolem;
-        actors[2] = Actor.Giant;
-        actors[3] = Actor.Roc;
-        actors[4] = Actor.SwarmOfKobolds;
-        for (int col = 0; col < locations.length; col++ ){
-            locations[5][col].setActors(actors);
-        }
     }
 
     private static Scene[] createScenes() {
@@ -124,8 +79,48 @@ public class MapControl {
     }
 
     static void moveActorsToStartingLocation(Map map) {
-        
+
         Location[][] locations = map.getLocations();
+        Actor[] actors = new Actor[6];
+        actors[0] = Actor.LargeSpider;
+        actors[1] = Actor.GiantRat;
+        actors[2] = Actor.MeanDog;
+        actors[3] = Actor.Snake;
+        actors[4] = Actor.SwarmOfCentipedes;
+        actors[5] = Actor.Bandit;
+
+        for (int col = 0; col < locations.length; col++) {
+            locations[1][col].setActors(actors);
+        }
+        actors[0] = Actor.OldMan;
+        actors[1] = Actor.Wolf;
+        actors[2] = Actor.AngryDear;
+        actors[3] = Actor.SwampHagg;
+        actors[4] = Actor.SwarmOfSquirrels;
+        actors[5] = Actor.Boar;
+
+        for (int col = 0; col < locations.length; col++) {
+            locations[2][col].setActors(actors);
+        }
+        actors[0] = Actor.RabidBoa;
+        actors[1] = Actor.Tiger;
+        actors[2] = Actor.SwarmOfMonkys;
+        actors[3] = Actor.FeralJungleBoy;
+        actors[4] = Actor.Bear;
+        actors[5] = Actor.TrollWithLeprosy;
+
+        for (int col = 0; col < locations.length; col++) {
+            locations[3][col].setActors(actors);
+        }
+        actors[0] = Actor.Dragon;
+        actors[1] = Actor.MysteriousMaster;
+        actors[2] = Actor.RockGolem;
+        actors[3] = Actor.Giant;
+        actors[4] = Actor.Roc;
+        actors[5] = Actor.SwarmOfKobolds;
+        for (int col = 0; col < locations.length; col++) {
+            locations[4][col].setActors(actors);
+        }
         MountKabru.getCurrentGame().getPlayer().setLocation(locations[0][0]);
     }
 }

@@ -13,6 +13,7 @@ import byui.MountKabru.Control.HelpControl;
 import byui.MountKabru.Control.PlayerControl;
 import byui.MountKabru.exceptions.ActorControlException;
 import byui.MountKabru.exceptions.PlayerControlExceptions;
+import java.util.Random;
 import java.util.Scanner;
 import mountkabru.MountKabru;
 
@@ -59,11 +60,14 @@ public class BattleMenuView extends View {
 
     private void attack() {
         this.console.println("MeleeAttack");
-
         Player player = MountKabru.getPlayer();
         Actor[] actors = player.getLocation().getActors();
+        Random rand = null;
+        int randomNum = rand.nextInt((4 - 0) + 1) + 0;
+        
+        double enemyHealth = actors[randomNum].getHealth();
         try {
-            boolean result = PlayerControl.strangthAttack(player, actors[2]);
+            boolean result = PlayerControl.strangthAttack(player, actors[randomNum], enemyHealth);
         } catch (PlayerControlExceptions me) {
             this.console.println(me.getMessage());
         }

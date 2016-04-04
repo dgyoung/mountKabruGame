@@ -31,7 +31,7 @@ public class PlayerControl {
         return spellDamage;
     }
 
-    public static boolean strangthAttack(Player player, Actor actor) throws PlayerControlExceptions {
+    public static boolean strangthAttack(Player player, Actor actor, double health) throws PlayerControlExceptions {
         if (player == null){
             throw new PlayerControlExceptions("player Error");
         }
@@ -44,17 +44,20 @@ public class PlayerControl {
         double defence = actor.getDefence();
 
 
-       
+       while (health > 0 && player.getCurrentHealth() > 0 ) {
         double spellDamage = ((attack + strangth) - defence) + (Math.random() * 10);
         
         //set actors health (currnthelath - spellDamage)
+        health = spellDamage - health;
         //if actors health <= 0
             //increase experance of player my actors experance value
             //call levelUp finction
             //return true
         //else call gameOver()
         
-        return true;
+        
+       }
+       return true;
     }
     
     public static boolean fightWon(Actor actor, Player player ){
