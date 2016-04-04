@@ -6,9 +6,13 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Actor;
+import Classes.CIT260.MountKabru.BattleScene;
 import Classes.CIT260.MountKabru.Player;
+import byui.MountKabru.exceptions.ActorControlException;
 import citbyui.cit260.mountKabru.view.ErrorView;
-import byui.MountKabru.exceptions.PlayerControlExceptions;
+import byui.MountKabru.exceptions.PlayerControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,55 +20,83 @@ import byui.MountKabru.exceptions.PlayerControlExceptions;
  */
 public class PlayerControl {
 
-    public double spellAttack(double mana, double attack, double defence) throws PlayerControlExceptions {
+    public static boolean spellAttack(Player player, BattleScene enemy) throws PlayerControlException {
 
-        if (attack < 5 || attack > 305) {
-            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
+        if (player == null) {
+            throw new PlayerControlException("player Error");
         }
-        if (mana < 5 || mana > 305) {
-            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
+        if (enemy == null) {
+            throw new PlayerControlException("actor Error");
         }
-        if (defence < 5 || defence > 305) {
-            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
-        }
-        double spellDamage = ((attack + mana) - defence) + (Math.random() * 10);
-        return spellDamage;
-    }
 
-    public static boolean strangthAttack(Player player, Actor actor, double health) throws PlayerControlExceptions {
-        if (player == null){
-            throw new PlayerControlExceptions("player Error");
-        }
-        if (actor == null){
-            throw new PlayerControlExceptions("actor Error");
-        }
-            
         double attack = player.getAttack();
         double strangth = player.getStrength();
-        double defence = actor.getDefence();
+        double health = enemy.getEnemyHealth();
+        double defence = enemy.getEnemyDefence();
 
+        double physicalDamage = ((attack + strangth) - defence) + (Math.random() * 10);
 
-       while (health > 0 && player.getCurrentHealth() > 0 ) {
-        double spellDamage = ((attack + strangth) - defence) + (Math.random() * 10);
-        
         //set actors health (currnthelath - spellDamage)
-        health = spellDamage - health;
+        enemy.setEnemyHealth(physicalDamage - health);
         //if actors health <= 0
-            //increase experance of player my actors experance value
-            //call levelUp finction
-            //return true
+        //increase experance of player my actors experance value
+        //call levelUp finction
+        //return true
         //else call gameOver()
-        
-        
-       }
-       return true;
-    }
-    
-    public static boolean fightWon(Actor actor, Player player ){
+        enemy.setDamage(physicalDamage);
+        if (enemy.getEnemyHealth() <= 0) {
+            PlayerControl.fightWon(enemy, player);
+        }
+        try {
+            ActorsControl.Attack(player, enemy);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return true;
     }
 
-    public static void levelUp(Player player, String attribute) throws PlayerControlExceptions {
+    public static boolean strangthAttack(Player player, BattleScene enemy) throws PlayerControlException {
+        if (player == null) {
+            throw new PlayerControlException("player Error");
+        }
+        if (enemy == null) {
+            throw new PlayerControlException("actor Error");
+        }
+
+        double attack = player.getAttack();
+        double strangth = player.getStrength();
+        double health = enemy.getEnemyHealth();
+        double defence = enemy.getEnemyDefence();
+
+        double physicalDamage = ((attack + strangth) - defence) + (Math.random() * 10);
+
+        //set actors health (currnthelath - spellDamage)
+        enemy.setEnemyHealth(physicalDamage - health);
+            //if actors health <= 0
+        //increase experance of player my actors experance value
+        //call levelUp finction
+        //return true
+        //else call gameOver()
+        enemy.setDamage(physicalDamage);
+
+        if (enemy.getEnemyHealth() <= 0) {
+            PlayerControl.fightWon(enemy, player);
+        }
+        try {
+            ActorsControl.Attack(player, enemy);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return true;
+    }
+
+    public static boolean fightWon(BattleScene enemy, Player player) {
+        return true;
+    }
+
+    public static void levelUp(Player player, String attribute) throws PlayerControlException {
         double level = player.getLevel();
         double health = player.getHealth();
         double attack = player.getAttack();
@@ -73,16 +105,16 @@ public class PlayerControl {
         double mana = player.getMana();
         double exp = player.getExp();
         if ((level * 2) < attack) {
-            throw new PlayerControlExceptions(" currupt save ");
+            throw new PlayerControlException(" currupt save ");
         }
         if ((level * 2) < dexterity) {
-            throw new PlayerControlExceptions(" currupt save ");
+            throw new PlayerControlException(" currupt save ");
         }
         if ((level * 2) < defense) {
-            throw new PlayerControlExceptions(" currupt save ");
+            throw new PlayerControlException(" currupt save ");
         }
         if ((level * 2) < mana) {
-            throw new PlayerControlExceptions(" currupt save ");
+            throw new PlayerControlException(" currupt save ");
         }
 
         if (exp >= 10 * level * level) {
@@ -146,7 +178,7 @@ public class PlayerControl {
                     player.setLevel(level);
                     break;
                 default:
-                    throw new PlayerControlExceptions(" Invalid Class ");
+                    throw new PlayerControlException(" Invalid Class ");
             }
         }
     }

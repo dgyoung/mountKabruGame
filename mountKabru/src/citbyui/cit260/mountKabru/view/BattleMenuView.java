@@ -6,13 +6,14 @@
 package citbyui.cit260.mountKabru.view;
 
 import Classes.CIT260.MountKabru.Actor;
+import Classes.CIT260.MountKabru.BattleScene;
 import Classes.CIT260.MountKabru.Player;
 import Classes.CIT260.MountKapru.exceptions.AttackControlException;
 import byui.MountKabru.Control.ActorsControl;
 import byui.MountKabru.Control.HelpControl;
 import byui.MountKabru.Control.PlayerControl;
 import byui.MountKabru.exceptions.ActorControlException;
-import byui.MountKabru.exceptions.PlayerControlExceptions;
+import byui.MountKabru.exceptions.PlayerControlException;
 import java.util.Random;
 import java.util.Scanner;
 import mountkabru.MountKabru;
@@ -61,29 +62,23 @@ public class BattleMenuView extends View {
     private void attack() {
         this.console.println("MeleeAttack");
         Player player = MountKabru.getPlayer();
-        Actor[] actors = player.getLocation().getActors();
-        Random rand = null;
-        int randomNum = rand.nextInt((4 - 0) + 1) + 0;
-        
-        double enemyHealth = actors[randomNum].getHealth();
+        BattleScene enemy = new BattleScene();
         try {
-            boolean result = PlayerControl.strangthAttack(player, actors[randomNum], enemyHealth);
-        } catch (PlayerControlExceptions me) {
+            boolean result = PlayerControl.strangthAttack(player, enemy);
+        } catch (PlayerControlException me) {
             this.console.println(me.getMessage());
         }
     }
 
     private void spellAttack() {
-        this.console.println("SpellAttack");
-        double mana = 20.0;
-        double attack = 25.0;
-        double defence = 815.0;
-        double result = 0;
+        Player player = MountKabru.getPlayer();
+        BattleScene enemy = new BattleScene();
         try {
-            result = ActorsControl.spellAttack(mana, attack, defence);
-        } catch (ActorControlException me) {
+            boolean result = PlayerControl.spellAttack(player, enemy);
+        } catch (PlayerControlException me) {
             this.console.println(me.getMessage());
         }
+        this.console.println("You dealt " + enemy.getDamage() + " damage.");
     }
 
     private void openInvatory() {

@@ -6,7 +6,10 @@
 package byui.MountKabru.Control;
 
 import Classes.CIT260.MountKabru.Actor;
+import Classes.CIT260.MountKabru.BattleScene;
+import Classes.CIT260.MountKabru.Player;
 import byui.MountKabru.exceptions.ActorControlException;
+import byui.MountKabru.exceptions.PlayerControlException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -18,38 +21,35 @@ import java.io.ObjectOutputStream;
  */
 public class ActorsControl {
 
-    public static double spellAttack(double mana, double attack, double defence) throws ActorControlException {
+    public static boolean Attack(Player player, BattleScene enemy) throws ActorControlException {
 
-        if (attack < 5 || attack > 305) {
-            throw new ActorControlException("the attack is either less then 5 or greater then 305");
+        if (player == null) {
+            throw new ActorControlException("player Error");
         }
-        if (mana < 5 || mana > 305) {
-            throw new ActorControlException("the Mana is either less then 5 or greater then 305");
-        }
-        if (defence < 5 || defence > 305) {
-            throw new ActorControlException("the Defence is either less then 5 or greater then 305");
-        }
-        double spellDamage = ((attack + mana) - defence) + (Math.random() * 10);
-        if (spellDamage > 0) {
-            return spellDamage;
+        if (enemy == null) {
+            throw new ActorControlException("actor Error");
         }
 
-        return 0;
-    }
+        double attack = enemy.getAttack();
+        double health = player.getCurrentHealth();
+        double defence = player.getDefense();
 
-    public static double strengthAttack(double strength, double attack, double defence) throws ActorControlException {
+        while (health > 0 && player.getCurrentHealth() > 0) {
+            double physicalDamage = ((attack) - defence) + (Math.random() * 10);
 
-        if (attack < 5 || attack > 305) {
-            throw new ActorControlException("the attack is either less then 5 or greater then 305");
+            //set actors health (currnthelath - spellDamage)
+            player.setCurrentHealth(physicalDamage - health);
+            //if actors health <= 0
+            //increase experance of player my actors experance value
+            //call levelUp finction
+            //return true
+            //else call gameOver()
+            if (player.getCurrentHealth() <= 0) {
+                GameControl.gameOver();
+            }
+
         }
-        if (strength < 5 || strength > 305) {
-            throw new ActorControlException("the Strength is either less then 5 or greater then 305");
-        }
-        if (defence < 5 || defence > 305) {
-            throw new ActorControlException("the defence is either less then 5 or greater then 305");
-        }
-        double spellDamage = ((attack + strength) - defence) + (Math.random() * 10);
-        return spellDamage;
+        return true;
     }
 
     public static void getName(String filePath) throws ActorControlException {

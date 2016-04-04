@@ -118,4 +118,8 @@ public class GameControl {
 
         MountKabru.setCurrentGame(game);
     }
+
+    static void gameOver() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

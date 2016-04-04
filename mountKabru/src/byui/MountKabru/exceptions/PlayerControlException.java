@@ -9,24 +9,24 @@ package byui.MountKabru.exceptions;
  *
  * @author Moose
  */
-public class PlayerControlExceptions extends Exception {
+public class PlayerControlException extends Exception {
 
-    public PlayerControlExceptions() {
+    public PlayerControlException() {
     }
 
-    public PlayerControlExceptions(String string) {
+    public PlayerControlException(String string) {
         super(string);
     }
 
-    public PlayerControlExceptions(String string, Throwable thrwbl) {
+    public PlayerControlException(String string, Throwable thrwbl) {
         super(string, thrwbl);
     }
 
-    public PlayerControlExceptions(Throwable thrwbl) {
+    public PlayerControlException(Throwable thrwbl) {
         super(thrwbl);
     }
 
-    public PlayerControlExceptions(String string, Throwable thrwbl, boolean bln, boolean bln1) {
+    public PlayerControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
 

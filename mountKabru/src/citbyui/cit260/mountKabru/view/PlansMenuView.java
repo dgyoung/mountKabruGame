@@ -5,6 +5,12 @@
  */
 package citbyui.cit260.mountKabru.view;
 
+import Classes.CIT260.MountKabru.Actor;
+import Classes.CIT260.MountKabru.BattleScene;
+import Classes.CIT260.MountKabru.Player;
+import java.util.Random;
+import mountkabru.MountKabru;
+
 /**
  *
  * @author Moose
@@ -46,6 +52,15 @@ public class PlansMenuView extends View {
     }
 
     private void LookForMonsters() {
+        Player player = MountKabru.getPlayer();
+        Actor[] actors = player.getLocation().getActors();
+        BattleScene fight = new BattleScene();
+        Random rand = null;
+        int randomNum = rand.nextInt(6 - 1);
+        fight.setActor(actors[randomNum].getName());
+        fight.setEnemyHealth(actors[randomNum].getHealth());
+        this.console.println("You are looking in the Plans see a " + fight.getActor());
+
         BattleMenuView battleMenuView = new BattleMenuView();
         battleMenuView.display();
     }
