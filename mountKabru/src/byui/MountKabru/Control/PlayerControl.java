@@ -46,13 +46,13 @@ public class PlayerControl {
         enemy.setDamage(physicalDamage);
         if (enemy.getEnemyHealth() <= 0) {
             PlayerControl.fightWon(enemy, player);
+        } else {
+            try {
+                ActorsControl.Attack(player, enemy);
+            } catch (ActorControlException ex) {
+                Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        try {
-            ActorsControl.Attack(player, enemy);
-        } catch (ActorControlException ex) {
-            Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         return true;
     }
 
@@ -73,7 +73,7 @@ public class PlayerControl {
 
         //set actors health (currnthelath - spellDamage)
         enemy.setEnemyHealth(physicalDamage - health);
-            //if actors health <= 0
+        //if actors health <= 0
         //increase experance of player my actors experance value
         //call levelUp finction
         //return true
@@ -82,13 +82,13 @@ public class PlayerControl {
 
         if (enemy.getEnemyHealth() <= 0) {
             PlayerControl.fightWon(enemy, player);
+        } else {
+            try {
+                ActorsControl.Attack(player, enemy);
+            } catch (ActorControlException ex) {
+                Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        try {
-            ActorsControl.Attack(player, enemy);
-        } catch (ActorControlException ex) {
-            Logger.getLogger(PlayerControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         return true;
     }
 
