@@ -5,6 +5,7 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Game;
 import Classes.CIT260.MountKabru.Location;
 import Classes.CIT260.MountKabru.Map;
@@ -42,6 +43,51 @@ public class MapControl {
             }
         }
 
+    }
+    
+    private static void assignActorsToLocations(Map map){
+        Location[][] locations = map.getLocations();
+        Actor[] actors = new Actor[5];
+        actors[0] = Actor.LargeSpider;
+        actors[1] = Actor.GiantRat;
+        actors[2] = Actor.MeanDog;
+        actors[3] = Actor.Snake;
+        actors[4] = Actor.SwarmOfCentipedes;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[1][col].setActors(actors);
+        }
+        actors[0] = Actor.Bandit;
+        actors[1] = Actor.OldMan;
+        actors[2] = Actor.Wolf;
+        actors[3] = Actor.AngryDear;
+        actors[4] = Actor.SwampHagg;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[2][col].setActors(actors);
+        }
+        actors[0] = Actor.SwarmOfSquirrels;
+        actors[1] = Actor.Boar;
+        actors[2] = Actor.RabidBoa;
+        actors[3] = Actor.Tiger;
+        actors[4] = Actor.SwarmOfMonkys;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[3][col].setActors(actors);
+        }
+        actors[0] = Actor.FeralJungleBoy;
+        actors[1] = Actor.Bear;
+        actors[2] = Actor.TrollWithLeprosy;
+        actors[3] = Actor.Dragon;
+        actors[4] = null;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[4][col].setActors(actors);
+        }
+        actors[0] = Actor.MysteriousMaster;
+        actors[1] = Actor.RockGolem;
+        actors[2] = Actor.Giant;
+        actors[3] = Actor.Roc;
+        actors[4] = Actor.SwarmOfKobolds;
+        for (int col = 0; col < locations.length; col++ ){
+            locations[5][col].setActors(actors);
+        }
     }
 
     private static Scene[] createScenes() {

@@ -24,6 +24,7 @@ public class MainMenuView extends View{
                 + "\nN - Start new game"
                 + "\nH - Help menu"
                 + "\nS - Save game"
+                + "\nL - Load Game"
                 + "\nQ - Quit"
                 + "\n-------------------------------------------------------------------------------");
     
@@ -47,6 +48,9 @@ public class MainMenuView extends View{
                 break;
             case "S":
                 this.saveGame();
+                break;
+             case "L":
+                this.loadGame();
                 break;
             case "T":
                 this.testView();
@@ -105,5 +109,9 @@ public class MainMenuView extends View{
     private void testView() {
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
+    }
+
+    private void loadGame() {
+       new LoadGameView().display();
     }
 }

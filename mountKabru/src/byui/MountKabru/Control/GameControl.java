@@ -32,9 +32,18 @@ public class GameControl {
 
         Player player = new Player();
         player.setName(playersName);
-
+        player.setAttack(10);
+        player.setHealth(30);
+        player.setDefense(5);
+        player.setCurrentHealth(player.getHealth());
+        player.setMana(10);
+        player.setExp(0);
+        player.setDexterity(5);
+        player.setLevel(1);
+        player.setStrength(10);
+        player.setGold(100);
         MountKabru.setPlayer(player); //save the player
-
+        
         return player;
     }
 

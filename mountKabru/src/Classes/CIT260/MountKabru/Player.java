@@ -22,11 +22,14 @@ public class Player implements Serializable {
     private double dexterity;
     private double mana;
     private double health;
+    private double currentHealth;
     private String spell;
     private double defense;
     private double level;
     private double attack;
     private Location location;
+    private double exp;
+    private double gold;
 
     
     public Player() {
@@ -96,6 +99,14 @@ public class Player implements Serializable {
         this.health = health;
     }
 
+    public double getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void setCurrentHealth(double currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+
     public String getSpell() {
         return spell;
     }
@@ -128,26 +139,45 @@ public class Player implements Serializable {
         this.attack = attack;
     }
 
+    public double getExp() {
+        return exp;
+    }
+
+    public void setExp(double exp) {
+        this.exp = exp;
+    }
+
+    public double getGold() {
+        return gold;
+    }
+
+    public void setGold(double gold) {
+        this.gold = gold;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", attribute=" + attribute + ", inventory=" + inventory + ", strength=" + strength + ", dexterity=" + dexterity + ", mana=" + mana + ", health=" + health + ", spell=" + spell + ", defense=" + defense + ", level=" + level + ", attack=" + attack + ", location=" + location + '}';
+        return "Player{" + "name=" + name + ", attribute=" + attribute + ", inventory=" + inventory + ", strength=" + strength + ", dexterity=" + dexterity + ", mana=" + mana + ", health=" + health + ", currentHealth=" + currentHealth + ", spell=" + spell + ", defense=" + defense + ", level=" + level + ", attack=" + attack + ", location=" + location + ", exp=" + exp + ", gold=" + gold + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.attribute);
-        hash = 23 * hash + Objects.hashCode(this.inventory);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.dexterity) ^ (Double.doubleToLongBits(this.dexterity) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.mana) ^ (Double.doubleToLongBits(this.mana) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.spell);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.level) ^ (Double.doubleToLongBits(this.level) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.attack) ^ (Double.doubleToLongBits(this.attack) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.location);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.attribute);
+        hash = 67 * hash + Objects.hashCode(this.inventory);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.dexterity) ^ (Double.doubleToLongBits(this.dexterity) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.mana) ^ (Double.doubleToLongBits(this.mana) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.currentHealth) ^ (Double.doubleToLongBits(this.currentHealth) >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.spell);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.level) ^ (Double.doubleToLongBits(this.level) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.attack) ^ (Double.doubleToLongBits(this.attack) >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.location);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.exp) ^ (Double.doubleToLongBits(this.exp) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.gold) ^ (Double.doubleToLongBits(this.gold) >>> 32));
         return hash;
     }
 
@@ -175,6 +205,9 @@ public class Player implements Serializable {
         if (Double.doubleToLongBits(this.health) != Double.doubleToLongBits(other.health)) {
             return false;
         }
+        if (Double.doubleToLongBits(this.currentHealth) != Double.doubleToLongBits(other.currentHealth)) {
+            return false;
+        }
         if (Double.doubleToLongBits(this.defense) != Double.doubleToLongBits(other.defense)) {
             return false;
         }
@@ -182,6 +215,12 @@ public class Player implements Serializable {
             return false;
         }
         if (Double.doubleToLongBits(this.attack) != Double.doubleToLongBits(other.attack)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.exp) != Double.doubleToLongBits(other.exp)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.gold) != Double.doubleToLongBits(other.gold)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -201,6 +240,12 @@ public class Player implements Serializable {
         }
         return true;
     }
+
+    
+
+    
+
+    
 
     
     

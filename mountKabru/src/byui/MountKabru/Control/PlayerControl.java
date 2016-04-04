@@ -5,6 +5,7 @@
  */
 package byui.MountKabru.Control;
 
+import Classes.CIT260.MountKabru.Actor;
 import Classes.CIT260.MountKabru.Player;
 import citbyui.cit260.mountKabru.view.ErrorView;
 import byui.MountKabru.exceptions.PlayerControlExceptions;
@@ -15,43 +16,59 @@ import byui.MountKabru.exceptions.PlayerControlExceptions;
  */
 public class PlayerControl {
 
-    public double spellAttack(double mana, double attack, double defence) {
+    public double spellAttack(double mana, double attack, double defence) throws PlayerControlExceptions {
 
         if (attack < 5 || attack > 305) {
-            return -1;
+            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
         }
         if (mana < 5 || mana > 305) {
-            return -2;
+            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
         }
         if (defence < 5 || defence > 305) {
-            return -3;
+            throw new PlayerControlExceptions("the attack is either less then 5 or greater then 305");
         }
         double spellDamage = ((attack + mana) - defence) + (Math.random() * 10);
         return spellDamage;
     }
 
-    public double strangthAttack(double strangth, double attack, double defence) {
+    public static boolean strangthAttack(Player player, Actor actor) throws PlayerControlExceptions {
+        if (player == null){
+            throw new PlayerControlExceptions("player Error");
+        }
+        if (actor == null){
+            throw new PlayerControlExceptions("actor Error");
+        }
+            
+        double attack = player.getAttack();
+        double strangth = player.getStrength();
+        double defence = actor.getDefence();
 
-        if (attack < 5 || attack > 305) {
-            return -1;
-        }
-        if (strangth < 5 || strangth > 305) {
-            return -2;
-        }
-        if (defence < 5 || defence > 305) {
-            return -3;
-        }
+
+       
         double spellDamage = ((attack + strangth) - defence) + (Math.random() * 10);
-        return spellDamage;
+        
+        //set actors health (currnthelath - spellDamage)
+        //if actors health <= 0
+            //increase experance of player my actors experance value
+            //call levelUp finction
+            //return true
+        //else call gameOver()
+        
+        return true;
+    }
+    
+    public static boolean fightWon(Actor actor, Player player ){
+        return true;
     }
 
-    public static void levelUp(Player player, double exp, String attribute) throws PlayerControlExceptions {
+    public static void levelUp(Player player, String attribute) throws PlayerControlExceptions {
         double level = player.getLevel();
         double health = player.getHealth();
         double attack = player.getAttack();
         double dexterity = player.getDexterity();
         double defense = player.getDefense();
         double mana = player.getMana();
+        double exp = player.getExp();
         if ((level * 2) < attack) {
             throw new PlayerControlExceptions(" currupt save ");
         }
@@ -80,6 +97,7 @@ public class PlayerControl {
                     random = (int) (Math.random() * 3);
                     mana = mana + random + 3;
                     level = level++;
+                    player.setHealth(health);
                     player.setAttack(attack);
                     player.setDexterity(dexterity);
                     player.setDefense(defense);

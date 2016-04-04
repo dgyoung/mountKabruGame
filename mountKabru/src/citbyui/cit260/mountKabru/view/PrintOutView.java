@@ -27,7 +27,7 @@ public class PrintOutView extends View {
                 + "\n | Dapper Dan pulls out a quill and asks                        |"
                 + "\n | 'so what do you want me to write ?'                            |"
                 + "\n------------------------------------------------------------------------------"
-                + "\nN - Write out a list for Monsters and there location"
+                + "\nN - Write out a list for Monsters and there Description"
                 + "\nQ - Quit"
                 + "\n-------------------------------------------------------------------------------");
 
@@ -56,6 +56,7 @@ public class PrintOutView extends View {
        
     Actor[] monsters = Actor.values();
     String[] monsterNames = new String[monsters.length];
+    String monsterDesc = "";
      String value = "";
         this.console.println("Where would you like to save your file?");
         try {
@@ -66,23 +67,28 @@ public class PrintOutView extends View {
          }
         
         String filePath = value;
+        
        for (int i=0; i<monsters.length; i++){
-            monsterNames[i] = monsters[i].getName() + monsters[i].getLocation();
+            monsterNames[i] = padString(monsters[i].getName()) + padString(monsters[i].getenamyDiscription());
         }
         
         Arrays.sort(monsterNames);
         
-        for (int i=0;i<monsterNames.length;i++){ 
+         for (int i=0; i<monsters.length; i++){
+            monsterDesc += monsterNames[i] + "\n";
+        }
+        
+//        for (int i=0;i<monsterNames.length;i++){ 
             
           String listMonsters = "\n"
                 + "\n|------------------------------------------------------------|"
                 + "\n|                                                            |"
                 + "\n|     ****        Monster  List     ****             |"
-                + "\n|     ****         and location     ****             |"
+                + "\n|     ****        and Description     ****             |"
                 + "\n|------------------------------------------------------------|"
                 + "\n The Monsters                                         "
-                + "\n----Monters-------------------Locations------------"
-                + "\n"  + monsterNames[i]
+                + "\n----Monters--------------Description-------------------------"
+                + "\n"  + monsterDesc           
                 + "\n-------------------------------------------------------------";
 
              FileOutputStream fops = null;
@@ -102,11 +108,30 @@ public class PrintOutView extends View {
             output.writeObject(listMonsters); //write game to object File
         } catch (IOException e) {
             e.printStackTrace();
-        }  
-          
-            this.console.println("monster names: " +monsterNames[i] );
+        }  finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException ex2) {
+                    this.console.println("Error Closing File");
+                }
+            }
         }
+          
+            this.console.println("Dapper Dan has successfully written down your report"
+                    + "monster names: " +monsterDesc);
+//        }
     }
+   
+   public String padString(String string) {
+        
+        while (string.length() < 20) {
+            
+            string = string + " ";
+        }
+        return string;
+    }
+   
 }
 
    
