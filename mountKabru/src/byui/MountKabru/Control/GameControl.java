@@ -29,7 +29,7 @@ public class GameControl {
         if (playersName == null) {
             throw new GameControlException("the players name is null");
         }
-
+        
         Player player = new Player();
         player.setName(playersName);
         player.setAttack(10);
@@ -42,6 +42,7 @@ public class GameControl {
         player.setLevel(1);
         player.setStrength(10);
         player.setGold(100);
+        player.setAttribute("bard");
         MountKabru.setPlayer(player); //save the player
         
         return player;
@@ -52,6 +53,7 @@ public class GameControl {
         MountKabru.setCurrentGame(game); // save in MountKabru
 
         game.setPlayer(player); // save player in game
+        
         game.setActors(Actor.values());
 
         Map map = MapControl.createMap(); // create and initalize new map

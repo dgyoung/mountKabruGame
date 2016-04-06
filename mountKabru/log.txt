@@ -1,6 +1,0 @@
-GameTipsView - 
-*** Invalid selection *** Get lost
-MapMenuView - You entered the wrong number
-GameTipsView - 
-*** Invalid selection *** Get lost
-StartProgramView, There is an error - 1

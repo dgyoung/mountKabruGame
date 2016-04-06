@@ -92,11 +92,14 @@ public class PlayerControl {
         return true;
     }
 
-    public static boolean fightWon(BattleScene enemy, Player player) {
+    public static boolean fightWon(BattleScene enemy, Player player) throws PlayerControlException {
+        
+        levelUp(player);
         return true;
     }
 
-    public static void levelUp(Player player, String attribute) throws PlayerControlException {
+    public static void levelUp(Player player) throws PlayerControlException {
+        String attribute = player.getAttribute();
         double level = player.getLevel();
         double health = player.getHealth();
         double attack = player.getAttack();
@@ -104,18 +107,7 @@ public class PlayerControl {
         double defense = player.getDefense();
         double mana = player.getMana();
         double exp = player.getExp();
-        if ((level * 2) < attack) {
-            throw new PlayerControlException(" currupt save ");
-        }
-        if ((level * 2) < dexterity) {
-            throw new PlayerControlException(" currupt save ");
-        }
-        if ((level * 2) < defense) {
-            throw new PlayerControlException(" currupt save ");
-        }
-        if ((level * 2) < mana) {
-            throw new PlayerControlException(" currupt save ");
-        }
+        
 
         if (exp >= 10 * level * level) {
             int random;
